@@ -1,0 +1,1812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daily Market Rundown — April 17, 2026</title>
+<style>
+
+/* ============================================================
+   DESIGN TOKENS
+   ============================================================ */
+:root {
+  --bg:           #0d0f14;
+  --bg-card:      #131620;
+  --bg-card-alt:  #161924;
+  --bg-raised:    #1a1e2e;
+  --border:       #1e2336;
+  --border-light: #252a3d;
+
+  --text:         #e2e8f0;
+  --text-muted:   #8892a8;
+  --text-faint:   #4a5568;
+
+  /* Signal colors */
+  --green:        #22c55e;
+  --green-dim:    #166534;
+  --green-bg:     #0d1f14;
+  --green-border: #1a4a2c;
+
+  --red:          #f87171;
+  --red-dim:      #7f1d1d;
+  --red-bg:       #1a0d0d;
+  --red-border:   #4a1c1c;
+
+  --amber:        #fbbf24;
+  --amber-dim:    #78350f;
+  --amber-bg:     #1a1408;
+  --amber-border: #4a3210;
+
+  --blue:         #60a5fa;
+  --blue-bg:      #0d1520;
+  --blue-border:  #1a2d4a;
+
+  --purple:       #a78bfa;
+  --purple-bg:    #120d1f;
+  --purple-border:#2a1f4a;
+
+  --teal:         #2dd4bf;
+
+  /* Strategy badge colors */
+  --badge-bull:   #22c55e;
+  --badge-strad:  #60a5fa;
+  --badge-condor: #a78bfa;
+  --badge-bear:   #f87171;
+
+  --radius:       6px;
+  --radius-lg:    10px;
+  --gap:          16px;
+  --gap-lg:       24px;
+}
+
+/* ============================================================
+   RESET & BASE
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  font-size: 14px;
+  line-height: 1.55;
+  min-height: 100vh;
+}
+
+.page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px 20px 48px;
+}
+
+/* ============================================================
+   TYPOGRAPHY
+   ============================================================ */
+h1, h2, h3, h4 { font-weight: 600; letter-spacing: -0.01em; }
+
+.section-title {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.section-title::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+.mono { font-family: 'SF Mono', 'Cascadia Code', 'Fira Code', Consolas, monospace; }
+
+/* ============================================================
+   CARDS
+   ============================================================ */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--gap);
+}
+
+.card-title {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 14px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+.site-header {
+  margin-bottom: var(--gap-lg);
+  padding-bottom: var(--gap-lg);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.header-left h1 {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.02em;
+}
+.header-left .date {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+.header-left .meta {
+  font-size: 11px;
+  color: var(--text-faint);
+  margin-top: 4px;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.posture-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--amber-bg);
+  border: 1px solid var(--amber-border);
+  color: var(--amber);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 6px 14px;
+  border-radius: 20px;
+}
+.posture-badge::before {
+  content: '◈';
+  font-size: 10px;
+}
+
+/* ============================================================
+   LAYOUT ROWS
+   ============================================================ */
+.row { margin-bottom: var(--gap-lg); }
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--gap);
+}
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--gap);
+}
+
+@media (max-width: 760px) {
+  .grid-2, .grid-3 { grid-template-columns: 1fr; }
+}
+
+/* ============================================================
+   ROW 1 — SNAPSHOT + SUMMARY
+   ============================================================ */
+.snapshot-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.snap-tile {
+  background: var(--bg-raised);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 10px 12px;
+  text-align: center;
+}
+.snap-label {
+  font-size: 10px;
+  color: var(--text-faint);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 4px;
+}
+.snap-value {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  font-family: 'SF Mono', Consolas, monospace;
+}
+.snap-sub {
+  font-size: 10px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+.snap-tile.up .snap-value { color: var(--green); }
+.snap-tile.down .snap-value { color: var(--red); }
+.snap-tile.neutral .snap-value { color: var(--text-muted); }
+
+.vix-tile {
+  grid-column: span 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: left;
+}
+.vix-tile .snap-label { margin-bottom: 0; }
+.vix-tile .snap-content { }
+
+.summary-card .summary-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+.summary-card .summary-list li {
+  font-size: 13px;
+  line-height: 1.4;
+  padding-left: 16px;
+  position: relative;
+  color: var(--text-muted);
+}
+.summary-card .summary-list li::before {
+  content: '›';
+  position: absolute;
+  left: 0;
+  color: var(--text-faint);
+  font-size: 14px;
+  line-height: 1.3;
+}
+.summary-card .summary-list li strong {
+  color: var(--text);
+}
+
+/* ============================================================
+   ROW 2 — MACRO + CALENDAR
+   ============================================================ */
+.macro-block {
+  margin-bottom: 14px;
+  padding: 12px 14px;
+  background: var(--red-bg);
+  border: 1px solid var(--red-border);
+  border-left: 3px solid var(--red);
+  border-radius: var(--radius);
+}
+.macro-block:last-child { margin-bottom: 0; }
+
+.macro-block .block-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.macro-block .block-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.3;
+}
+.macro-block .block-source {
+  font-size: 10px;
+  color: var(--text-faint);
+  white-space: nowrap;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+.macro-block .block-body {
+  font-size: 12.5px;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+.macro-block .block-bullets {
+  margin-top: 8px;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.macro-block .block-bullets li {
+  font-size: 12px;
+  color: var(--text-muted);
+  padding-left: 14px;
+  position: relative;
+  line-height: 1.4;
+}
+.macro-block .block-bullets li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--red);
+}
+.macro-block .block-bullets li strong { color: var(--text); }
+
+/* calendar */
+.cal-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.cal-table thead tr {
+  border-bottom: 1px solid var(--border);
+}
+.cal-table th {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-faint);
+  padding: 0 8px 8px;
+  text-align: left;
+  font-weight: 600;
+}
+.cal-table td {
+  padding: 8px 8px;
+  font-size: 12.5px;
+  vertical-align: top;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-muted);
+}
+.cal-table tr:last-child td { border-bottom: none; }
+.cal-table .time-col { color: var(--text-faint); font-family: monospace; white-space: nowrap; }
+.cal-table .event-col { color: var(--text); font-weight: 500; }
+.cal-table .impact-high {
+  color: var(--red);
+  font-weight: 700;
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.cal-table .impact-med {
+  color: var(--amber);
+  font-weight: 600;
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.cal-table .impact-low {
+  color: var(--text-faint);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.cal-note {
+  margin-top: 10px;
+  font-size: 11.5px;
+  color: var(--text-muted);
+  padding: 8px 10px;
+  background: var(--red-bg);
+  border-left: 2px solid var(--red);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  line-height: 1.4;
+}
+
+/* ============================================================
+   ROW 3 — STOCKS IN PLAY + EARNINGS
+   ============================================================ */
+.stock-block {
+  background: var(--bg-raised);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--red);
+  border-radius: var(--radius);
+  padding: 12px 14px;
+  margin-bottom: 12px;
+}
+.stock-block:last-child { margin-bottom: 0; }
+
+.stock-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+.stock-ticker {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text);
+  font-family: 'SF Mono', Consolas, monospace;
+  letter-spacing: -0.02em;
+}
+.stock-move {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--red);
+  font-family: monospace;
+}
+.stock-move.up { color: var(--green); }
+.stock-badge {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 2px 8px;
+  border-radius: 10px;
+  background: var(--red-bg);
+  border: 1px solid var(--red-border);
+  color: var(--red);
+}
+.stock-badge.green-badge {
+  background: var(--green-bg);
+  border-color: var(--green-border);
+  color: var(--green);
+}
+
+.stock-body { font-size: 12.5px; color: var(--text-muted); }
+.stock-body strong { color: var(--text); }
+
+.stock-angle {
+  margin-top: 8px;
+  padding: 8px 10px;
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+.stock-angle strong { color: var(--amber); }
+
+.stock-steps {
+  margin-top: 6px;
+  list-style: none;
+  counter-reset: steps;
+}
+.stock-steps li {
+  font-size: 12px;
+  color: var(--text-muted);
+  padding-left: 20px;
+  position: relative;
+  margin-bottom: 4px;
+  counter-increment: steps;
+}
+.stock-steps li::before {
+  content: counter(steps) '.';
+  position: absolute;
+  left: 0;
+  color: var(--amber);
+  font-weight: 600;
+}
+
+/* earnings table */
+.earn-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.earn-table thead tr { border-bottom: 1px solid var(--border); }
+.earn-table th {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-faint);
+  padding: 0 8px 8px;
+  text-align: left;
+  font-weight: 600;
+}
+.earn-table td {
+  padding: 8px;
+  font-size: 12.5px;
+  vertical-align: top;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-muted);
+}
+.earn-table tr:last-child td { border-bottom: none; }
+.earn-table .sym { font-weight: 700; color: var(--text); font-family: monospace; }
+.earn-table .move-neg { color: var(--red); font-weight: 600; font-family: monospace; }
+.earn-table .move-pos { color: var(--green); font-weight: 600; font-family: monospace; }
+.earn-table .move-neutral { color: var(--text-muted); font-family: monospace; }
+
+/* ============================================================
+   ROW 4 — OPTIONS SETUPS (DOMINANT)
+   ============================================================ */
+.setups-section {
+  background: var(--green-bg);
+  border: 1px solid var(--green-border);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  margin-bottom: var(--gap-lg);
+}
+
+.setups-section .section-title {
+  color: var(--green);
+  font-size: 12px;
+}
+.setups-section .section-title::after { background: var(--green-border); }
+
+.setups-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+.setups-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--green);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.setups-label::after {
+  content: '';
+  display: inline-block;
+  width: 100px;
+  height: 1px;
+  background: var(--green-border);
+}
+.setups-count {
+  font-size: 11px;
+  color: var(--text-faint);
+}
+
+/* Top Trade Hero */
+.top-trade-hero {
+  background: #0a1f10;
+  border: 2px solid var(--green);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  margin-bottom: 16px;
+  position: relative;
+  overflow: hidden;
+}
+.top-trade-hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--green), #16a34a, var(--green));
+}
+.top-trade-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--green);
+  color: #000;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 3px 12px;
+  border-radius: 10px;
+  margin-bottom: 12px;
+}
+.top-trade-tag::before { content: '★'; }
+
+/* Setup cards grid */
+.setups-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.setups-grid .full-width { grid-column: span 2; }
+
+@media (max-width: 800px) {
+  .setups-grid { grid-template-columns: 1fr; }
+  .setups-grid .full-width { grid-column: span 1; }
+}
+
+/* Individual setup card */
+.setup-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+  position: relative;
+  overflow: hidden;
+}
+.setup-card.green-card {
+  border-color: var(--green-border);
+  background: #0d1a10;
+}
+.setup-card.amber-card {
+  border-color: var(--amber-border);
+  background: #14110a;
+}
+.setup-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+}
+.setup-card.green-card::before { background: var(--green); }
+.setup-card.amber-card::before { background: var(--amber); }
+
+.setup-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  gap: 8px;
+}
+.setup-ticker {
+  font-size: 22px;
+  font-weight: 700;
+  font-family: 'SF Mono', Consolas, monospace;
+  color: var(--text);
+  line-height: 1;
+}
+.setup-card.green-card .setup-ticker { color: var(--green); }
+.setup-card.amber-card .setup-ticker { color: var(--amber); }
+
+.setup-subtitle {
+  font-size: 11px;
+  color: var(--text-faint);
+  margin-top: 2px;
+}
+
+.strategy-badge {
+  display: inline-flex;
+  align-items: center;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 10px;
+  white-space: nowrap;
+}
+.strategy-badge.bull {
+  background: rgba(34,197,94,.15);
+  color: var(--badge-bull);
+  border: 1px solid rgba(34,197,94,.3);
+}
+.strategy-badge.strad {
+  background: rgba(96,165,250,.15);
+  color: var(--badge-strad);
+  border: 1px solid rgba(96,165,250,.3);
+}
+.strategy-badge.condor {
+  background: rgba(167,139,250,.15);
+  color: var(--badge-condor);
+  border: 1px solid rgba(167,139,250,.3);
+}
+
+/* Setup table (field/value rows) */
+.setup-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 10px;
+}
+.setup-table tr { border-bottom: 1px solid rgba(255,255,255,.04); }
+.setup-table tr:last-child { border-bottom: none; }
+.setup-table td {
+  padding: 5px 0;
+  font-size: 12px;
+  vertical-align: top;
+  line-height: 1.4;
+}
+.setup-table .field-label {
+  color: var(--text-faint);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  width: 110px;
+  padding-right: 10px;
+  padding-top: 6px;
+}
+.setup-table .field-value {
+  color: var(--text-muted);
+}
+.setup-table .field-value strong { color: var(--text); }
+
+/* Strike logic (special row) */
+.strike-logic-row td { padding-top: 8px !important; }
+.strike-logic-box {
+  background: var(--bg-raised);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius);
+  padding: 6px 10px;
+  font-size: 11.5px;
+  color: var(--text);
+  font-family: 'SF Mono', Consolas, monospace;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+.setup-card.green-card .strike-logic-box { border-color: var(--green-border); }
+.setup-card.amber-card .strike-logic-box { border-color: var(--amber-border); }
+
+/* Condition note */
+.condition-note {
+  margin-top: 8px;
+  padding: 6px 10px;
+  background: rgba(251,191,36,.07);
+  border: 1px solid rgba(251,191,36,.2);
+  border-radius: var(--radius);
+  font-size: 11px;
+  color: var(--amber);
+  font-weight: 500;
+}
+.condition-note::before { content: '⚠ '; }
+
+.no-trade-note {
+  margin-top: 6px;
+  font-size: 11px;
+  color: var(--red);
+  font-weight: 600;
+}
+.no-trade-note::before { content: '✕ '; }
+
+/* ============================================================
+   ROW 5 — EXECUTION BIAS + WEEK AHEAD
+   ============================================================ */
+.bias-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 4px;
+}
+.bias-col-title {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.bias-col-title.favor { color: var(--green); }
+.bias-col-title.avoid { color: var(--red); }
+
+.bias-col-favor { padding: 12px; background: var(--green-bg); border: 1px solid var(--green-border); border-radius: var(--radius); }
+.bias-col-avoid { padding: 12px; background: var(--red-bg); border: 1px solid var(--red-border); border-radius: var(--radius); }
+
+.bias-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.bias-list li {
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.4;
+  padding-left: 14px;
+  position: relative;
+}
+.bias-col-favor .bias-list li::before { content: '✓'; position: absolute; left: 0; color: var(--green); font-weight: 700; }
+.bias-col-avoid .bias-list li::before { content: '✕'; position: absolute; left: 0; color: var(--red); font-weight: 700; }
+
+.posture-footer {
+  margin-top: 12px;
+  padding: 10px 14px;
+  background: var(--amber-bg);
+  border: 1px solid var(--amber-border);
+  border-radius: var(--radius);
+  font-size: 12.5px;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+.posture-footer strong { color: var(--amber); }
+
+/* week ahead table */
+.week-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.week-table thead tr { border-bottom: 1px solid var(--border); }
+.week-table th {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-faint);
+  padding: 0 8px 8px;
+  text-align: left;
+  font-weight: 600;
+}
+.week-table td {
+  padding: 7px 8px;
+  font-size: 12px;
+  vertical-align: top;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+.week-table tr:last-child td { border-bottom: none; }
+.week-table .wdate { color: var(--text-faint); white-space: nowrap; font-size: 11px; }
+.week-table .wevent { color: var(--text); font-weight: 500; }
+.week-table .wevent.critical { color: var(--red); }
+.week-table .wsig { color: var(--text-muted); font-size: 11.5px; }
+.week-table tr.critical-row td { background: rgba(248,113,113,.04); }
+
+/* ============================================================
+   BOTTOM SECTION — FILTER LOG + SECONDARY + MOVERS
+   ============================================================ */
+.filter-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.filter-table thead tr { border-bottom: 1px solid var(--border); }
+.filter-table th {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-faint);
+  padding: 0 8px 8px;
+  text-align: left;
+  font-weight: 600;
+}
+.filter-table td {
+  padding: 7px 8px;
+  font-size: 12px;
+  vertical-align: middle;
+  border-bottom: 1px solid rgba(255,255,255,.03);
+  color: var(--text-muted);
+  line-height: 1.35;
+}
+.filter-table tr:last-child td { border-bottom: none; }
+.filter-table tr.aplus { background: rgba(34,197,94,.05); }
+.filter-table tr.watch { background: rgba(251,191,36,.04); }
+.filter-table tr.ignore { opacity: 0.55; }
+
+.cls-badge {
+  display: inline-block;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 8px;
+  white-space: nowrap;
+}
+.cls-badge.ap {
+  background: rgba(34,197,94,.2);
+  color: var(--green);
+  border: 1px solid rgba(34,197,94,.3);
+}
+.cls-badge.wl {
+  background: rgba(251,191,36,.15);
+  color: var(--amber);
+  border: 1px solid rgba(251,191,36,.25);
+}
+.cls-badge.ig {
+  background: rgba(255,255,255,.05);
+  color: var(--text-faint);
+  border: 1px solid var(--border);
+}
+
+/* secondary names */
+.sec-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.sec-table thead tr { border-bottom: 1px solid var(--border); }
+.sec-table th {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-faint);
+  padding: 0 8px 8px;
+  text-align: left;
+  font-weight: 600;
+}
+.sec-table td {
+  padding: 8px;
+  font-size: 12px;
+  vertical-align: top;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+.sec-table tr:last-child td { border-bottom: none; }
+.sec-table .sym { font-weight: 700; color: var(--text); font-family: monospace; font-size: 13px; }
+.sec-table .upgrade-cond { font-size: 11px; color: var(--amber); font-style: italic; margin-top: 2px; }
+
+/* movers table */
+.movers-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.movers-table thead tr { border-bottom: 1px solid var(--border); }
+.movers-table th {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-faint);
+  padding: 0 8px 8px;
+  text-align: left;
+  font-weight: 600;
+}
+.movers-table td {
+  padding: 7px 8px;
+  font-size: 12px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-muted);
+  vertical-align: top;
+  line-height: 1.4;
+}
+.movers-table tr:last-child td { border-bottom: none; }
+.movers-table .sym { font-weight: 700; color: var(--text); font-family: monospace; font-size: 13px; }
+.movers-table .move-val { font-family: monospace; font-weight: 600; }
+.movers-table .move-val.neg { color: var(--red); }
+.movers-table .move-val.pos { color: var(--green); }
+
+/* themes */
+.theme-block {
+  padding: 10px 12px;
+  background: var(--purple-bg);
+  border: 1px solid var(--purple-border);
+  border-left: 3px solid var(--purple);
+  border-radius: var(--radius);
+  margin-bottom: 8px;
+}
+.theme-block:last-child { margin-bottom: 0; }
+.theme-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+.theme-body { font-size: 12px; color: var(--text-muted); line-height: 1.45; }
+
+/* ============================================================
+   DIVIDER
+   ============================================================ */
+.section-divider {
+  height: 1px;
+  background: var(--border);
+  margin: var(--gap-lg) 0;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.site-footer {
+  margin-top: var(--gap-lg);
+  padding-top: var(--gap);
+  border-top: 1px solid var(--border);
+  font-size: 11px;
+  color: var(--text-faint);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.footer-internal {
+  background: var(--red-bg);
+  border: 1px solid var(--red-border);
+  color: var(--red);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 6px;
+}
+
+/* utility */
+.mb-12 { margin-bottom: 12px; }
+.mt-12 { margin-top: 12px; }
+.text-muted { color: var(--text-muted); }
+.text-faint { color: var(--text-faint); }
+.text-green { color: var(--green); }
+.text-red { color: var(--red); }
+.text-amber { color: var(--amber); }
+.text-blue { color: var(--blue); }
+
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ============================================================
+       HEADER
+       ============================================================ -->
+  <header class="site-header">
+    <div class="header-left">
+      <h1>Daily Market Rundown</h1>
+      <div class="date">Friday, April 17, 2026 &nbsp;·&nbsp; Options Desk</div>
+      <div class="meta">Email window: 5:00–8:30 AM ET &nbsp;|&nbsp; A+ filter applied &nbsp;|&nbsp; Sources: ExecSum · Benzinga Ring the Bell · Market Briefs · Barchart Pre-Market Bulletin · Investopedia 5 Things</div>
+    </div>
+    <div class="header-right">
+      <div class="posture-badge">SELECTIVE</div>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       ROW 1 — PRE-MARKET SNAPSHOT + MARKET SUMMARY
+       ============================================================ -->
+  <div class="row grid-2">
+
+    <div class="card">
+      <div class="card-title">Pre-Market Snapshot</div>
+      <div class="snapshot-grid">
+        <div class="snap-tile neutral">
+          <div class="snap-label">S&P 500</div>
+          <div class="snap-value mono">7,041</div>
+          <div class="snap-sub">Futures higher</div>
+        </div>
+        <div class="snap-tile neutral">
+          <div class="snap-label">Nasdaq</div>
+          <div class="snap-value mono">24,102</div>
+          <div class="snap-sub">Futures higher · 12-day streak</div>
+        </div>
+        <div class="snap-tile neutral">
+          <div class="snap-label">Dow</div>
+          <div class="snap-value mono">48,578</div>
+          <div class="snap-sub">Futures higher</div>
+        </div>
+        <div class="snap-tile up">
+          <div class="snap-label">Gold</div>
+          <div class="snap-value mono">$4,811</div>
+          <div class="snap-sub">+0.07%</div>
+        </div>
+        <div class="snap-tile down">
+          <div class="snap-label">Brent Crude</div>
+          <div class="snap-value mono">$98.27</div>
+          <div class="snap-sub">–1.13% · Iran deal</div>
+        </div>
+        <div class="snap-tile neutral">
+          <div class="snap-label">10-Year UST</div>
+          <div class="snap-value mono">4.31%</div>
+          <div class="snap-sub">Flat</div>
+        </div>
+        <div class="snap-tile neutral" style="grid-column:span 2;">
+          <div class="snap-label">VIX</div>
+          <div class="snap-value mono">~17.86</div>
+          <div class="snap-sub">Compressed — energy vol cheap vs. Iran binary risk</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card summary-card">
+      <div class="card-title">Market Summary</div>
+      <ul class="summary-list">
+        <li><strong>Market Condition:</strong> Overextended — Nasdaq 12-day streak, S&P at all-time highs above 7,000, Nasdaq above 24,000. Strong fundamental backdrop but maximum momentum positioning.</li>
+        <li><strong>Volatility Environment:</strong> Compressed (VIX ~17.86) but with hard-to-price tail risk from Iran binary and Fed speakers. Energy vol is particularly cheap relative to April 21 expiry risk.</li>
+        <li><strong>Positioning:</strong> Crowded long — Equity L/S hedge funds best month in a decade. Any macro shock unwinds a densely positioned trade. Crowd is right until it isn't.</li>
+        <li><strong>Key Risk Today:</strong> Three Fed speakers + Trump/Powell noise = live rate vol catalyst all day. Do not be overexposed when Daly, Barkin, or Waller speak.</li>
+        <li><strong>Primary Risk This Weekend:</strong> Iran ceasefire expiry April 21. This is the dominant binary. Energy vol must be positioned before today's close.</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- ============================================================
+       ROW 2 — MACRO CONTEXT + ECONOMIC CALENDAR
+       ============================================================ -->
+  <div class="row grid-2">
+
+    <div class="card">
+      <div class="card-title" style="color:var(--red);">Macro Context — A+ Items Only</div>
+
+      <div class="macro-block">
+        <div class="block-header">
+          <div class="block-title">🔴 Iran Ceasefire: Expires April 21. US/Iran May Meet This Weekend.</div>
+          <div class="block-source">ExecSum 6:46 AM</div>
+        </div>
+        <div class="block-body">Two-week ceasefire set to expire Tuesday. Per Reuters cited in ExecSum, US and Iran may meet again over the weekend — but no deal is locked. Brent crude fell 1.13% Thursday. Talks have scaled back from a comprehensive peace to a temporary memo, and Hormuz remains restricted. Israel and Lebanon agreed to a separate 10-day ceasefire — modest de-risking, not resolving the Hormuz disruption.</div>
+        <ul class="block-bullets">
+          <li><strong>Price impact:</strong> Oil sliding today but asymmetric to the upside if talks fail.</li>
+          <li><strong>Positioning:</strong> Markets are pricing a deal extension. Failure unwinds crowded risk-on longs.</li>
+        </ul>
+      </div>
+
+      <div class="macro-block">
+        <div class="block-header">
+          <div class="block-title">🔴 Trump Threatening to Remove Powell (Board of Governors)</div>
+          <div class="block-source">ExecSum 6:46 AM</div>
+        </div>
+        <div class="block-body">Trump is threatening to fire Powell from the Federal Reserve Board of Governors — not just as Chair — even though Powell's board term runs through 2028. This raises the prospect of a true Fed independence crisis if escalation continues.</div>
+        <ul class="block-bullets">
+          <li><strong>Vol impact:</strong> Market has not priced Fed independence risk at current VIX levels. Any headline escalation is a vol catalyst.</li>
+          <li><strong>Rate impact:</strong> An attempt to install a more dovish Fed chair would initially spike rates (inflation premium) before equities react.</li>
+        </ul>
+      </div>
+
+      <div class="macro-block">
+        <div class="block-header">
+          <div class="block-title">🔴 Nasdaq 12-Day Win Streak. S&P Above 7,000. Market Overextended.</div>
+          <div class="block-source">Benzinga Ring the Bell 7:04 AM</div>
+        </div>
+        <div class="block-body">Nasdaq posted its 12th consecutive gain Thursday — longest streak since 2009. S&P 500 closed above 7,000 and Nasdaq above 24,000 for the first time. Equity L/S hedge funds best month in a decade per Goldman. Japan's Nikkei erased all Iran war losses and closed at an all-time high.</div>
+        <ul class="block-bullets">
+          <li><strong>Positioning signal:</strong> Maximum optimism in a very short time. Crowd is long, momentum is extended.</li>
+          <li><strong>Today's risk:</strong> Extended tape + Iran binary = asymmetric risk to the downside this weekend. Premiums on protection are cheap right now.</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="card">
+      <div class="card-title" style="color:var(--blue);">Economic Calendar</div>
+      <table class="cal-table">
+        <thead>
+          <tr>
+            <th>Time (ET)</th>
+            <th>Event</th>
+            <th>Impact</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="time-col">8:30 AM</td>
+            <td class="event-col">Housing Starts / New Residential Construction</td>
+            <td><span class="impact-med">MEDIUM</span></td>
+          </tr>
+          <tr>
+            <td class="time-col">All Day</td>
+            <td class="event-col"><strong>Fed Speakers: Daly, Barkin, Waller</strong></td>
+            <td><span class="impact-high">HIGH ⚡</span></td>
+          </tr>
+          <tr>
+            <td class="time-col">12:45 PM</td>
+            <td class="event-col">NY Fed Staff Nowcast</td>
+            <td><span class="impact-low">LOW</span></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="cal-note">
+        <strong style="color:var(--red);">Critical:</strong> With all three Fed speakers on the calendar AND Trump's Powell threat active, any Fed-related headline is a live vol catalyst today. Do not sell uncapped strangles with this backdrop.
+      </div>
+
+      <div class="section-divider" style="margin:16px 0;"></div>
+
+      <div class="card-title" style="color:var(--amber); margin-bottom:10px;">Earnings Reports</div>
+      <table class="earn-table">
+        <thead>
+          <tr>
+            <th>Symbol</th>
+            <th>Move</th>
+            <th>Q1</th>
+            <th>Guide</th>
+            <th>Key Driver</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="sym">NFLX</td>
+            <td class="move-neg">–9% AH</td>
+            <td style="color:var(--green);">Beat</td>
+            <td style="color:var(--red);">Missed Q2</td>
+            <td>Q2 rev below Street. Hastings board exit June 2026. IV elevated at open.</td>
+          </tr>
+          <tr>
+            <td class="sym">TSMC</td>
+            <td class="move-pos">Beat</td>
+            <td style="color:var(--green);">+58%</td>
+            <td style="color:var(--green);">Strong</td>
+            <td>AI chip demand record streak. Bullish for semis. Price action mostly done.</td>
+          </tr>
+          <tr>
+            <td class="sym">PEP</td>
+            <td class="move-neutral">Neutral</td>
+            <td style="color:var(--green);">Beat</td>
+            <td style="color:var(--text-muted);">In-line</td>
+            <td>N. America food volume growth returned. No vol catalyst.</td>
+          </tr>
+        </tbody>
+      </table>
+      <div style="margin-top:8px; font-size:11.5px; color:var(--text-faint);">
+        Reporting Monday AC: <span style="color:var(--text-muted); font-weight:600;">ALK</span> — Travel demand + fuel cost commentary will matter in oil context.
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ============================================================
+       ROW 3 — STOCKS IN PLAY + THEMES
+       ============================================================ -->
+  <div class="row grid-2">
+
+    <div class="card">
+      <div class="card-title" style="color:var(--red);">Stocks in Play</div>
+
+      <div class="stock-block">
+        <div class="stock-header">
+          <span class="stock-ticker">NFLX</span>
+          <span class="stock-move">–9% AH</span>
+          <span class="stock-badge">A+ · Gap Risk</span>
+        </div>
+        <div class="stock-body">
+          <strong>What happened:</strong> NFLX reported after Thursday close. Beat Q1 estimates (windfall from terminated Warner Bros deal), but Q2 revenue guide missed Street. Reed Hastings, co-founder and chairman, announced board retirement in June 2026. Stock fell 9% in AH trading.<br><br>
+          <strong>Why it matters:</strong> The guide miss triggers sell-the-news on what was priced as a growth compounder. Hastings' exit adds management continuity overhang. IV will be significantly elevated at open — but that cuts both ways.
+        </div>
+        <div class="stock-angle">
+          <strong>Trading Angle:</strong>
+          <ol class="stock-steps">
+            <li>Watch the first 15–30 minutes. The gap itself may complete the move.</li>
+            <li>If NFLX finds a level and stabilizes → IV crush opportunity opens via bull put spread below gap-low support.</li>
+            <li>If selling continues through the open with no base → <span style="color:var(--red);font-weight:700;">No Trade.</span></li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="stock-block" style="border-left-color:var(--green);">
+        <div class="stock-header">
+          <span class="stock-ticker">HOOD</span>
+          <span class="stock-move up">+10%+ Thu</span>
+          <span class="stock-badge green-badge">A+ · Structural</span>
+        </div>
+        <div class="stock-body">
+          <strong>What happened:</strong> The SEC eliminated the 30-year-old rule requiring $25,000 in an account to pattern day trade (April 14). HOOD surged 10%+ on the news per Market Briefs (8:05 AM).<br><br>
+          <strong>Why it matters:</strong> This is not a one-day catalyst. HOOD's business model is built on small-account accessibility. Lower barriers = more users, more order flow, more revenue. Structural long thesis just received a fundamental upgrade.
+        </div>
+        <div class="stock-angle">
+          <strong>Trading Angle:</strong> Check HOOD's pre-market level. If it is consolidating above the breakout level (not extended), a bull put spread below that support captures premium in a bullish structure with defined risk. If HOOD is pulling back to the breakout level, that is the spot to enter.
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title" style="color:var(--purple);">Broader Market Themes</div>
+
+      <div class="theme-block">
+        <div class="theme-title">Theme 1 — Beat-and-Guide-Down Is the Template That Matters</div>
+        <div class="theme-body">NFLX beat Q1 cleanly and dropped 9% on Q2 guidance. The market has pre-priced beats; only forward guidance moves stocks materially. Every upcoming large-cap print (GOOGL, TSLA, META, MSFT, AMZN) carries this risk. Guidance conservatism = sell-the-news; guidance raise = the only real positive catalyst.</div>
+      </div>
+
+      <div class="theme-block">
+        <div class="theme-title">Theme 2 — Chips vs. Software Valuation Gap (Historic Divergence)</div>
+        <div class="theme-body">Benzinga flagged a "historic valuation gap" between semiconductors and software — described as "extreme by even dot-com era standards." Semis led Thursday's ATH push (AMD, INTC, DELL, ON all strong). Software has significantly lagged. If this gap closes, it is a rotation within tech — not a market-down event — but concentrated semi longs face mean-reversion risk.</div>
+      </div>
+
+      <div class="theme-block">
+        <div class="theme-title">Theme 3 — ARK Invest Not Trading at All-Time Highs</div>
+        <div class="theme-body">Cathie Wood has gone quiet. ARK has not made any trades as the S&P hits new records. This is unusual for an active momentum manager. Either signals valuation caution from a high-conviction growth investor, or preparation for a significant repositioning. Not a trade signal on its own — but worth noting as a contrarian positioning tell.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ============================================================
+       ROW 4 — OPTIONS SETUPS (DOMINANT — MOST IMPORTANT)
+       ============================================================ -->
+  <div class="row setups-section">
+
+    <div class="setups-header-row">
+      <div class="setups-label">Section 9 — Options Setups / Trade Pipeline</div>
+      <div class="setups-count">5 setups · A+ filter applied · Max 5</div>
+    </div>
+
+    <!-- TOP TRADE: Energy Binary (Setup 2 — only unconditional trade) -->
+    <div class="top-trade-hero">
+      <div class="top-trade-tag">Top Trade Today</div>
+      <div class="setup-card-header">
+        <div>
+          <div class="setup-ticker" style="font-size:28px; color:var(--green);">XLE / USO</div>
+          <div class="setup-subtitle">Energy Binary — Long Vol into Iran April 21</div>
+        </div>
+        <span class="strategy-badge strad">Long Straddle</span>
+      </div>
+      <table class="setup-table">
+        <tr>
+          <td class="field-label">What Happened</td>
+          <td class="field-value">US-Iran ceasefire expires April 21. Potential weekend meeting — no deal locked. Oil sliding today on optimism but Hormuz remains restricted.</td>
+        </tr>
+        <tr>
+          <td class="field-label">Why It Matters</td>
+          <td class="field-value">No-deal outcome: oil spikes, energy names gap up Monday, VIX rises. Deal extension: energy gaps down, risk-on resumes. Both outcomes are large moves. At current VIX ~17.86, energy vol is cheap relative to this binary.</td>
+        </tr>
+        <tr>
+          <td class="field-label">Market Bias</td>
+          <td class="field-value"><strong>Neutral (binary)</strong> — no directional edge without a deal signal.</td>
+        </tr>
+        <tr>
+          <td class="field-label">Vol Impact</td>
+          <td class="field-value"><strong>Expanding</strong> into April 21 expiry.</td>
+        </tr>
+        <tr>
+          <td class="field-label">Trade Implication</td>
+          <td class="field-value"><strong style="color:var(--green);">Unconditional — enter before today's close.</strong> Long vol (straddle or strangle) in XLE or USO captures both outcomes. If directional lean (deal more likely), consider USO or crude put spreads for the oil-down scenario.</td>
+        </tr>
+        <tr>
+          <td class="field-label">Strategy</td>
+          <td class="field-value"><strong>Long Straddle (XLE or USO)</strong> — enter before today's close. Widen strikes to account for weekend gap potential.</td>
+        </tr>
+        <tr class="strike-logic-row">
+          <td class="field-label">Strike Logic</td>
+          <td class="field-value">
+            <div class="strike-logic-box" style="border-color:var(--green-border);">ATM straddle at Friday open price · widen to ±1σ expected move if premium budget allows · target Apr 22 expiry to capture Monday gap</div>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- Remaining 4 setups in grid -->
+    <div class="setups-grid">
+
+      <!-- Setup 1: NFLX (Conditional → Amber) -->
+      <div class="setup-card amber-card">
+        <div class="setup-card-header">
+          <div>
+            <div class="setup-ticker">NFLX</div>
+            <div class="setup-subtitle">Post-Gap Vol Sell (Conditional)</div>
+          </div>
+          <span class="strategy-badge bull">Bull Put Spread</span>
+        </div>
+        <table class="setup-table">
+          <tr>
+            <td class="field-label">What Happened</td>
+            <td class="field-value">NFLX fell 9% after hours on Q2 revenue guidance miss and Reed Hastings board retirement announcement.</td>
+          </tr>
+          <tr>
+            <td class="field-label">Why It Matters</td>
+            <td class="field-value">Gap-down creates an IV spike at the open. If the stock finds a base, the IV crush is the edge — not the direction.</td>
+          </tr>
+          <tr>
+            <td class="field-label">Market Bias</td>
+            <td class="field-value">Bearish short-term; uncertain post-gap.</td>
+          </tr>
+          <tr>
+            <td class="field-label">Vol Impact</td>
+            <td class="field-value"><strong>Expanding sharply</strong> at open.</td>
+          </tr>
+          <tr>
+            <td class="field-label">Trade Implication</td>
+            <td class="field-value">Conditional. Wait for the first 15–30 minutes. If NFLX gaps down and holds a level without breaking further, the IV crush opportunity opens below gap-low support.</td>
+          </tr>
+          <tr>
+            <td class="field-label">Strategy</td>
+            <td class="field-value"><strong>Bull Put Spread</strong> — sell put spread at least 5–7% below the gap-down open, only after price confirmation.</td>
+          </tr>
+          <tr class="strike-logic-row">
+            <td class="field-label">Strike Logic</td>
+            <td class="field-value">
+              <div class="strike-logic-box">Short strike ~0.15–0.20 delta, 5–7% below gap-open price · spread width $5–10 · 2–3 week expiry</div>
+            </td>
+          </tr>
+        </table>
+        <div class="condition-note">Conditional on price stabilization in first 30 min.</div>
+        <div class="no-trade-note">If stock continues to break lower → No Trade.</div>
+      </div>
+
+      <!-- Setup 3: HOOD (Conditional → Amber) -->
+      <div class="setup-card amber-card">
+        <div class="setup-card-header">
+          <div>
+            <div class="setup-ticker">HOOD</div>
+            <div class="setup-subtitle">Breakout Consolidation</div>
+          </div>
+          <span class="strategy-badge bull">Bull Put Spread</span>
+        </div>
+        <table class="setup-table">
+          <tr>
+            <td class="field-label">What Happened</td>
+            <td class="field-value">SEC eliminated the $25,000 PDT minimum balance requirement. HOOD surged 10%+ on the structural catalyst.</td>
+          </tr>
+          <tr>
+            <td class="field-label">Why It Matters</td>
+            <td class="field-value">Not one-day news. Robinhood's business grows directly from small-account accessibility. The rule change is permanent. Stock needs to hold the breakout level on a pullback.</td>
+          </tr>
+          <tr>
+            <td class="field-label">Market Bias</td>
+            <td class="field-value"><strong>Bullish.</strong></td>
+          </tr>
+          <tr>
+            <td class="field-label">Vol Impact</td>
+            <td class="field-value"><strong>Expanding</strong> (structural attention, retail flow).</td>
+          </tr>
+          <tr>
+            <td class="field-label">Trade Implication</td>
+            <td class="field-value">Check pre-market. If HOOD is consolidating or pulling back to the breakout level — not continuing to spike — a defined-risk bullish structure makes sense.</td>
+          </tr>
+          <tr>
+            <td class="field-label">Strategy</td>
+            <td class="field-value"><strong>Bull Put Spread</strong> — sell put spread below Thursday breakout/close level. Defined risk, captures premium if HOOD consolidates above catalyst support.</td>
+          </tr>
+          <tr class="strike-logic-row">
+            <td class="field-label">Strike Logic</td>
+            <td class="field-value">
+              <div class="strike-logic-box">Short strike ~0.20 delta below Thu close (breakout level) · spread width $2–3 · 3–4 week expiry</div>
+            </td>
+          </tr>
+        </table>
+        <div class="condition-note">Conditional on HOOD consolidating, not spiking further.</div>
+      </div>
+
+      <!-- Setup 4: QQQ (Conditional → Amber) -->
+      <div class="setup-card amber-card">
+        <div class="setup-card-header">
+          <div>
+            <div class="setup-ticker">QQQ</div>
+            <div class="setup-subtitle">Iron Condor — Quiet Open Only · 25–30% Size</div>
+          </div>
+          <span class="strategy-badge condor">Iron Condor</span>
+        </div>
+        <table class="setup-table">
+          <tr>
+            <td class="field-label">What Happened</td>
+            <td class="field-value">Nasdaq 12-day consecutive win streak. S&P above 7,000. VIX at ~17.86. Market extended but not reversing.</td>
+          </tr>
+          <tr>
+            <td class="field-label">Why It Matters</td>
+            <td class="field-value">Compressed vol normally ideal for iron condors. However, Iran binary (April 21), three Fed speakers, and Trump/Powell noise all create gap risk that standard wing positioning won't capture.</td>
+          </tr>
+          <tr>
+            <td class="field-label">Market Bias</td>
+            <td class="field-value">Neutral — extended trend, no reversal signal.</td>
+          </tr>
+          <tr>
+            <td class="field-label">Vol Impact</td>
+            <td class="field-value"><strong>Compressed</strong>, with tail risk expanding into weekend.</td>
+          </tr>
+          <tr>
+            <td class="field-label">Trade Implication</td>
+            <td class="field-value">If the open is quiet and rangebound — not volatile — an iron condor on QQQ can work. Wings must be wider than normal to account for Iran weekend gap risk. Position at 25–30% of normal size.</td>
+          </tr>
+          <tr>
+            <td class="field-label">Strategy</td>
+            <td class="field-value"><strong>Iron Condor (QQQ)</strong> — conditional on quiet open. Widen wings. Reduce size to 25–30%.</td>
+          </tr>
+          <tr class="strike-logic-row">
+            <td class="field-label">Strike Logic</td>
+            <td class="field-value">
+              <div class="strike-logic-box">Short strikes ~0.10 delta each side (wider than standard) · wings ±5–7% from current price · 7–14 DTE</div>
+            </td>
+          </tr>
+        </table>
+        <div class="condition-note">Conditional on quiet open. 25–30% of normal position size.</div>
+        <div class="no-trade-note">If the open is volatile → No Trade.</div>
+      </div>
+
+      <!-- Setup 5: GOOGL (Unconditional → Green, full width) -->
+      <div class="setup-card green-card full-width">
+        <div class="setup-card-header">
+          <div>
+            <div class="setup-ticker">GOOGL</div>
+            <div class="setup-subtitle">Pre-Earnings IV Build — Reports April 22</div>
+          </div>
+          <span class="strategy-badge strad">Long Straddle / Strangle</span>
+        </div>
+        <table class="setup-table">
+          <tr>
+            <td class="field-label">What Happened</td>
+            <td class="field-value">GOOGL reports April 22. The NFLX guide-down reaction establishes the market will punish any forward guidance miss, even against a clean Q1 beat.</td>
+          </tr>
+          <tr>
+            <td class="field-label">Why It Matters</td>
+            <td class="field-value">GOOGL carries two-sided risk: AI disruption against Search revenue AND Cloud growth as an upside catalyst. Beat-and-guide-down is now the dominant earnings template. IV going into GOOGL may not be fully pricing the move risk.</td>
+          </tr>
+          <tr>
+            <td class="field-label">Market Bias</td>
+            <td class="field-value"><strong>Neutral (two-sided risk).</strong></td>
+          </tr>
+          <tr>
+            <td class="field-label">Vol Impact</td>
+            <td class="field-value"><strong>Expanding</strong> into April 22.</td>
+          </tr>
+          <tr>
+            <td class="field-label">Trade Implication</td>
+            <td class="field-value"><strong style="color:var(--green);">Entry window opens today.</strong> If IV is not yet fully expanded, today or Monday is the window to establish a long vol position ahead of the print. Exit before earnings or hold through and cover quickly post-print.</td>
+          </tr>
+          <tr>
+            <td class="field-label">Strategy</td>
+            <td class="field-value"><strong>Long Straddle or Strangle (GOOGL)</strong> — enter 2–4 days before the April 22 report to capture IV expansion.</td>
+          </tr>
+          <tr class="strike-logic-row">
+            <td class="field-label">Strike Logic</td>
+            <td class="field-value">
+              <div class="strike-logic-box">ATM straddle or 1-strike-wide strangle · target Apr 22 or Apr 25 expiry · enter today or Mon at market open to capture IV expansion window</div>
+            </td>
+          </tr>
+        </table>
+      </div>
+
+    </div><!-- /setups-grid -->
+  </div><!-- /setups-section -->
+
+  <!-- ============================================================
+       ROW 5 — EXECUTION BIAS + WEEK AHEAD
+       ============================================================ -->
+  <div class="row grid-2">
+
+    <div class="card">
+      <div class="card-title" style="color:var(--purple);">Execution Bias</div>
+      <div class="bias-grid">
+        <div class="bias-col-favor">
+          <div class="bias-col-title favor">✓ Favor Today</div>
+          <ul class="bias-list">
+            <li>Long vol / straddles in energy (XLE, USO) <strong>before close</strong> — highest priority, unconditional</li>
+            <li>Bull Put Spreads in NFLX (conditional on stabilization in first 30 min)</li>
+            <li>Bull Put Spreads in HOOD (conditional on consolidation above breakout level)</li>
+            <li>Pre-earnings IV build in GOOGL — entry window opens today</li>
+          </ul>
+        </div>
+        <div class="bias-col-avoid">
+          <div class="bias-col-title avoid">✕ Avoid Today</div>
+          <ul class="bias-list">
+            <li>Naked premium selling in broad indices — Iran + three Fed speakers + Trump/Powell = too many live vol catalysts for uncapped risk</li>
+            <li>Chasing NFLX puts at the open — do not fade into a gap without a confirmed structure</li>
+            <li>Full-size Iron Condors — reduce size, widen wings, or skip entirely if the open is noisy</li>
+          </ul>
+        </div>
+      </div>
+      <div class="posture-footer">
+        <strong>Overall Posture: SELECTIVE</strong> — There are 5 clear setups, but 3 of the 5 are conditional on price action at the open. Do not pre-commit. Read the first 15–30 minutes before executing NFLX or QQQ positions. The one unconditional trade is energy vol into the Iran binary — that should be on before today's close regardless of how the morning plays out.
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title" style="color:var(--teal);">Week Ahead</div>
+      <table class="week-table">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Event</th>
+            <th>Options Significance</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="wdate">Fri Apr 17</td>
+            <td class="wevent">Fed: Daly, Barkin, Waller</td>
+            <td class="wsig">Rate vol catalyst today. Stay smaller.</td>
+          </tr>
+          <tr>
+            <td class="wdate">Sat/Sun</td>
+            <td class="wevent critical">Potential US-Iran Meeting</td>
+            <td class="wsig" style="color:var(--red);">Gap risk Monday. Energy vol must be on before close today.</td>
+          </tr>
+          <tr class="critical-row">
+            <td class="wdate">Tue Apr 21</td>
+            <td class="wevent critical">⚡ Iran Ceasefire Expires</td>
+            <td class="wsig" style="color:var(--red);">Single most important binary event. Oil, energy, VIX all react.</td>
+          </tr>
+          <tr>
+            <td class="wdate">Mon Apr 21</td>
+            <td class="wevent">ALK Earnings (AC)</td>
+            <td class="wsig">Oil cost + demand commentary. Iran context adds weight.</td>
+          </tr>
+          <tr>
+            <td class="wdate">~Mon Apr 20</td>
+            <td class="wevent">TSLA Earnings</td>
+            <td class="wsig">High-IV, high-beta. Historical large moves. Straddle setup to evaluate.</td>
+          </tr>
+          <tr>
+            <td class="wdate">Wed Apr 22</td>
+            <td class="wevent critical">GOOGL Earnings</td>
+            <td class="wsig" style="color:var(--amber);">AI vs. Search disruption. Beat-and-guide-down risk elevated (NFLX template).</td>
+          </tr>
+          <tr>
+            <td class="wdate">Tue Apr 28</td>
+            <td class="wevent">META + MSFT Earnings</td>
+            <td class="wsig">AI capex vs. monetization cluster. Multi-name IV expansion developing.</td>
+          </tr>
+          <tr>
+            <td class="wdate">Wed Apr 29</td>
+            <td class="wevent">AMZN Earnings</td>
+            <td class="wsig">AWS growth + retail margins. Earnings cluster close.</td>
+          </tr>
+          <tr>
+            <td class="wdate">Mon May 5</td>
+            <td class="wevent">SHOP Earnings</td>
+            <td class="wsig">Unusual options activity flagged earlier this week (covered call rolling, high Vol/OI). IV will expand into this date.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+  <!-- ============================================================
+       BOTTOM — A+ FILTER LOG + SECONDARY + MOVERS
+       ============================================================ -->
+  <div class="section-divider"></div>
+
+  <div class="section-title" style="color:var(--text-faint);">Supporting Data</div>
+
+  <div class="row">
+    <div class="card">
+      <div class="card-title">A+ Filter Log — All Signals Classified</div>
+      <table class="filter-table">
+        <thead>
+          <tr>
+            <th>Signal</th>
+            <th>Classification</th>
+            <th>Reason</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="aplus">
+            <td>NFLX –9% AH, Q2 guide miss, Hastings exit</td>
+            <td><span class="cls-badge ap">A+</span></td>
+            <td>Price impact today + IV expanding</td>
+          </tr>
+          <tr class="aplus">
+            <td>Iran ceasefire expires April 21, may meet weekend</td>
+            <td><span class="cls-badge ap">A+</span></td>
+            <td>Binary event, vol + oil + broad market</td>
+          </tr>
+          <tr class="aplus">
+            <td>Fed speakers: Daly, Barkin, Waller — all today</td>
+            <td><span class="cls-badge ap">A+</span></td>
+            <td>Rate-sensitive vol catalyst</td>
+          </tr>
+          <tr class="aplus">
+            <td>Trump threatening to remove Powell (Board term)</td>
+            <td><span class="cls-badge ap">A+</span></td>
+            <td>Fed independence risk = vol expander</td>
+          </tr>
+          <tr class="aplus">
+            <td>Nasdaq 12-day streak / S&P above 7,000</td>
+            <td><span class="cls-badge ap">A+</span></td>
+            <td>Positioning imbalance, overextension</td>
+          </tr>
+          <tr class="aplus">
+            <td>SEC PDT rule eliminated / HOOD +10%</td>
+            <td><span class="cls-badge ap">A+</span></td>
+            <td>Structural price catalyst, trade setup</td>
+          </tr>
+          <tr class="watch">
+            <td>Equity L/S funds best month in decade (Goldman)</td>
+            <td><span class="cls-badge wl">WATCHLIST</span></td>
+            <td>Crowded long positioning signal</td>
+          </tr>
+          <tr class="watch">
+            <td>ARK Invest no-trade streak at ATHs</td>
+            <td><span class="cls-badge wl">WATCHLIST</span></td>
+            <td>Contrarian positioning signal</td>
+          </tr>
+          <tr class="watch">
+            <td>Chips vs. software valuation gap (historic divergence)</td>
+            <td><span class="cls-badge wl">WATCHLIST</span></td>
+            <td>Rotation risk catalyst</td>
+          </tr>
+          <tr class="watch">
+            <td>TSMC 58% profit surge, AI chip demand record</td>
+            <td><span class="cls-badge wl">WATCHLIST</span></td>
+            <td>Bullish semi chain but event is past</td>
+          </tr>
+          <tr class="watch">
+            <td>LYV federal jury monopoly ruling +3%</td>
+            <td><span class="cls-badge wl">WATCHLIST</span></td>
+            <td>Structural, breakup risk</td>
+          </tr>
+          <tr class="ignore">
+            <td>NFLX windfall from terminated Warner Bros deal</td>
+            <td><span class="cls-badge ig">IGNORE</span></td>
+            <td>Already embedded in Q1 beat; no new action</td>
+          </tr>
+          <tr class="ignore">
+            <td>PepsiCo Q1 beat</td>
+            <td><span class="cls-badge ig">IGNORE</span></td>
+            <td>Done, no vol catalyst today</td>
+          </tr>
+          <tr class="ignore">
+            <td>SNAP layoffs 1,000 workers</td>
+            <td><span class="cls-badge ig">IGNORE</span></td>
+            <td>No clear options setup</td>
+          </tr>
+          <tr class="ignore">
+            <td>QVC Chapter 11 filing</td>
+            <td><span class="cls-badge ig">IGNORE</span></td>
+            <td>No liquid options play</td>
+          </tr>
+          <tr class="ignore">
+            <td>China GDP +5% Q1 / Canada housing / Mortgage rates / GE Aerospace deal / Tether BTC / SpaceX IPO speculation</td>
+            <td><span class="cls-badge ig">IGNORE</span></td>
+            <td>Already priced, no trading relevance, or no listed instrument</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="row grid-2">
+
+    <div class="card">
+      <div class="card-title">Secondary Names (Watchlist)</div>
+      <table class="sec-table">
+        <thead>
+          <tr>
+            <th>Ticker</th>
+            <th>Catalyst</th>
+            <th>What to Watch / Upgrade If</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><div class="sym">LYV</div></td>
+            <td>Federal jury ruled Live Nation ran illegal monopoly (36 states + DC). Stock +3% Thu.</td>
+            <td>
+              Whether DOJ pursues structural breakup or settles for fines.
+              <div class="upgrade-cond">↑ A+ if: Breakup order announced → significant dislocation, high-vol setup</div>
+            </td>
+          </tr>
+          <tr>
+            <td><div class="sym">TSMC</div></td>
+            <td>58% profit surge, AI chip demand record. In-line or better guide.</td>
+            <td>
+              Spillover effect on AMD, NVDA, AVGO, ASML.
+              <div class="upgrade-cond">↑ A+ if: Sector-wide re-rating upward = overweight semi premium-selling risk</div>
+            </td>
+          </tr>
+          <tr>
+            <td><div class="sym">SCHW</div></td>
+            <td>Mixed Q1 earnings. Announced spot BTC/ETH trading (0.75% fee). Stock –4.5% on earnings day.</td>
+            <td>
+              Whether crypto launch momentum can offset earnings drag.
+              <div class="upgrade-cond">↑ A+ if: Stabilization above support + crypto volume surge = bull put spread</div>
+            </td>
+          </tr>
+          <tr>
+            <td><div class="sym">META</div></td>
+            <td>Zuckerberg moved desk to AI lab. Stock lagging S&P 500. Earnings April 28.</td>
+            <td>
+              AI capex commentary. Earnings April 28.
+              <div class="upgrade-cond">↑ A+ if: Pre-earnings IV expansion developing = straddle setup emerging</div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Top Movers with Catalysts</div>
+      <table class="movers-table">
+        <thead>
+          <tr>
+            <th>Symbol</th>
+            <th>Move</th>
+            <th>Why It Matters for Trading</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="sym">NFLX</td>
+            <td><span class="move-val neg">–9% AH</span></td>
+            <td>Largest gap risk of the day. IV elevated. Wait for price discovery — do not enter at open.</td>
+          </tr>
+          <tr>
+            <td class="sym">HOOD</td>
+            <td><span class="move-val pos">+10%+ Thu</span></td>
+            <td>SEC eliminated $25K PDT rule. Structural vol catalyst. Bull put spread below breakout level.</td>
+          </tr>
+          <tr>
+            <td class="sym">LYV</td>
+            <td><span class="move-val pos">+3.06% Thu</span></td>
+            <td>Federal monopoly ruling. Breakup risk is a real tail scenario. Asymmetric option if DOJ escalates.</td>
+          </tr>
+          <tr>
+            <td class="sym">AMD/INTC/DELL/ON</td>
+            <td><span class="move-val pos">ATH Leaders</span></td>
+            <td>Semiconductor sector at peak positioning. Crowded longs vulnerable to rotation or Iran reversal.</td>
+          </tr>
+          <tr>
+            <td class="sym">SCHW/RCL/CCL</td>
+            <td><span class="move-val neg">Lagged Thu</span></td>
+            <td>SCHW: earnings miss anchor. Cruise names: oil cost exposure. All sensitive to Iran resolution.</td>
+          </tr>
+          <tr>
+            <td class="sym">Brent Crude</td>
+            <td><span class="move-val neg">–1.13% Thu</span></td>
+            <td>Iran deal optimism driving oil lower. Ceasefire expiry April 21 is the reversal risk. Long energy vol is cheap relative to this binary.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="site-footer">
+    <div>Generated: April 17, 2026 &nbsp;·&nbsp; Email window: 5:00–8:30 AM ET &nbsp;·&nbsp; A+ filter applied &nbsp;·&nbsp; Sources: ExecSum · Benzinga Ring the Bell · Market Briefs · Barchart Pre-Market Bulletin · Investopedia 5 Things</div>
+    <div class="footer-internal">Internal Use Only</div>
+  </footer>
+
+  <!-- ============================================================
+       DISCLAIMER
+       ============================================================ -->
+  <div class="section-divider" style="margin-top: var(--gap-lg);"></div>
+  <div style="margin-top: 12px; padding-bottom: 24px; font-size: 11px; color: var(--text-faint); line-height: 1.6;">
+    <strong style="color: var(--text-faint);">Disclaimer:</strong> This dashboard is for educational and informational purposes only and does not constitute financial or trading advice. All trade setups reflect personal analysis and are not recommendations to buy or sell any security. Trading involves risk, and you are solely responsible for your own decisions.
+  </div>
+
+</div>
+</body>
+</html>
