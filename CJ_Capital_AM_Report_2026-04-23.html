@@ -1,0 +1,1178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CJ Capital Trading Desk â AM Report | April 23, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0c1018;
+    --panel: #161d2c;
+    --panel-alt: #111827;
+    --border: #1f2937;
+    --border-light: #263044;
+    --text: #d1d5db;
+    --text-dim: #9ca3af;
+    --text-muted: #6b7280;
+    --heading: #f9fafb;
+    --blue: #2563eb;
+    --blue-light: #93c5fd;
+    --blue-dark: #1e3a5f;
+    --green: #16a34a;
+    --green-light: #86efac;
+    --green-dark: #14532d;
+    --amber: #b45309;
+    --amber-light: #fcd34d;
+    --amber-dark: #451a03;
+    --red: #b91c1c;
+    --red-light: #fca5a5;
+    --red-dark: #450a0a;
+    --teal: #0d9488;
+    --teal-light: #5eead4;
+    --teal-dark: #042f2e;
+    --purple: #7c3aed;
+    --purple-light: #c4b5fd;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  .page-wrap { max-width: 1200px; margin: 0 auto; padding: 0 20px 60px; }
+
+  /* DISCLAIMER */
+  .disclaimer-top {
+    background: #0a0f1a;
+    border-bottom: 1px solid #1f2937;
+    padding: 14px 20px;
+    font-size: 11px;
+    color: #6b7280;
+    line-height: 1.7;
+  }
+  .disclaimer-top strong { color: #9ca3af; }
+  .disclaimer-bottom {
+    background: #0f1624;
+    border-top: 1px solid #1f2937;
+    padding: 20px;
+    font-size: 11px;
+    color: #6b7280;
+    max-width: 1200px;
+    margin: 40px auto 0;
+    border-radius: 8px;
+    line-height: 1.7;
+  }
+
+  /* HEADER */
+  .report-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 36px 0 24px;
+    border-bottom: 1px solid #1f2937;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .report-brand { display: flex; align-items: center; gap: 14px; }
+  .brand-mark {
+    width: 44px; height: 44px;
+    background: #1d4ed8;
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px; font-weight: 900; color: #fff; letter-spacing: -1px;
+  }
+  .brand-name { font-size: 20px; font-weight: 800; color: var(--heading); letter-spacing: -0.3px; }
+  .brand-sub { font-size: 12px; color: var(--text-muted); letter-spacing: 0.06em; text-transform: uppercase; }
+  .report-meta { text-align: right; }
+  .report-date { font-size: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; }
+  .stance-badge {
+    display: inline-block; padding: 5px 18px; border-radius: 999px;
+    font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  }
+  .stance-selective { background: #1d4ed820; color: #93c5fd; border: 1px solid #2563eb; }
+  .stance-active { background: #14532d20; color: #86efac; border: 1px solid #16a34a; }
+  .stance-patient { background: #45172030; color: #fca5a5; border: 1px solid #7f1d1d; }
+
+  /* SECTION */
+  .section { margin-top: 40px; }
+  .section-header {
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 18px; padding-bottom: 10px;
+    border-bottom: 1px solid #1f2937;
+  }
+  .section-icon { font-size: 14px; opacity: 0.7; }
+  .section-title {
+    font-size: 11px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.14em; color: var(--text-muted);
+  }
+  .section-line { flex: 1; height: 1px; background: #1f2937; }
+
+  /* CARDS */
+  .card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin-bottom: 14px;
+  }
+  .card-accepted { border-left: 3px solid #2563eb; }
+  .card-downgraded { border-left: 3px solid #374151; opacity: 0.9; }
+  .card-macro { border-left: 3px solid #0d9488; }
+  .card-warning { border-left: 3px solid #b45309; }
+
+  .card-header {
+    display: flex; align-items: center; flex-wrap: wrap;
+    gap: 10px; margin-bottom: 14px;
+  }
+  .symbol { font-size: 22px; font-weight: 800; color: var(--heading); }
+  .company-name { font-size: 13px; color: var(--text-dim); }
+
+  .badge {
+    font-size: 11px; font-weight: 700; padding: 3px 11px;
+    border-radius: 999px; letter-spacing: 0.05em; text-transform: uppercase;
+  }
+  .badge-accept { background: #1e3a5f; color: #93c5fd; border: 1px solid #2563eb; }
+  .badge-downgrade { background: #1f2937; color: #9ca3af; border: 1px solid #374151; }
+  .badge-earnings { background: #042f2e; color: #5eead4; border: 1px solid #0d9488; }
+  .badge-iv { background: #1a0533; color: #c4b5fd; border: 1px solid #7c3aed; }
+  .badge-sector { background: #1c1917; color: #d6d3d1; border: 1px solid #44403c; }
+  .badge-red { background: #450a0a; color: #fca5a5; border: 1px solid #b91c1c; }
+  .badge-green { background: #14532d; color: #86efac; border: 1px solid #16a34a; }
+  .badge-amber { background: #451a03; color: #fcd34d; border: 1px solid #b45309; }
+  .badge-live { background: #7f1d1d; color: #fca5a5; border: 1px solid #dc2626; animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.7} }
+
+  /* METRICS GRID */
+  .metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .metric {
+    background: #0f1624;
+    border: 1px solid #1f2937;
+    border-radius: 6px;
+    padding: 8px 12px;
+  }
+  .metric-label { font-size: 10px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 3px; }
+  .metric-value { font-size: 15px; font-weight: 700; color: var(--heading); }
+  .metric-value.up { color: #86efac; }
+  .metric-value.down { color: #fca5a5; }
+  .metric-value.neutral { color: #fcd34d; }
+
+  /* SECTOR TABLE */
+  .sector-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 8px;
+    margin-bottom: 14px;
+  }
+  .sector-row {
+    display: flex; align-items: center; justify-content: space-between;
+    background: #0f1624; border: 1px solid #1f2937; border-radius: 6px;
+    padding: 8px 12px;
+  }
+  .sector-name { font-size: 12px; color: var(--text); }
+  .sector-chg { font-size: 13px; font-weight: 700; }
+  .chg-up { color: #86efac; }
+  .chg-dn { color: #fca5a5; }
+  .chg-flat { color: #fcd34d; }
+
+  /* BAR CHART */
+  .bar-row { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+  .bar-label { width: 180px; font-size: 11px; color: var(--text-dim); text-align: right; }
+  .bar-track { flex: 1; height: 8px; background: #1f2937; border-radius: 4px; overflow: hidden; }
+  .bar-fill-pos { height: 100%; background: #16a34a; border-radius: 4px; }
+  .bar-fill-neg { height: 100%; background: #b91c1c; border-radius: 4px; }
+  .bar-value { width: 52px; font-size: 11px; font-weight: 600; text-align: right; }
+
+  /* CALENDAR TABLE */
+  .cal-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .cal-table th { font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); padding: 6px 12px; text-align: left; border-bottom: 1px solid #1f2937; }
+  .cal-table td { padding: 8px 12px; border-bottom: 1px solid #111827; color: var(--text); }
+  .cal-table tr:last-child td { border-bottom: none; }
+  .cal-table tr:hover td { background: #0f1624; }
+  .beat { color: #86efac; font-weight: 600; }
+  .miss { color: #fca5a5; font-weight: 600; }
+  .neutral-val { color: #fcd34d; }
+  .event-flag { font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 3px; letter-spacing: 0.05em; text-transform: uppercase; }
+  .flag-high { background: #450a0a; color: #fca5a5; }
+  .flag-med { background: #451a03; color: #fcd34d; }
+  .flag-low { background: #1f2937; color: #6b7280; }
+
+  /* PROSE */
+  .prose { font-size: 13px; color: var(--text-dim); line-height: 1.75; }
+  .prose p { margin-bottom: 10px; }
+  .prose p:last-child { margin-bottom: 0; }
+  .prose strong { color: var(--heading); font-weight: 600; }
+
+  /* INLINE LIST */
+  .tag-list { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+
+  /* DESK TAKE */
+  .desk-take {
+    background: linear-gradient(135deg, #0f1e3a 0%, #0c1018 100%);
+    border: 1px solid #1d4ed8;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-top: 8px;
+  }
+  .desk-take-title { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #60a5fa; margin-bottom: 12px; }
+  .desk-take-body { font-size: 14px; color: #d1d5db; line-height: 1.8; }
+
+  /* CONFIRMATION FLAGS */
+  .confirm-list { list-style: none; padding: 0; margin-top: 8px; }
+  .confirm-list li { font-size: 12px; color: #fcd34d; padding: 3px 0; padding-left: 16px; position: relative; }
+  .confirm-list li::before { content: 'â'; position: absolute; left: 0; font-size: 10px; }
+
+  /* DIVIDER */
+  .divider { border: none; border-top: 1px solid #1f2937; margin: 32px 0; }
+
+  /* WATCHLIST */
+  .watchlist-item {
+    display: flex; align-items: flex-start; gap: 14px;
+    background: #0f1624; border: 1px solid #1f2937; border-radius: 8px;
+    padding: 12px 16px; margin-bottom: 8px;
+  }
+  .watchlist-ticker { font-size: 16px; font-weight: 800; color: var(--heading); min-width: 60px; }
+  .watchlist-detail { font-size: 12px; color: var(--text-dim); line-height: 1.6; }
+
+  /* EXECUTION BIAS */
+  .bias-block {
+    background: #0c120e;
+    border: 1px solid #14532d;
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin-bottom: 10px;
+  }
+  .bias-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #86efac; margin-bottom: 4px; }
+  .bias-text { font-size: 13px; color: var(--text-dim); }
+  .avoid-block {
+    background: #130c0c;
+    border: 1px solid #7f1d1d;
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin-bottom: 10px;
+  }
+  .avoid-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #fca5a5; margin-bottom: 4px; }
+  .avoid-text { font-size: 13px; color: var(--text-dim); }
+
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+  @media (max-width: 700px) {
+    .report-header { flex-direction: column; }
+    .report-meta { text-align: left; }
+    .metrics-grid { grid-template-columns: 1fr 1fr; }
+    .two-col { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP DISCLAIMER â 1467C -->
+<div class="disclaimer-top">
+  <strong>GENERAL ADVICE DISCLAIMER (1467C)</strong><br>
+  This report contains general market commentary and options strategy analysis only. It does not take into account your individual objectives, financial situation, or needs.
+  All trade ideas are illustrative in nature and are provided for educational and informational purposes only. They should not be considered personal financial advice or a recommendation to enter any specific trade.
+  Before acting on any information in this report, you should consider whether it is appropriate for your individual circumstances and independently verify all data, including option chain details, pricing, liquidity, and risk.
+  Options trading involves substantial risk and is not suitable for all investors. You are solely responsible for all trading decisions, position sizing, and risk management.
+</div>
+
+<div class="page-wrap">
+
+  <!-- HEADER -->
+  <div class="report-header">
+    <div class="report-brand">
+      <div class="brand-mark">CJ</div>
+      <div>
+        <div class="brand-name">CJ Capital Trading Desk</div>
+        <div class="brand-sub">AM Pre-Market Report</div>
+      </div>
+    </div>
+    <div class="report-meta">
+      <div class="report-date">Thursday, April 23, 2026 &nbsp;|&nbsp; Session Open</div>
+      <span class="stance-badge stance-selective">â¬¡ Selective</span>
+    </div>
+  </div>
+
+
+  <!-- âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
+       SECTION 1 â MARKET SNAPSHOT / DESK STANCE
+  âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">â</span>
+      <span class="section-title">Market Snapshot / Desk Stance</span>
+      <div class="section-line"></div>
+    </div>
+
+    <!-- Index metrics -->
+    <div class="metrics-grid" style="margin-bottom:18px;">
+      <div class="metric">
+        <div class="metric-label">SPY</div>
+        <div class="metric-value up">$711.21</div>
+        <div style="font-size:11px;color:#86efac;">+1.01%</div>
+      </div>
+      <div class="metric">
+        <div class="metric-label">QQQ</div>
+        <div class="metric-value up">$655.11</div>
+        <div style="font-size:11px;color:#86efac;">+1.67%</div>
+      </div>
+      <div class="metric">
+        <div class="metric-label">SPY RSI (14)</div>
+        <div class="metric-value neutral">70.39</div>
+        <div style="font-size:11px;color:#fcd34d;">Near Overbought</div>
+      </div>
+      <div class="metric">
+        <div class="metric-label">QQQ RSI (14)</div>
+        <div class="metric-value neutral">74.14</div>
+        <div style="font-size:11px;color:#fcd34d;">Overbought Zone</div>
+      </div>
+      <div class="metric">
+        <div class="metric-label">SPY Wk Perf</div>
+        <div class="metric-value up">+1.61%</div>
+      </div>
+      <div class="metric">
+        <div class="metric-label">QQQ Wk Perf</div>
+        <div class="metric-value up">+2.78%</div>
+      </div>
+      <div class="metric">
+        <div class="metric-label">SPY YTD</div>
+        <div class="metric-value up">+4.30%</div>
+      </div>
+      <div class="metric">
+        <div class="metric-label">QQQ YTD</div>
+        <div class="metric-value up">+6.64%</div>
+      </div>
+    </div>
+
+    <!-- Sector bar chart -->
+    <div class="card card-macro" style="margin-bottom:18px;">
+      <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);margin-bottom:14px;">Sector Performance â All 11 Sectors (Source: Finviz)</div>
+
+      <div class="bar-row">
+        <div class="bar-label">Technology</div>
+        <div class="bar-track"><div class="bar-fill-pos" style="width:100%"></div></div>
+        <div class="bar-value chg-up">+2.31%</div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">Communication Services</div>
+        <div class="bar-track"><div class="bar-fill-pos" style="width:54%"></div></div>
+        <div class="bar-value chg-up">+1.24%</div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">Basic Materials</div>
+        <div class="bar-track"><div class="bar-fill-pos" style="width:52%"></div></div>
+        <div class="bar-value chg-up">+1.21%</div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">Energy</div>
+        <div class="bar-track"><div class="bar-fill-pos" style="width:51%"></div></div>
+        <div class="bar-value chg-up">+1.18%</div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">Consumer Defensive</div>
+        <div class="bar-track"><div class="bar-fill-pos" style="width:19%"></div></div>
+        <div class="bar-value chg-up">+0.44%</div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">Consumer Cyclical</div>
+        <div class="bar-track"><div class="bar-fill-pos" style="width:10%"></div></div>
+        <div class="bar-value chg-up">+0.22%</div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">Utilities</div>
+        <div class="bar-track"><div class="bar-fill-pos" style="width:4%"></div></div>
+        <div class="bar-value chg-flat">+0.09%</div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">Healthcare</div>
+        <div class="bar-track"><div class="bar-fill-pos" style="width:7%"></div></div>
+        <div class="bar-value chg-up">+0.16%</div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">Financial</div>
+        <div class="bar-track" style="direction:rtl;"><div class="bar-fill-neg" style="width:9%"></div></div>
+        <div class="bar-value chg-dn">â0.21%</div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">Industrials</div>
+        <div class="bar-track" style="direction:rtl;"><div class="bar-fill-neg" style="width:14%"></div></div>
+        <div class="bar-value chg-dn">â0.32%</div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">Real Estate</div>
+        <div class="bar-track" style="direction:rtl;"><div class="bar-fill-neg" style="width:31%"></div></div>
+        <div class="bar-value chg-dn">â0.72%</div>
+      </div>
+    </div>
+
+    <!-- Leaders / Laggards / Tone -->
+    <div class="two-col">
+      <div class="card">
+        <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#86efac;margin-bottom:10px;">â² Sector Leaders</div>
+        <div style="font-size:13px;color:var(--text);line-height:1.9;">
+          <strong style="color:#86efac;">Technology</strong> +2.31% â AI/chip earnings optimism; NVDA +1.31%, AAPL +2.63%<br>
+          <strong style="color:#86efac;">Communication Services</strong> +1.24% â GOOGL, META bid ahead of next week earnings<br>
+          <strong style="color:#86efac;">Basic Materials</strong> +1.21% â Dollar weakness; commodity bid as oil tops $100<br>
+          <strong style="color:#86efac;">Energy</strong> +1.18% â Iran war risk; oil supply fears driving XOM, CVX higher
+        </div>
+      </div>
+      <div class="card">
+        <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#fca5a5;margin-bottom:10px;">â¼ Sector Laggards</div>
+        <div style="font-size:13px;color:var(--text);line-height:1.9;">
+          <strong style="color:#fca5a5;">Real Estate</strong> â0.72% â Rates sticky, inflation narrative pressuring REITs<br>
+          <strong style="color:#fca5a5;">Industrials</strong> â0.32% â HON sales miss; Middle East hitting supply chains. GE, RTX also weak<br>
+          <strong style="color:#fca5a5;">Financial</strong> â0.21% â Mild retreat; earnings broadly in line but no new catalysts
+        </div>
+      </div>
+    </div>
+
+    <!-- Market Tone Badge -->
+    <div class="card" style="background:linear-gradient(135deg,#0f1e2a,#0c1018);border-color:#1d4ed8;">
+      <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;">
+        <div>
+          <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#60a5fa;margin-bottom:6px;">Risk Tone</div>
+          <span class="badge badge-amber">â¡ Mixed / Guarded</span>
+        </div>
+        <div style="flex:1;min-width:200px;font-size:13px;color:var(--text-dim);line-height:1.7;">
+          Growth sectors (Tech, Comm, Energy) are leading â a nominally risk-on read â but elevated RSI levels on SPY and QQQ, combined with oil above $100 and US-Iran geopolitical uncertainty, introduce meaningful overhead resistance and a potential volatility trigger. The market is overbought heading into a PMI-heavy Thursday session.
+        </div>
+        <div>
+          <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#60a5fa;margin-bottom:6px;">Desk Stance</div>
+          <span class="stance-badge stance-selective">â¬¡ Selective</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
+       SECTION 2 â MACRO CONTEXT
+  âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">â</span>
+      <span class="section-title">Macro Context</span>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="card card-macro">
+      <div class="prose">
+        <p><strong>Overnight Futures / Pre-Market Tone:</strong> Futures pointed lower in the pre-dawn session on US-Iran talks uncertainty, with the Barchart pre-market bulletin flagging June S&P 500 E-Mini weakness ahead of earnings and PMI data. Equity indices have since recovered to positive territory on the open â SPY +1.01%, QQQ +1.67% â but the recovery is fragile given elevated RSI readings and geopolitical noise.</p>
+        <p><strong>US-Iran War Risk / Oil:</strong> Oil has crossed above $100/bbl, driven by supply risk from the Iran conflict. The Barchart Commodity Bulletin flagged sharply higher coffee prices alongside the oil move, both reflecting the war's widening commodity impact. Honeywell this morning cited Middle East shipping disruptions as a direct sales headwind â this is the first major industrial company to formally quantify Iran war exposure in earnings guidance, and it should be treated as a warning signal for other globally-exposed industrials.</p>
+        <p><strong>Inflation Narrative:</strong> A Barron's piece this morning captured the session's primary concern: "Inflation Fears Grip Markets as Earnings Crutch Pulled Away." As Q1 earnings season matures, the market's attention is turning from results toward forward guidance â and the early guidance picture in Industrials is cautious. Combined with oil above $100 and sticky rates, the inflation risk profile is rising.</p>
+        <p><strong>Earnings Season Snapshot:</strong> The Q1 earnings theme is bifurcated. Logistics and transportation (CSX) are beating as rail captures freight share from trucking at elevated oil prices. Aerospace/Defense (BA) delivered a sharp beat. But diversified Industrials â MMM, HON, GE, RTX â are reporting EPS beats paired with organic sales misses and cautious forward guidance, reflecting geopolitical and supply chain uncertainty. Technology remains the clean bright spot.</p>
+        <p><strong>Rates / Fed:</strong> No Fed speakers flagged for today's session. Rates remain elevated and sticky â the path for cuts remains data-dependent. Today's PMI and jobless claims data will be closely watched for read-through on economic momentum.</p>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
+       SECTION 3 â ECONOMIC CALENDAR
+  âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">â</span>
+      <span class="section-title">Economic Calendar â Thursday April 23, 2026</span>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="card">
+      <table class="cal-table">
+        <thead>
+          <tr>
+            <th>Time (ET)</th>
+            <th>Event</th>
+            <th>Period</th>
+            <th>Actual / Consensus</th>
+            <th>Prior</th>
+            <th>Impact</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="color:var(--text-muted);">Pre-open</td>
+            <td>Chicago Fed National Activity Index</td>
+            <td>MAR</td>
+            <td class="miss">â0.20</td>
+            <td>â</td>
+            <td><span class="event-flag flag-med">MED</span></td>
+          </tr>
+          <tr>
+            <td style="color:var(--text-muted);">8:30 AM</td>
+            <td><strong style="color:var(--heading);">Initial Jobless Claims</strong></td>
+            <td>APR/18</td>
+  2         <td class="beat">214K</td>
+            <td>â</td>
+            <td><span class="event-flag flag-high">HIGH</span></td>
+          </tr>
+          <tr>
+            <td style="color:var(--text-muted);">8:30 AM</td>
+            <td>Continuing Jobless Claims</td>
+            <td>APR/11</td>
+            <td class="neutral-val">1,821K</td>
+            <td>â</td>
+            <td><span class="event-flag flag-med">MED</span></td>
+          </tr>
+          <tr>
+            <td style="color:var(--text-muted);">8:30 AM</td>
+            <td>Jobless Claims 4-Week Average</td>
+            <td>APR/18</td>
+            <td class="neutral-val">210.75K</td>
+            <td>â</td>
+            <td><span class="event-flag flag-low">LOW</span></td>
+          </tr>
+          <tr>
+            <td style="color:var(--text-muted);">9:45 AM</td>
+            <td><strong style="color:var(--heading);">S&P Global Manufacturing PMI Flash</strong></td>
+            <td>APR</td>
+            <td class="neutral-val">Pending</td>
+            <td>â</td>
+            <td><span class="event-flag flag-high">HIGH</span></td>
+          </tr>
+          <tr>
+            <td style="color:var(--text-muted);">9:45 AM</td>
+            <td><strong style="color:var(--heading);">S&P Global Services PMI Flash</strong></td>
+            <td>APR</td>
+            <td class="neutral-val">Pending</td>
+            <td>â</td>
+            <td><span class="event-flag flag-high">HIGH</span></td>
+          </tr>
+          <tr>
+            <td style="color:var(--text-muted);">9:45 AM</td>
+            <td>S&P Global Composite PMI Flash</td>
+            <td>APR</td>
+            <td class="neutral-val">Pending</td>
+            <td>â</td>
+            <td><span class="event-flag flag-med">MED</span></td>
+          </tr>
+        </tbody>
+      </table>
+      <div style="margin-top:12px;font-size:11px;color:var(--text-muted);">
+        Source: Trading Economics. Jobless claims print at 214K is modestly below recent trend â labor market still resilient. PMI Flash data is the key swing factor for the session. A weak PMI miss would amplify inflation-recession concerns; a beat would validate the risk-on open.
+      </div>
+    </div>
+  </div>
+
+
+  <!-- âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
+       SECTION 4 â EARNINGS
+  âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">â</span>
+      <span class="section-title">Earnings â Active This Session</span>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="card">
+      <table class="cal-table">
+        <thead>
+          <tr>
+            <th>Ticker</th>
+            <th>Company</th>
+            <th>Timing</th>
+            <th>EPS Surprise</th>
+            <th>Sales Surprise</th>
+            <th>Price</th>
+            <th>Chg</th>
+            <th>Read</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="background:#0a1a0e;">
+            <td><strong style="color:var(--heading);">HON</strong></td>
+            <td>Honeywell International</td>
+            <td><span class="badge badge-earnings">APR 23 BMO</span></td>
+            <td class="beat">+5.50%</td>
+            <td class="miss">â1.73%</td>
+            <td>$219.97</td>
+            <td class="miss">â1.01%</td>
+            <td style="font-size:11px;color:#fcd34d;">Sales miss; Middle East war impact on shipping confirmed</td>
+          </tr>
+          <tr>
+            <td><strong style="color:var(--heading);">INTC</strong></td>
+            <td>Intel Corporation</td>
+            <td><span class="badge badge-live">APR 23 AMC â</span></td>
+            <td class="neutral-val">TBD</td>
+            <td class="neutral-val">TBD</td>
+            <td>$65.27</td>
+            <td class="miss">â1.49%</td>
+            <td style="font-size:11px;color:#93c5fd;">High-vol. Tesla endorses Intel 14A chip. Report tonight.</td>
+          </tr>
+          <tr style="background:#0a0f16;">
+            <td colspan="8" style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);padding-top:14px;">Prior Session / Recently Reported</td>
+          </tr>
+          <tr>
+            <td><strong style="color:var(--heading);">TSLA</strong></td>
+            <td>Tesla Inc</td>
+            <td><span class="badge badge-sector">APR 22 AMC</span></td>
+            <td class="beat">+15.85%</td>
+            <td class="beat">+1.30%</td>
+            <td>$387.51</td>
+            <td class="neutral-val">+0.28%</td>
+            <td style="font-size:11px;color:#fcd34d;">Q1 profit +17%. Selling off on $25B capex & Musk AI comments</td>
+          </tr>
+          <tr>
+            <td><strong style="color:var(--heading);">CSX</strong></td>
+            <td>CSX Corp</td>
+            <td><span class="badge badge-sector">APR 22 AMC</span></td>
+            <td class="beat">+10.54%</td>
+            <td class="miss">â0.18%</td>
+            <td>$43.18</td>
+            <td class="miss">â0.44%</td>
+            <td style="font-size:11px;color:#86efac;">Strong Q1. Rail gaining freight share vs. trucking (oil tailwind)</td>
+          </tr>
+          <tr>
+            <td><strong style="color:var(--heading);">IBM</strong></td>
+            <td>IBM Corp</td>
+            <td><span class="badge badge-sector">APR 22 AMC</span></td>
+            <td class="beat">+5.57%</td>
+            <td class="beat">+1.83%</td>
+            <td>$251.86</td>
+            <td class="miss">â1.49%</td>
+            <td style="font-size:11px;color:#fcd34d;">Beat but stock sliding â sell-the-news reaction</td>
+          </tr>
+          <tr>
+            <td><strong style="color:var(--heading);">BA</strong></td>
+            <td>Boeing Co</td>
+            <td><span class="badge badge-sector">APR 22 BMO</span></td>
+            <td class="beat">+70.80%</td>
+            <td class="beat">+1.67%</td>
+            <td>$231.28</td>
+            <td class="beat">+5.53%</td>
+            <td style="font-size:11px;color:#86efac;">Blowout beat. Strong production recovery. Best mover today.</td>
+          </tr>
+          <tr>
+            <td><strong style="color:var(--heading);">T</strong></td>
+            <td>AT&T Inc</td>
+            <td><span class="badge badge-sector">APR 22 BMO</span></td>
+            <td class="beat">Beat</td>
+            <td class="neutral-val">â</td>
+            <td>$25.98</td>
+            <td class="beat">+0.39%</td>
+            <td style="font-size:11px;color:#86efac;">Quiet beat; muted reaction</td>
+          </tr>
+          <tr>
+            <td><strong style="color:var(--heading);">MMM</strong></td>
+            <td>3M Co</td>
+            <td><span class="badge badge-sector">APR 21 BMO</span></td>
+            <td class="beat">+8.14%</td>
+            <td class="miss">â0.09%</td>
+            <td>$145.78</td>
+            <td class="miss">â1.81%</td>
+            <td style="font-size:11px;color:#fca5a5;">Organic sales â1.4%. FY guidance light. Stock technically weak.</td>
+          </tr>
+          <tr>
+            <td><strong style="color:var(--heading);">RTX</strong></td>
+            <td>RTX Corp</td>
+            <td><span class="badge badge-sector">APR 21 BMO</span></td>
+            <td class="neutral-val">â</td>
+            <td class="neutral-val">â</td>
+            <td>$180.91</td>
+            <td class="miss">â3.34%</td>
+            <td style="font-size:11px;color:#fca5a5;">Supply chain / geopolitical concern. Weak post-earnings reaction.</td>
+          </tr>
+          <tr>
+            <td><strong style="color:var(--heading);">GE</strong></td>
+            <td>GE Aerospace</td>
+            <td><span class="badge badge-sector">APR 21 BMO</span></td>
+            <td class="neutral-val">â</td>
+            <td class="neutral-val">â</td>
+            <td>$276.29</td>
+            <td class="miss">â3.64%</td>
+            <td style="font-size:11px;color:#fca5a5;">Weak post-earnings reaction. Industrial caution widening.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+
+  <!-- âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
+       SECTION 5 â STOCKS IN PLAY
+  âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">â</span>
+      <span class="section-title">Stocks in Play</span>
+      <div class="section-line"></div>
+    </div>
+    <div class="prose" style="margin-bottom:14px;"><p>Names confirmed via Barchart screener emails (CJ_Bullish_Diagonal_Earnings, CJ_Bearish_Diagonal_Earnings) from the April 22 EOD screener run. Market Chameleon access unavailable for IV rank confirmation this session (login failed); IV data sourced from Barchart screener output.</p></div>
+
+    <div class="card">
+      <table class="cal-table">
+        <thead>
+          <tr>
+            <th>Ticker</th>
+            <th>Screener Source</th>
+            <th>Price</th>
+            <th>Chg</th>
+            <th>IV Rank</th>
+            <th>IV Pctl</th>
+            <th>RSI</th>
+            <th>SMA Posture</th>
+            <th>Sector Strength</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong style="color:var(--heading);">CSX</strong></td>
+            <td style="font-size:11px;">CJ_Bullish_Diagonal_Earnings</td>
+            <td>$43.18</td>
+            <td class="miss">â0.44%</td>
+            <td class="neutral-val">39.24%</td>
+            <td class="neutral-val">93rd</td>
+            <td>63.93</td>
+            <td class="beat">Above 20/50/200</td>
+            <td><span class="badge badge-red">Headwind</span></td>
+          </tr>
+          <tr>
+            <td><strong style="color:var(--heading);">MMM</strong></td>
+            <td style="font-size:11px;">CJ_Bearish_Diagonal_Earnings</td>
+            <td>$145.78</td>
+            <td class="miss">â1.81%</td>
+            <td class="neutral-val">38.72%</td>
+            <td class="neutral-val">61st</td>
+            <td>41.87</td>
+            <td class="miss">Below 20/50/200</td>
+            <td><span class="badge badge-red">Headwind</span></td>
+          </tr>
+          <tr>
+            <td><strong style="color:var(--heading);">INTC</strong></td>
+            <td style="font-size:11px;">High IV / Pre-Earnings (tonight)</td>
+            <td>$65.27</td>
+            <td class="miss">â1.49%</td>
+            <td class="neutral-val">N/A (MC down)</td>
+            <td class="neutral-val">â</td>
+            <td>68.09</td>
+            <td class="beat">Above 20/50/200</td>
+            <td><span class="badge badge-green">Supportive</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+
+  <!-- âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
+       SECTION 6 â BROADER MARKET THEMES
+  âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">â</span>
+      <span class="section-title">Broader Market Themes</span>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="card card-macro">
+      <div class="prose">
+        <p><strong>Theme 1 â Industrial Bifurcation:</strong> The industrial sector is delivering a two-tier earnings picture. Logistics/transportation (CSX, BA) are beating cleanly â CSX benefiting from freight switching from trucking to rail as oil tops $100, and BA recovering on production normalization. But diversified industrials (HON, MMM, GE, RTX) are posting EPS beats paired with organic sales misses and cautious guidance. The split reflects the war's uneven impact on global supply chains.</p>
+        <p><strong>Theme 2 â Oil Above $100 / Iran War:</strong> Oil crossing $100 is a dual-edged event for equities. It drives Energy sector strength (+1.18%) and benefits rail logistics, but it feeds inflation concerns, pinches manufacturing margins, and raises the geopolitical risk premium broadly. HON's explicit warning about Middle East shipping disruptions validates oil above $100 as a fundamental earnings risk â expect more companies to echo this language in coming weeks.</p>
+        <p><strong>Theme 3 â Overbought Indices, Earnings Cliff:</strong> SPY RSI at 70.39 and QQQ at 74.14 signal a stretched tape heading into a PMI-heavy session. The earnings season is transitioning from initial beats to the harder task of maintaining forward guidance optimism â and the industrial guidance misses are a caution sign. A soft PMI print today could trigger a corrective flush.</p>
+        <p><strong>Theme 4 â INTC / AI Hardware Narrative:</strong> Intel reporting tonight is the session's primary binary event. Elon Musk's endorsement of Intel's 14A chip process for Tesla's Terafab complex is a meaningful catalyst â the stock is up 244% from its 52W low and has become a crowded AI hardware recovery play. A beat could extend the run; a miss on guidance would be painful given the extended valuation and technical positioning.</p>
+        <p><strong>Theme 5 â MEGA Earnings Next Week:</strong> META (Apr 29), GOOGL (Apr 29), AMZN (Apr 29), AAPL (Apr 30) all report next week. This is the most critical earnings cluster of the season. Options pipeline building for these names should begin now â the desk should be monitoring IV buildout and expected move across all four heading into the weekend.</p>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
+       SECTION 7 â OPTIONS DESK BOARD
+  âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">â</span>
+      <span class="section-title">Options Desk Board</span>
+      <div class="section-line"></div>
+    </div>
+
+    <!-- âââ ACCEPTED: CSX âââ -->
+    <div class="card card-accepted">
+      <div class="card-header">
+        <span class="symbol">CSX</span>
+        <div>
+          <div class="company-name">CSX Corp â Railroads / Industrials</div>
+        </div>
+        <span class="badge badge-accept">â Accepted</span>
+        <span class="badge badge-earnings">Post-Earnings</span>
+        <span class="badge badge-iv">IV Pctl 93rd</span>
+        <span class="badge badge-red">Sector: Headwind</span>
+      </div>
+
+      <div class="metrics-grid">
+        <div class="metric">
+          <div class="metric-label">Price</div>
+          <div class="metric-value">$43.18</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Change</div>
+          <div class="metric-value down">â0.44%</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">IV Rank</div>
+          <div class="metric-value neutral">39.24%</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">IV Pctl</div>
+          <div class="metric-value neutral">93rd</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">RSI (14)</div>
+          <div class="metric-value up">63.93</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">ATR (14)</div>
+          <div class="metric-value">$0.82</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Beta</div>
+          <div class="metric-value">1.21</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Analyst Target</div>
+          <div class="metric-value up">$45.30</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">52W High</div>
+          <div class="metric-value">$43.79</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">EPS Surprise</div>
+          <div class="metric-value up">+10.54%</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">SMA20</div>
+          <div class="metric-value up">+3.39%</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">SMA200</div>
+          <div class="metric-value up">+17.20%</div>
+        </div>
+      </div>
+
+      <div class="prose">
+        <p><strong>Catalyst:</strong> CSX reported Q1 2026 AMC on April 22 â strong beat. Revenue grew, costs fell, record fuel efficiency achieved. Critically, management flagged that more businesses are switching from trucking to rail to avoid surging fuel costs â a structural tailwind as oil exceeds $100/bbl. EPS surprise of +10.54%; minor revenue miss of â0.18% is immaterial given the fundamental shift in freight mix.</p>
+        <p><strong>Structure:</strong> <strong>Bullish Calendar Diagonal</strong> â Sell near-term (May) OTM call above the current breakout zone (~$44â$45), buy longer-dated (June/July) OTM call at the same or slightly lower strike. IV at 93rd percentile makes near-term premium sales attractive; the longer-dated leg benefits from any continued rail demand narrative or follow-through breakout toward analyst target of $45.30.</p>
+        <p><strong>Bias:</strong> Modestly bullish with theta capture. The post-earnings small pullback (â0.44%) on a solid beat is constructive â the market absorbed the news without selling off aggressively. Stock is above all SMAs. Rail/trucking substitution thesis intact.</p>
+        <p><strong>Risk:</strong> Industrials sector is the weakest large-cap sector today (â0.32%), providing a headwind. If oil reverses lower, the freight-switching tailwind diminishes. Broader market pullback on PMI miss could drag the name.</p>
+      </div>
+    </div>
+
+    <!-- âââ ACCEPTED: MMM âââ -->
+    <div class="card card-accepted">
+      <div class="card-header">
+        <span class="symbol">MMM</span>
+        <div>
+          <div class="company-name">3M Co â Conglomerates / Industrials</div>
+        </div>
+        <span class="badge badge-accept">â Accepted</span>
+        <span class="badge badge-earnings">Post-Earnings</span>
+        <span class="badge badge-iv">IV Pctl 61st</span>
+        <span class="badge badge-red">Sector: Headwind</span>
+      </div>
+
+      <div class="metrics-grid">
+        <div class="metric">
+          <div class="metric-label">Price</div>
+          <div class="metric-value">$145.78</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Change</div>
+          <div class="metric-value down">â1.81%</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">IV Rank</div>
+          <div class="metric-value neutral">38.72%</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">IV Pctl</div>
+          <div class="metric-value neutral">61st</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">RSI (14)</div>
+          <div class="metric-value down">41.87</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">ATR (14)</div>
+          <div class="metric-value">$4.30</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Beta</div>
+          <div class="metric-value">1.03</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">52W High</div>
+          <div class="metric-value down">$177.41</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">EPS Surprise</div>
+          <div class="metric-value up">+8.14%</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Org. Sales Chg</div>
+          <div class="metric-value down">â1.40%</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">SMA50</div>
+          <div class="metric-value down">â5.57%</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">SMA200</div>
+          <div class="metric-value down">â7.94%</div>
+        </div>
+      </div>
+
+      <div class="prose">
+        <p><strong>Catalyst:</strong> MMM reported Q1 2026 BMO on April 21 â beat EPS (reported $2.14 vs. estimates), but organic sales declined 1.4% and full-year guidance came in slightly below analyst expectations. The EPS beat was margin-driven, not top-line driven, which limits the bullish read-through. Stock has been unable to recover: â1.81% today, â8.94% YTD, â17.83% from 52W high of $177.41. HON's session-morning warning about Middle East supply disruptions is additional contextual validation of the sales-miss thesis for diversified industrial companies.</p>
+        <p><strong>Structure:</strong> <strong>Bearish Calendar Diagonal</strong> â Sell near-term (May) OTM put at/below current support, buy longer-dated (June/July) OTM put at the same or slightly higher strike. IV at 61st percentile supports modest premium sales. Directional lean is bearish given stock's technical deterioration and sales weakness narrative.</p>
+        <p><strong>Bias:</strong> Bearish / premium sell. RSI 41.87 is in neither oversold nor overbought â intermediate range with downward pressure. Stock below all SMAs confirms trend deterioration. The broader industrial weakness (GE â3.64%, RTX â3.34%, HON â1.01% today) is sector-level confirmation of the bearish lean.</p>
+        <p><strong>Risk:</strong> MMM could stage a reflex bounce from oversold proximity â EPS beats have historically attracted value buyers. A broad market rally or a hot CPI reversal could compress the put spread. Manage duration carefully.</p>
+      </div>
+    </div>
+
+    <!-- âââ DOWNGRADED: INTC âââ -->
+    <div class="card card-downgraded">
+      <div class="card-header">
+        <span class="symbol">INTC</span>
+        <div>
+          <div class="company-name">Intel Corporation â Semiconductors / Technology</div>
+        </div>
+        <span class="badge badge-downgrade">â¬¡ Downgraded</span>
+        <span class="badge badge-live">Reports Tonight AMC â</span>
+        <span class="badge badge-sector">Sector: Supportive</span>
+      </div>
+
+      <div class="metrics-grid">
+        <div class="metric">
+          <div class="metric-label">Price</div>
+          <div class="metric-value">$65.27</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Change</div>
+          <div class="metric-value down">â1.49%</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">RSI (14)</div>
+          <div class="metric-value neutral">68.09</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Beta</div>
+          <div class="metric-value neutral">1.66</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Wk Volatility</div>
+          <div class="metric-value neutral">5.37%</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">ATR (14)</div>
+          <div class="metric-value">$3.21</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">52W High</div>
+          <div class="metric-value">$70.32</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">vs. SMA200</div>
+          <div class="metric-value up">+72.05%</div>
+        </div>
+      </div>
+
+      <div class="prose">
+        <p><strong>Why Downgraded:</strong> INTC is a high-conviction watch name for tonight's earnings, but a confirmed structure cannot be assigned without Market Chameleon IV rank data. The MC login was unavailable this session, leaving IV rank and expected move unconfirmed. The stock is technically extended (+244% from 52W low of $18.97, RSI 68) and a Tesla/Musk endorsement of Intel's 14A chip process provides a positive catalyst â but without knowing whether the implied move is overpriced or underpriced versus the historical earnings move average, the desk cannot determine whether to buy premium (straddle/strangle) or sell premium (iron condor/strangle).</p>
+        <p><strong>What Needs Confirmation Before Initiating:</strong></p>
+      </div>
+      <ul class="confirm-list">
+        <li>Confirm IV rank vs. 4-quarter historical average at Market Chameleon (buy vs. sell premium decision)</li>
+        <li>Confirm expected move % tonight â compare against ATR and historical post-earnings moves</li>
+        <li>Monitor RSI at open â if extends above 70 pre-earnings, reduce any long delta exposure</li>
+        <li>Assess guidance language on foundry revenue (Musk/Tesla comment is a one-off, not a guarantee of the contract)</li>
+      </ul>
+    </div>
+
+    <!-- Desk Read -->
+    <div class="desk-take">
+      <div class="desk-take-title">Options Desk Read</div>
+      <div class="desk-take-body">
+        Two clean post-earnings diagonal setups are active today: CSX for the bullish thesis (freight modal shift, oil tailwind, beat confirmed) and MMM for the bearish thesis (sales weakness, FY guidance miss, technical deterioration, industrial sector headwinds across peers). Both offer IV percentile-supported premium sales in a defined-risk diagonal structure. INTC is the session's evening event to monitor â confirm IV context before initiating any pre-earnings structure. No other names meet the screener + catalyst + liquid options threshold for today.
+      </div>
+    </div>
+  </div>
+
+
+  <!-- âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
+       SECTION 8 â EXECUTION BIAS
+  âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">â</span>
+      <span class="section-title">Execution Bias</span>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="bias-block">
+      <div class="bias-label">Favored Setups Today</div>
+      <div class="bias-text">Post-earnings diagonal spreads (CSX bullish diagonal, MMM bearish diagonal) where IV percentile supports premium selling. Both are defined-risk structures with clear catalyst backstory and directional confirmation from technical posture. For INTC tonight: if MC data confirms IV is elevated vs. historical earnings moves, a short strangle or iron condor structure captures the binary-event crush with defined risk.</div>
+    </div>
+
+    <div class="bias-block">
+      <div class="bias-label">Desk Posture</div>
+      <div class="bias-text">Selective. Two confirmed structures, one watch. Indices are overbought (SPY RSI 70, QQQ RSI 74) â avoid adding net long-premium directional bets against overbought tape unless a fresh catalyst justifies it. Let post-earnings IV crush plays work. PMI data at 9:45 AM is a volatility event for the broad market â wait for the print before adding new positions.</div>
+    </div>
+
+    <div class="avoid-block">
+      <div class="avoid-label">Setups to Avoid</div>
+      <div class="avoid-text">Avoid naked directional plays into the US-Iran uncertainty â oil above $100 introduces non-linear geopolitical risk that can gap markets. Avoid new long-premium buys in names that have already experienced post-earnings IV crush (CSX, MMM, TSLA, IBM) â theta is working against you at this stage. Avoid chasing BA (+5.53%) long â the big gap is IV-rich for premium sellers, not buyers. No screener confirmation for a BA options structure exists.</div>
+    </div>
+
+    <div class="avoid-block">
+      <div class="avoid-label">What Needs Confirmation</div>
+      <div class="avoid-text">INTC IV rank and expected move data from Market Chameleon â required before initiating any pre-earnings structure tonight. MEGA tech (META, GOOGL, AMZN, AAPL) IV buildout data through the week â these are the primary pipeline names for next week. Monitor PMI Flash print at 9:45 AM for potential broad market volatility injection that could alter today's entry levels.</div>
+    </div>
+  </div>
+
+
+  <!-- âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
+       SECTION 9 â WEEK AHEAD
+  âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">â</span>
+      <span class="section-title">Week Ahead</span>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="card">
+      <table class="cal-table">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Event / Catalyst</th>
+            <th>Tickers</th>
+            <th>Priority</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Thu Apr 23 (Tonight)</td>
+            <td>Intel Earnings AMC â Binary event; Musk/Tesla AI chip angle</td>
+            <td><strong>INTC</strong></td>
+            <td><span class="event-flag flag-high">HIGH</span></td>
+          </tr>
+          <tr>
+            <td>Mon Apr 27</td>
+            <td>Verizon Earnings BMO</td>
+            <td><strong>VZ</strong></td>
+            <td><span class="event-flag flag-med">MED</span></td>
+          </tr>
+          <tr style="background:#0a1020;">
+            <td>Tue Apr 29</td>
+            <td><strong style="color:#93c5fd;">MEGA Earnings AMC â Alphabet, Meta, Amazon</strong></td>
+            <td><strong>GOOGL, META, AMZN</strong></td>
+            <td><span class="event-flag flag-high">HIGH â</span></td>
+          </tr>
+          <tr>
+            <td>Wed Apr 30</td>
+            <td>Apple Earnings AMC; Caterpillar Earnings BMO</td>
+            <td><strong>AAPL, CAT</strong></td>
+            <td><span class="event-flag flag-high">HIGH â</span></td>
+          </tr>
+          <tr>
+            <td>Thu May 1</td>
+            <td>Exxon amp; Chevron Earnings BMO; Potential NFP-adjacent data</td>
+            <td><strong>XOM, CVX</strong></td>
+            <td><span class="event-flag flag-med">MED</span></td>
+          </tr>
+        </tbody>
+      </table>
+      <div style="margin-top:12px;font-size:11px;color:var(--text-muted);">
+        <strong style="color:var(--text);">Key Pipeline Note:</strong> The April 29â30 window (GOOGL, META, AMZN, AAPL) is the most consequential earnings cluster of the season. Begin monitoring IV buildout and expected move sizing across all four names now. The desk should be positioned for these setups before end of week â not scrambling for entries on the day before.
+      </div>
+    </div>
+  </div>
+
+
+  <!-- âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
+       SECTION 10 â SECONDARY NAMES / WATCHLIST
+  âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">â</span>
+      <span class="section-title">Secondary Names / Macro Watchlist</span>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="watchlist-item">
+      <div class="watchlist-ticker">BA</div>
+      <div class="watchlist-detail">
+        <strong>Boeing Co</strong> â +5.53% today on blowout Q1 earnings (EPS surprise +70.80%). Production recovery story gaining credibility. No screener confirmation for options structure, but watch for pullback into the $220â$225 range as a potential re-entry. RSI 62.33, above all SMAs.
+      </div>
+    </div>
+
+    <div class="watchlist-item">
+      <div class="watchlist-ticker">NVDA</div>
+      <div class="watchlist-detail">
+        <strong>NVIDIA Corp</strong> â $²02.50, +1.31%. RSI 69.81, near overbought. Technology sector leading; NVDA is a proxy. Next earnings May quarter. Watch for IV buildout in coming weeks as the next earnings date approaches. Not an active structure today â monitoring only.
+      </div>
+    </div>
+
+    <div class="watchlist-item">
+      <div class="watchlist-ticker">XOM</div>
+      <div class="watchlist-detail">
+        <strong>Exxon Mobil</strong> â $149.50, +0.77%. Energy sector benefiting from oil above $100. Earnings May 1 BMO. Begin monitoring for pre-earnings IV buildup toward end of next week. Iran risk is a direct positive catalyst for energy names.
+      </div>
+    </div>
+
+    <div class="watchlist-item">
+      <div class="watchlist-ticker">AAPL</div>
+      <div class="watchlist-detail">
+        <strong>Apple Inc</strong> â $273.17, +2.63% today. Earnings Apr 30 AMC. RSI 62.73, above all SMAs. EPS next Q est. $1.95. Begin monitoring expected move and IV rank buildout ahead of Apr 29â30 MEGA earnings window. Not an active structure today.
+      </div>
+    </div>
+  </div>
+
+
+  <!-- âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
+       SECTION 11 â FINAL DESK TAKE
+  âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">â</span>
+      <span class="section-title">Final Desk Take</span>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="desk-take">
+      <div class="desk-take-title">CJ Capital Trading Desk â April 23, 2026</div>
+      <div class="desk-take-body">
+        Today$ÌÍÍÍ¥½¸½Á¹Ì¥¸Ñ¡¹¥±±ä½ÙÉ½Õ¡Ð°µÉ¼µÕ¹ÉÑ¥¸¹Ù¥É½¹µ¹ÐP½µ¥¹Ñ¥½¸Ñ¡Ð±±Ì½ÈÁÉ¥Í¥½¸½ÙÈÉÍÍ¥½¸¸Q¡ÁÉ¥µÉä½ÁÁ½ÉÑÕ¹¥ÑäÑåÁ¥ÌñÍÑÉ½¹ùÁ½ÍÐµÉ¹¥¹ÌÁÉµ¥Õ´Í±±¥¹ð½ÍÑÉ½¹øè
+M`¡Õ±±¥Í ¥½¹°°Ñ¸Õ¹µ¹Ñ°ÍÑ½Éä°%XÐäÍÉÁÉ¹Ñ¥±¤¹554¡É¥Í ¥½¹°°Í±ÌÝ­¹ÍÌ½¹¥Éµ°ÍÑ½¬±½Ü±°M5Ì¤ÉÑ¡ÑÝ¼±¸ÍÑÕÁÌÝ¥Ñ ÍÉ¹È½¹¥ÉµÑ¥½¸¹¥¹Ñ±åÍÐ­ÍÑ½Éä¸ñÈøñÈø(Q¡½µ¥¹¹ÐµÉ¼½ÙÉ±ä¥Ì½Á½±¥Ñ¥°è½¥°½ÙÄÀÀ½¸%É¸ÝÈÉ¥Í¬¥Ì±¥ÙÉ¹¥¹ÌÉ¥Í¬½È±½±±äµáÁ½Í¥¹ÕÍÑÉ¥±Ì°Ñ¥±Ý¥¹½ÈÉ¥°¹¹Éä°¹¸¥¹±Ñ¥½¹ÉäÁÉÍÍÕÉ½¸Ñ¡É½È½¹½µä¸!½¹åÝ±°ÌáÁ±¥¥ÐÝÉ¹¥¹Ñ¡¥Ìµ½É¹¥¹¥ÌÑ¡ÍÍÍ¥½¸Ìµ½ÍÐ¥µÁ½ÉÑ¹Ð½ÉÝÉµ±½½­¥¹ÑÁ½¥¹ÐRPÝÑ ½È!=8µÍÑå±Õ¥¹±¹ÕÉ½´½Ñ¡ÈµÕ±Ñ¤µ¹Ñ¥½¹°¥¹ÕÍÑÉ¥±ÌÉÁ½ÉÑ¥¹Ñ¡¥ÌÝ¬¹¹áÐ¸ñÈøñÈø(Q¡Ù¹¥¹Ì½ÕÌÍ¡¥ÑÌ¹Ñ¥É±äÑ¼ñÍÑÉ½¹ù%¹Ñ°¡%9Q¤ð½ÍÑÉ½¹ø¸Q¡¥Ì¥Ì¡¥ µÙ½°°Ñ¡¹¥±±äáÑ¹¹µÝ¥Ñ Ñ¡QÍ±½$¡¥À¹½ÉÍµ¹ÐÌ¸ÍåµµÑÉ¥Ñ±åÍÐ¸Q¡Í¬µÕÍÐ½¹¥É´%X½¹ÑáÐÉ½´5É­Ð
+¡µleon before initiating any structure. If IV is elevated vs. the 4-quarter earnings move average, a premium sale (iron condor/short strangle) is the play. If IV is modest vs. history, consider a directional straddle into the catalyst.<br><br>
+        Next week's MEGA earnings cluster (GOOGL, META, AMZN, AAPL) is where the real pipeline opportunity sits. The desk enters that window selectively positioned â not overloaded â and monitoring IV buildout through Friday. Today is about execution discipline, not accumulation. <strong>Stance: Selective.</strong>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /page-wrap -->
+
+<!-- BOTTOM DISCLAIMER â 1467D -->
+<div class="disclaimer-bottom">
+  <strong>RISK DISCLOSURE AND REGULATORY NOTICE (1467D)</strong><br>
+  The information contained in this report is prepared by CJ Capital and is intended for use by sophisticated market participants and accredited investors only. This report does not constitute financial product advice, an offer to buy or sell any security, or a solicitation of any investment decision. Past performance of any strategy, trade, or market view discussed herein is not indicative of future results.
+  All options strategies involve risk, including the potential loss of the entire amount invested. Spreads, straddles, and diagonal structures involve multiple legs and may be subject to execution risk, early assignment risk, pin risk, and liquidity risk. The desk reserves the right to modify, exit, or avoid any structure discussed herein based on evolving market conditions.
+  Market data is sourced from Finviz, Barchart, Market Chameleon, Trading Economics, and public news sources. Data is believed to be accurate as of the time of preparation but is not guaranteed. CJ Capital makes no representation as to the completeness or accuracy of third-party data. All figures should be independently verified before use in any trading decision.
+  This report is confidential and intended solely for the recipient. Redistribution without written consent from CJ Capital is prohibited.
+</div>
+
+</body>
+</html>
