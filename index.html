@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CJ Capital Desk — Market Rundown | April 24, 2026</title>
+  <style>
+    :root {
+      --bg:          #0b0d12;
+      --surface:     #10131a;
+      --surface2:    #161b25;
+      --surface3:    #1c2230;
+      --border:      #222840;
+      --border-soft: #1a1f2e;
+      --accent:      #3b82f6;
+      --accent2:     #6366f1;
+      --gold:        #f59e0b;
+      --green:       #22c55e;
+      --red:         #ef4444;
+      --yellow:      #eab308;
+      --orange:      #f97316;
+      --teal:        #14b8a6;
+      --text:        #e2e8f0;
+      --dim:         #94a3b8;
+      --muted:       #4b5563;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; font-size: 13.5px; line-height: 1.6; }
+
+    /* ── DISCLAIMER ── */
+    .disc { padding: 9px 28px; font-size: 11px; line-height: 1.55; text-align: center; }
+    .disc-top    { background: #110d00; border-bottom: 1px solid #78350f; color: #92400e; }
+    .disc-top strong { color: #b45309; }
+    .disc-bot    { background: #0b0d12; border-top: 1px solid var(--border); color: var(--muted); margin-top: 40px; }
+    .disc-bot strong { color: #6b7280; }
+
+    /* ── HEADER ── */
+    .hdr {
+      background: linear-gradient(135deg, #0d1220 0%, #141e30 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 18px 32px 14px;
+      display: flex; align-items: flex-end; justify-content: space-between; flex-wrap: wrap; gap: 10px;
+    }
+    .hdr-left h1 { font-size: 20px; font-weight: 800; color: #fff; letter-spacing: .02em; }
+    .hdr-left h1 span { color: var(--accent); }
+    .hdr-meta { font-size: 11.5px; color: var(--muted); margin-top: 4px; }
+    .hdr-meta span { color: var(--dim); }
+    .live-badge {
+      background: rgba(34,197,94,.12); border: 1px solid rgba(34,197,94,.3);
+      color: #4ade80; font-size: 11px; font-weight: 700; padding: 4px 11px; border-radius: 20px;
+      letter-spacing: .06em;
+    }
+
+    /* ── NAV ── */
+    nav {
+      background: var(--surface); border-bottom: 1px solid var(--border);
+      padding: 0 28px; display: flex; flex-wrap: wrap; overflow-x: auto;
+    }
+    nav a {
+      color: var(--muted); text-decoration: none; font-size: 11.5px; font-weight: 600;
+      padding: 10px 13px; border-bottom: 2px solid transparent; transition: all .15s;
+      white-space: nowrap; letter-spacing: .04em; text-transform: uppercase;
+    }
+    nav a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
+    /* ── LAYOUT ── */
+    .wrap { max-width: 1080px; margin: 0 auto; padding: 24px 20px 48px; }
+
+    /* ── SECTION SHELL ── */
+    .sec {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 8px; margin-bottom: 18px; overflow: hidden;
+    }
+    .sec-hdr {
+      background: var(--surface2); border-bottom: 1px solid var(--border);
+      padding: 10px 18px; display: flex; align-items: center; gap: 10px;
+    }
+    .sec-num {
+      background: var(--accent); color: #fff; font-size: 10px; font-weight: 800;
+      width: 20px; height: 20px; border-radius: 4px;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .sec-title { font-size: 12px; font-weight: 700; color: #fff; text-transform: uppercase; letter-spacing: .08em; }
+    .sec-body { padding: 16px 18px; }
+
+    /* ── SUBSECTION ── */
+    .sub-label {
+      font-size: 10.5px; font-weight: 800; text-transform: uppercase; letter-spacing: .1em;
+      padding: 5px 10px; border-radius: 4px; display: inline-block; margin-bottom: 12px;
+    }
+    .sub-aplus   { background: rgba(34,197,94,.12);  color: #4ade80; border: 1px solid rgba(34,197,94,.3); }
+    .sub-a       { background: rgba(59,130,246,.12);  color: #60a5fa; border: 1px solid rgba(59,130,246,.3); }
+    .sub-down    { background: rgba(239,68,68,.1);   color: #f87171; border: 1px solid rgba(239,68,68,.25); }
+    .sub-macro   { background: rgba(20,184,166,.1);  color: #2dd4bf; border: 1px solid rgba(20,184,166,.25); }
+    .sub-sep { margin-top: 18px; }
+
+    /* ── SNAPSHOT CARDS ── */
+    .snap-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px,1fr)); gap: 10px; margin-bottom: 14px; }
+    .snap-card { background: var(--surface2); border: 1px solid var(--border); border-radius: 6px; padding: 11px 13px; }
+    .snap-lbl  { font-size: 10px; color: var(--muted); font-weight: 700; text-transform: uppercase; letter-spacing: .05em; }
+    .snap-val  { font-size: 17px; font-weight: 800; color: #fff; margin: 1px 0; }
+    .snap-chg  { font-size: 11.5px; font-weight: 600; }
+    .g  { color: var(--green); }
+    .r  { color: var(--red); }
+    .y  { color: var(--yellow); }
+    .b  { color: var(--accent); }
+    .go { color: var(--gold); }
+
+    /* ── TONE PILL ── */
+    .pill {
+      display: inline-flex; align-items: center; gap: 5px;
+      padding: 4px 13px; border-radius: 20px; font-size: 11.5px; font-weight: 700; margin: 2px 4px 2px 0;
+    }
+    .pill-caut { background: rgba(234,179,8,.1);  border: 1px solid rgba(234,179,8,.3);  color: #eab308; }
+    .pill-bull { background: rgba(34,197,94,.1);  border: 1px solid rgba(34,197,94,.3);  color: #22c55e; }
+    .pill-neut { background: rgba(99,102,241,.1); border: 1px solid rgba(99,102,241,.3); color: #818cf8; }
+    .pill-sel  { background: rgba(59,130,246,.1); border: 1px solid rgba(59,130,246,.3); color: #60a5fa; }
+    .pill-def  { background: rgba(239,68,68,.1);  border: 1px solid rgba(239,68,68,.25); color: #f87171; }
+
+    /* ── SECTOR ROTATION ── */
+    .rot-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; margin-top: 12px; }
+    .rot-card { background: var(--surface2); border: 1px solid var(--border); border-radius: 6px; padding: 10px 12px; }
+    .rot-card .lbl { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .07em; color: var(--muted); margin-bottom: 5px; }
+    .rot-card ul { list-style: none; }
+    .rot-card ul li { font-size: 12px; color: var(--dim); padding: 2px 0; }
+    .rot-card ul li::before { content: "› "; color: var(--accent); font-weight: 700; }
+
+    /* ── DESK READ / WATCH ── */
+    .callout {
+      background: var(--surface3); border-left: 3px solid var(--accent);
+      border-radius: 0 5px 5px 0; padding: 10px 14px; margin-top: 14px;
+    }
+    .callout.gold-border { border-left-color: var(--gold); }
+    .callout.green-border { border-left-color: var(--green); }
+    .callout.red-border  { border-left-color: var(--red); }
+    .callout-title { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: .1em; color: var(--accent); margin-bottom: 6px; }
+    .callout.gold-border .callout-title  { color: var(--gold); }
+    .callout.green-border .callout-title { color: var(--green); }
+    .callout.red-border .callout-title   { color: var(--red); }
+    .callout p, .callout li { font-size: 12.5px; color: var(--dim); }
+    .callout ul { list-style: none; padding: 0; }
+    .callout ul li { padding: 2px 0; }
+    .callout ul li::before { content: "› "; color: var(--accent); font-weight: 700; }
+    .callout.gold-border ul li::before { color: var(--gold); }
+    .callout.green-border ul li::before { color: var(--green); }
+    .callout.red-border ul li::before   { color: var(--red); }
+
+    /* ── BULLET LIST ── */
+    ul.bl { list-style: none; padding: 0; }
+    ul.bl li { padding: 6px 0; border-bottom: 1px solid var(--border-soft); font-size: 13px; color: var(--dim); display: flex; gap: 8px; align-items: flex-start; }
+    ul.bl li:last-child { border-bottom: none; }
+    ul.bl li::before { content: "›"; color: var(--accent); font-weight: 800; flex-shrink: 0; margin-top: 1px; }
+    ul.bl li strong { color: var(--text); }
+
+    /* ── CALENDAR TABLE ── */
+    .tbl { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+    .tbl th { text-align: left; padding: 7px 10px; font-size: 10px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); border-bottom: 1px solid var(--border); }
+    .tbl td { padding: 8px 10px; border-bottom: 1px solid var(--border-soft); color: var(--dim); vertical-align: top; }
+    .tbl tr:last-child td { border-bottom: none; }
+    .tbl td:first-child { color: var(--accent); font-weight: 700; white-space: nowrap; }
+    .tbl td:nth-child(2) { color: #fff; font-weight: 600; }
+    .hi  { color: var(--red)    !important; font-weight: 700 !important; }
+    .med { color: var(--yellow) !important; font-weight: 600 !important; }
+    .lo  { color: var(--muted)  !important; }
+
+    /* ── TAGS ── */
+    .tag { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 10.5px; font-weight: 700; }
+    .tag-bmo  { background: rgba(59,130,246,.15); color: #60a5fa; border: 1px solid rgba(59,130,246,.3); }
+    .tag-amc  { background: rgba(139,92,246,.15); color: #a78bfa; border: 1px solid rgba(139,92,246,.3); }
+    .tag-beat { background: rgba(34,197,94,.15);  color: #4ade80; border: 1px solid rgba(34,197,94,.3); }
+    .tag-miss { background: rgba(239,68,68,.15);  color: #f87171; border: 1px solid rgba(239,68,68,.3); }
+
+    /* ── SETUP CARD ── */
+    .setup {
+      background: var(--surface2); border: 1px solid var(--border);
+      border-radius: 6px; padding: 13px 15px; margin-bottom: 10px;
+    }
+    .setup:last-child { margin-bottom: 0; }
+    .setup-hdr { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+    .s-ticker { font-size: 15px; font-weight: 800; color: #fff; }
+    .s-name   { font-size: 11.5px; color: var(--muted); }
+    .grade {
+      margin-left: auto; padding: 3px 10px; border-radius: 5px; font-size: 11.5px; font-weight: 800;
+    }
+    .g-aplus { background: rgba(34,197,94,.14); color: #4ade80; border: 1px solid rgba(34,197,94,.4); }
+    .g-a     { background: rgba(59,130,246,.14); color: #60a5fa; border: 1px solid rgba(59,130,246,.4); }
+    .g-b     { background: rgba(234,179,8,.12);  color: #fbbf24; border: 1px solid rgba(234,179,8,.3); }
+    .g-rej   { background: rgba(239,68,68,.12);  color: #f87171; border: 1px solid rgba(239,68,68,.3); }
+    .s-pts   { list-style: none; padding: 0; }
+    .s-pts li { font-size: 12.5px; color: var(--dim); padding: 3px 0; display: flex; gap: 7px; }
+    .s-pts li::before { content: "•"; color: var(--accent); flex-shrink: 0; }
+    .s-pts li strong { color: var(--text); }
+
+    /* ── DOWNGRADED CARD ── */
+    .dg-card {
+      background: rgba(239,68,68,.04); border: 1px solid rgba(239,68,68,.18);
+      border-radius: 6px; padding: 12px 15px; margin-bottom: 10px;
+    }
+    .dg-card:last-child { margin-bottom: 0; }
+    .dg-hdr { display: flex; align-items: center; gap: 8px; margin-bottom: 7px; }
+    .dg-ticker { font-size: 14px; font-weight: 800; color: #f87171; }
+    .dg-label  { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; background: rgba(239,68,68,.12); color: #f87171; padding: 2px 8px; border-radius: 4px; border: 1px solid rgba(239,68,68,.25); }
+    .dg-pts    { list-style: none; padding: 0; }
+    .dg-pts li { font-size: 12px; color: var(--dim); padding: 2px 0; display: flex; gap: 7px; }
+    .dg-pts li::before { content: "✕"; color: var(--red); flex-shrink: 0; font-size: 10px; margin-top: 3px; }
+    .wait-line { margin-top: 8px; font-size: 11.5px; color: var(--gold); font-weight: 600; }
+    .wait-line span { color: var(--dim); font-weight: 400; }
+
+    /* ── EXECUTION BIAS ── */
+    .eb-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .eb-card { background: var(--surface2); border: 1px solid var(--border); border-radius: 6px; padding: 12px 14px; }
+    .eb-card.full { grid-column: 1 / -1; }
+    .eb-label { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 7px; }
+    .eb-label.fav   { color: var(--green); }
+    .eb-label.neut  { color: var(--yellow); }
+    .eb-label.avoid { color: var(--red); }
+    .eb-label.conf  { color: var(--accent); }
+    .eb-label.opts  { color: var(--gold); }
+    .eb-pts { list-style: none; padding: 0; }
+    .eb-pts li { font-size: 12px; color: var(--dim); padding: 2.5px 0; display: flex; gap: 7px; }
+    .eb-pts li::before { content: "›"; font-weight: 800; flex-shrink: 0; }
+    .eb-pts.fav   li::before { color: var(--green); }
+    .eb-pts.neut  li::before { color: var(--yellow); }
+    .eb-pts.avoid li::before { color: var(--red); }
+    .eb-pts.conf  li::before { color: var(--accent); }
+
+    /* ── SECONDARY / WEEK ── */
+    .sec-tbl { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+    .sec-tbl th { text-align: left; padding: 7px 10px; font-size: 10px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); border-bottom: 1px solid var(--border); }
+    .sec-tbl td { padding: 8px 10px; border-bottom: 1px solid var(--border-soft); color: var(--dim); }
+    .sec-tbl tr:last-child td { border-bottom: none; }
+    .sec-tbl td:first-child { color: #fff; font-weight: 800; width: 75px; }
+    .sec-tbl td:nth-child(2) { color: var(--dim); width: 160px; }
+
+    /* ── WEEK AHEAD ── */
+    .wk-row { display: flex; gap: 14px; padding: 9px 0; border-bottom: 1px solid var(--border-soft); font-size: 12.5px; align-items: flex-start; }
+    .wk-row:last-child { border-bottom: none; }
+    .wk-dt { color: var(--accent); font-weight: 700; min-width: 85px; font-size: 11.5px; }
+    .wk-ev { color: var(--dim); }
+    .wk-ev strong { color: var(--text); }
+    .wk-row.hot .wk-dt { color: var(--gold); }
+    .wk-row.hot .wk-ev { color: var(--gold); font-weight: 600; }
+    .wk-row.hot .wk-ev span { color: var(--dim); font-weight: 400; }
+
+    /* ── FINAL TAKE ── */
+    .ft-block { background: var(--surface2); border: 1px solid var(--border); border-radius: 6px; padding: 14px 16px; margin-bottom: 10px; }
+    .ft-block:last-child { margin-bottom: 0; }
+    .ft-lbl { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: .1em; color: var(--accent); margin-bottom: 5px; }
+    .ft-block p { font-size: 12.5px; color: var(--dim); line-height: 1.65; }
+    .ft-block p strong { color: var(--text); }
+
+    /* ── GRADING ── */
+    .gr-row { display: flex; align-items: center; gap: 12px; padding: 8px 0; border-bottom: 1px solid var(--border-soft); }
+    .gr-row:last-child { border-bottom: none; }
+    .gr-def { font-size: 12.5px; color: var(--dim); }
+    .criteria-pills { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 13px; }
+    .cp { background: var(--surface2); border: 1px solid var(--border); border-radius: 5px; padding: 5px 11px; font-size: 11.5px; color: var(--dim); }
+    .cp::before { content: "✓ "; color: var(--green); font-weight: 700; }
+  </style>
+</head>
+<body>
+
+<!-- 1467C TOP DISCLAIMER -->
+<div class="disc disc-top">
+  <strong>GENERAL ADVICE DISCLAIMER (1467C)</strong> — This report contains general market commentary and options strategy analysis only. It does not take into account your individual objectives, financial situation, or needs.
+  All trade ideas are illustrative in nature and are provided for educational and informational purposes only. They should not be considered personal financial advice or a recommendation to enter any specific trade.
+  Before acting on any information in this report, you should consider whether it is appropriate for your individual circumstances and independently verify all data, including option chain details, pricing, liquidity, and risk.
+  Options trading involves substantial risk and is not suitable for all investors. You are solely responsible for all trading decisions, position sizing, and risk management.
+</div>
+
+<!-- HEADER -->
+<div class="hdr">
+  <div class="hdr-left">
+    <h1>CJ Capital <span>Desk</span> — Market Rundown</h1>
+    <div class="hdr-meta">Version: <span>v1.0</span> &nbsp;|&nbsp; Last Updated: <span>April 24, 2026 — 2:59 PM CT</span></div>
+  </div>
+  <div class="live-badge">LIVE SESSION</div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a href="#s1">Market Snapshot</a>
+  <a href="#s2">Macro Context</a>
+  <a href="#s3">Economic Calendar</a>
+  <a href="#s4">Earnings</a>
+  <a href="#s5">Stocks Watchlist</a>
+  <a href="#s6">Execution Bias</a>
+  <a href="#s7">Secondary Watchlist</a>
+  <a href="#s8">Week Ahead</a>
+  <a href="#s9">Final Desk Take</a>
+  <a href="#s10">Grading System</a>
+</nav>
+
+<div class="wrap">
+
+<!-- ═══════════════════════════════════════════
+     SECTION 1 — MARKET SNAPSHOT
+═══════════════════════════════════════════ -->
+<div class="sec" id="s1">
+  <div class="sec-hdr"><div class="sec-num">1</div><div class="sec-title">Market Snapshot</div></div>
+  <div class="sec-body">
+
+    <div class="snap-grid">
+      <div class="snap-card">
+        <div class="snap-lbl">SPY / S&amp;P 500</div>
+        <div class="snap-val">7,108</div>
+        <div class="snap-chg r">▼ 0.41% Thu close</div>
+      </div>
+      <div class="snap-card">
+        <div class="snap-lbl">QQQ / Nasdaq</div>
+        <div class="snap-val">24,438</div>
+        <div class="snap-chg r">▼ 0.89% Thu close</div>
+      </div>
+      <div class="snap-card">
+        <div class="snap-lbl">IWM / Russell</div>
+        <div class="snap-val">Lagging</div>
+        <div class="snap-chg y">— Risk-off tone</div>
+      </div>
+      <div class="snap-card">
+        <div class="snap-lbl">NQ Futures</div>
+        <div class="snap-val">+0.40%</div>
+        <div class="snap-chg g">▲ Leading Fri open</div>
+      </div>
+      <div class="snap-card">
+        <div class="snap-lbl">ES Futures</div>
+        <div class="snap-val">Flat</div>
+        <div class="snap-chg y">— Mixed</div>
+      </div>
+      <div class="snap-card">
+        <div class="snap-lbl">VIX</div>
+        <div class="snap-val">~19.5</div>
+        <div class="snap-chg g">↓ Off 31 (Mar peak)</div>
+      </div>
+      <div class="snap-card">
+        <div class="snap-lbl">WTI Crude</div>
+        <div class="snap-val">~$95</div>
+        <div class="snap-chg r">Hormuz disrupted</div>
+      </div>
+      <div class="snap-card">
+        <div class="snap-lbl">Brent</div>
+        <div class="snap-val">~$104</div>
+        <div class="snap-chg r">+17% on the week</div>
+      </div>
+    </div>
+
+    <div style="margin-bottom:12px;">
+      <span class="pill pill-caut">⚠ Market Tone: Cautiously Bullish</span>
+      <span class="pill pill-sel">Desk Stance: Selective</span>
+    </div>
+
+    <div style="border-top:1px solid var(--border); padding-top:12px;">
+      <div style="font-size:10.5px; font-weight:800; text-transform:uppercase; letter-spacing:.08em; color:var(--dim); margin-bottom:10px;">Sector Rotation</div>
+      <div class="rot-grid">
+        <div class="rot-card">
+          <div class="lbl">Weekly Leaders</div>
+          <ul>
+            <li>Energy (XLE) — Hormuz premium</li>
+            <li>Industrials (XLI) — CAT, defense</li>
+            <li>Consumer Staples — PG beat +3%</li>
+          </ul>
+        </div>
+        <div class="rot-card">
+          <div class="lbl">Intraday Leaders</div>
+          <ul>
+            <li>Semis (SOXX) — NQ futures-led</li>
+            <li>Staples — PG move carrying sector</li>
+            <li>Healthcare — HCA BMO catalyst</li>
+          </ul>
+        </div>
+        <div class="rot-card">
+          <div class="lbl">Divergence</div>
+          <ul>
+            <li>IWM lagging large-caps — no broad risk-on</li>
+            <li>Energy surging while discretionary weak</li>
+            <li>Tech-led bounce but Dow lagging — uneven</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SECTION 2 — MACRO CONTEXT
+═══════════════════════════════════════════ -->
+<div class="sec" id="s2">
+  <div class="sec-hdr"><div class="sec-num">2</div><div class="sec-title">Macro Context</div></div>
+  <div class="sec-body">
+    <ul class="bl">
+      <li><strong>Iran / US — Peace Talks Advancing:</strong> Iranian FM Araghchi traveling to Pakistan Friday night. US talks expected to resume imminently. Ceasefire holds but Hormuz strait remains closed for commercial shipping.</li>
+      <li><strong>Oil Supply Shock Active:</strong> Brent ~$104, WTI ~$95. IEA warns of "biggest energy security threat in history." Every day Hormuz stays shut, structural supply pressure compounds. A deal = fast oil flush.</li>
+      <li><strong>Israel–Lebanon Ceasefire Extended:</strong> White House-brokered 3-week extension announced Thursday. Reduces one geopolitical risk vector. Limited direct market impact but supports risk-on tone at the margins.</li>
+      <li><strong>Consumer Check — PG Beat:</strong> Q3 revenue $21.24B vs $20.5B est. EPS $1.59 ex-items. First volume growth in a year (+2%). Shares +3%. Confirms high-end consumer remains intact despite input cost uncertainty. Relevant ahead of next week's PCE print.</li>
+      <li><strong>Tariff &amp; Geopolitical Overlay:</strong> Trump tariff posture remains fluid but no new escalation overnight. Market continues to navigate between geopolitical headline risk and underlying earnings resilience.</li>
+    </ul>
+
+    <div class="callout gold-border" style="margin-top:14px;">
+      <div class="callout-title">Desk Read</div>
+      <ul>
+        <li><strong>What matters today:</strong> Iran peace talk progress is the single biggest market mover. Any confirmation of talks resuming → oil sells off fast → broad equity relief rally, especially tech and discretionary.</li>
+        <li><strong>Trading behavior:</strong> Stay selective. VIX at 19.5 is normalized — not fearful, not complacent. Reward high-quality setups with defined risk. Don't fight energy's macro tailwind but respect headline reversal risk in oil.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SECTION 3 — ECONOMIC CALENDAR
+═══════════════════════════════════════════ -->
+<div class="sec" id="s3">
+  <div class="sec-hdr"><div class="sec-num">3</div><div class="sec-title">Economic Calendar — April 24, 2026</div></div>
+  <div class="sec-body">
+    <table class="tbl">
+      <thead>
+        <tr><th>Time ET</th><th>Event</th><th>Impact</th><th>Note</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>08:30</td>
+          <td>Advance Durable Goods Orders</td>
+          <td class="hi">HIGH</td>
+          <td>Business investment proxy. Weak print = risk-off signal. Watch ex-transportation component for core read.</td>
+        </tr>
+        <tr>
+          <td>10:00</td>
+          <td>Michigan Consumer Sentiment (Final)</td>
+          <td class="med">MEDIUM</td>
+          <td>Revision risk. Inflation expectations sub-index is the most market-sensitive component. Watch for divergence from preliminary.</td>
+        </tr>
+        <tr>
+          <td>12:45</td>
+          <td>NY Fed Staff Nowcast</td>
+          <td class="lo">LOW</td>
+          <td>Q1 GDP tracking estimate. Context only — official read drops next Thursday.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout" style="margin-top:14px;">
+      <div class="callout-title">Desk Watch</div>
+      <ul>
+        <li><strong>Priority:</strong> Durable Goods at 8:30 — a miss here compounds Thursday's selloff and puts pressure on the Friday open.</li>
+        <li><strong>Secondary:</strong> Michigan inflation expectations — any upside surprise signals the Fed stays higher for longer, which caps the NQ recovery.</li>
+        <li><strong>Ignore:</strong> NY Fed Nowcast — no actionable edge for today's session.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SECTION 4 — EARNINGS
+═══════════════════════════════════════════ -->
+<div class="sec" id="s4">
+  <div class="sec-hdr"><div class="sec-num">4</div><div class="sec-title">Earnings — April 24, 2026</div></div>
+  <div class="sec-body">
+    <table class="tbl">
+      <thead>
+        <tr><th>Ticker</th><th>Timing</th><th>Key Takeaway</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>PG</td>
+          <td><span class="tag tag-bmo">BMO</span> <span class="tag tag-beat">BEAT</span></td>
+          <td>Revenue $21.24B (vs $20.5B est). EPS $1.59 ex-items. Volume +2% — first growth in a year. FY guidance maintained but toward low-end on war input cost risk. Shares +3%. Constructive for staples rotation.</td>
+        </tr>
+        <tr>
+          <td>HCA</td>
+          <td><span class="tag tag-bmo">BMO</span></td>
+          <td>HCA Healthcare — major hospital operator. Watch labor cost commentary and macro demand guidance. Sector-level mover for healthcare. Result pending.</td>
+        </tr>
+        <tr>
+          <td>ATEYY</td>
+          <td><span class="tag tag-amc">AMC</span></td>
+          <td>Advantest — semiconductor test equipment. EPS est. $0.90 / Rev est. $1.82B. Direct AI capex demand proxy. Beat here = catalyst for LRCX and broader SOXX tonight.</td>
+        </tr>
+        <tr>
+          <td>ENI</td>
+          <td><span class="tag tag-amc">AMC</span></td>
+          <td>Eni S.p.A. — European integrated energy major. EPS est. $1.02 / Rev est. $21.5B. Relevant as oil macro context check. Watch guidance in elevated crude environment.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SECTION 5 — STOCKS WATCHLIST
+═══════════════════════════════════════════ -->
+<div class="sec" id="s5">
+  <div class="sec-hdr"><div class="sec-num">5</div><div class="sec-title">Stocks Watchlist — Core Engine</div></div>
+  <div class="sec-body">
+
+    <!-- A+ -->
+    <div class="sub-label sub-aplus">A+ — Stocks In Play</div>
+
+    <div class="setup">
+      <div class="setup-hdr">
+        <div>
+          <div class="s-ticker">LRCX</div>
+          <div class="s-name">Lam Research — Semiconductor Equipment</div>
+        </div>
+        <div class="grade g-aplus">CJ Grade: A+</div>
+      </div>
+      <ul class="s-pts">
+        <li><strong>Structure:</strong> ATH $268 → clean consolidation near $235. Higher highs / higher lows intact throughout. +54% YTD with volume confirming every leg. No distribution signals. Textbook flag pattern.</li>
+        <li><strong>Risk / Reward:</strong> Defined entry on a dip to $225–228 with a hard stop below. Risk is tight and quantifiable. R/R is favorable at current range — not chasing extended.</li>
+        <li><strong>Market Alignment + Catalyst:</strong> AI capex cycle fuels wafer fab equipment demand directly. ATEYY earnings AMC tonight = live sector catalyst. A beat there accelerates the LRCX thesis in real time. NQ futures leading = supportive backdrop.</li>
+      </ul>
+    </div>
+
+    <!-- A -->
+    <div class="sub-label sub-a sub-sep">A — Secondary Watchlist</div>
+
+    <div class="setup">
+      <div class="setup-hdr">
+        <div>
+          <div class="s-ticker">CAT</div>
+          <div class="s-name">Caterpillar — Industrials / Infrastructure</div>
+        </div>
+      </div>
+      <ul class="s-pts">
+        <li>+32% YTD. ATH $794 (April) — pulling back to ~$770. Healthy structure in a confirmed trend. Infrastructure + reshoring + war reconstruction spending = durable fundamental tailwind.</li>
+        <li>Minor flaw: oil-driven input cost pressure and earnings due next week. Size conservatively. Full conviction position waits for post-print clarity.</li>
+      </ul>
+    </div>
+
+    <div class="setup">
+      <div class="setup-hdr">
+        <div>
+          <div class="s-ticker">CRWD</div>
+          <div class="s-name">CrowdStrike — Cybersecurity</div>
+        </div>
+      </div>
+      <ul class="s-pts">
+        <li>Sector leader. Broad cybersecurity strength in 2026 — geopolitical conflict = elevated state-sponsored threat activity = sustained enterprise security spend. Institutional sponsorship confirmed.</li>
+        <li>Watch Nasdaq support hold before adding. Nasdaq lagged Thursday — confirm baseline holds before pressing into CRWD size.</li>
+      </ul>
+    </div>
+
+    <!-- DOWNGRADED -->
+    <div class="sub-label sub-down sub-sep">Not Actionable / Downgraded</div>
+
+    <div class="dg-card">
+      <div class="dg-hdr">
+        <div class="dg-ticker">TSLA</div>
+        <div class="dg-label">Downgraded</div>
+      </div>
+      <ul class="dg-pts">
+        <li>Broke descending channel on AI chip news — but catalyst is already priced in. The move happened. Chasing here = poor R/R.</li>
+        <li>Structure is unconfirmed. No consolidation base formed post-breakout. High vol, thin follow-through.</li>
+        <li>Highly headline-sensitive — one Elon/macro tweet can erase the setup instantly.</li>
+      </ul>
+      <div class="wait-line">→ Wait for: <span>Multi-day consolidation above breakout level with volume normalization. New base needed.</span></div>
+    </div>
+
+    <div class="dg-card">
+      <div class="dg-hdr">
+        <div class="dg-ticker">XOM / CVX</div>
+        <div class="dg-label">Downgraded</div>
+      </div>
+      <ul class="dg-pts">
+        <li>Energy macro tailwind is real — but names are overextended after a 17%+ oil weekly gain.</li>
+        <li>Peace talk headlines can cause a rapid oil flush. Holding energy longs into an Iran deal = binary headline risk.</li>
+        <li>Not an options-focused setup. Momentum trade only — no defined structure for premium trades.</li>
+      </ul>
+      <div class="wait-line">→ Wait for: <span>Iran resolution clarity. Trade energy after the headline — not into it.</span></div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SECTION 6 — EXECUTION BIAS
+═══════════════════════════════════════════ -->
+<div class="sec" id="s6">
+  <div class="sec-hdr"><div class="sec-num">6</div><div class="sec-title">Execution Bias</div></div>
+  <div class="sec-body">
+    <div class="eb-grid">
+
+      <div class="eb-card">
+        <div class="eb-label fav">✓ Favored</div>
+        <ul class="eb-pts fav">
+          <li>LRCX — defined structure, clear catalyst (ATEYY tonight), favorable R/R</li>
+          <li>Semis / AI hardware space — NQ-led session supports the sector</li>
+          <li>Staples rotation off PG beat — if market holds, sector follow-through is valid</li>
+        </ul>
+      </div>
+
+      <div class="eb-card">
+        <div class="eb-label neut">~ Neutral / Monitor</div>
+        <ul class="eb-pts neut">
+          <li>CAT — strong name but earnings next week; watch size</li>
+          <li>CRWD — valid thesis; wait for Nasdaq baseline confirmation</li>
+          <li>HCA — earnings BMO; wait for result and reaction before engaging</li>
+        </ul>
+      </div>
+
+      <div class="eb-card">
+        <div class="eb-label avoid">✕ Avoid</div>
+        <ul class="eb-pts avoid">
+          <li>Chasing energy longs (XOM/CVX) into peace talk headlines</li>
+          <li>TSLA — catalyst already priced in, no base formed</li>
+          <li>Aggressive size in front of next week's FOMC + Big Tech earnings cluster</li>
+          <li>Low-liquidity options with wide spreads — vol still elevated in spots</li>
+        </ul>
+      </div>
+
+      <div class="eb-card">
+        <div class="eb-label conf">◈ Needs Confirmation</div>
+        <ul class="eb-pts conf">
+          <li>Nasdaq support holds at Thursday close → green light for NQ-linked names</li>
+          <li>Durable Goods (8:30) prints in-line or better → supports Friday risk-on open</li>
+          <li>ATEYY AMC beat confirmed → LRCX and semis gap-up catalyst for Monday</li>
+          <li>Iran peace talks confirmed resuming → energy hedges and energy-long reassessment</li>
+        </ul>
+      </div>
+
+      <div class="eb-card full">
+        <div class="eb-label opts">Options Desk Read</div>
+        <ul class="eb-pts" style="list-style:none; padding:0;">
+          <li style="display:flex; gap:7px; padding:3px 0; font-size:12.5px; color:var(--dim);">
+            <span style="color:var(--gold); font-weight:800; flex-shrink:0;">›</span>
+            <span><strong style="color:var(--text);">One confirmed A+ setup today: LRCX.</strong> All options focus centers here — defined entry, defined stop, live catalyst tonight. Do not force premium trades on B-tier or unconfirmed names.</span>
+          </li>
+          <li style="display:flex; gap:7px; padding:3px 0; font-size:12.5px; color:var(--dim);">
+            <span style="color:var(--gold); font-weight:800; flex-shrink:0;">›</span>
+            <span>If LRCX does not offer clean entry today, <strong style="color:var(--text);">shift attention to next week:</strong> MSFT / GOOGL / META / AMZN earnings (April 30 AMC) are the highest-IV, highest-conviction options opportunity of the month. Position accordingly.</span>
+          </li>
+          <li style="display:flex; gap:7px; padding:3px 0; font-size:12.5px; color:var(--dim);">
+            <span style="color:var(--gold); font-weight:800; flex-shrink:0;">›</span>
+            <span>VIX at 19.5 — not expensive, not cheap. Premium buying is viable on high-conviction setups. Avoid premium selling into FOMC week; event risk does not favor short-vol positioning.</span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SECTION 7 — SECONDARY WATCHLIST
+═══════════════════════════════════════════ -->
+<div class="sec" id="s7">
+  <div class="sec-hdr"><div class="sec-num">7</div><div class="sec-title">Secondary Watchlist — Macro / News Driven</div></div>
+  <div class="sec-body">
+    <div class="sub-label sub-macro">Macro / News — Not Options-Focused</div>
+    <table class="sec-tbl">
+      <thead>
+        <tr><th>Ticker</th><th>Name</th><th>Observation</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>CCJ</td>
+          <td>Cameco — Uranium</td>
+          <td>Energy security narrative directly benefits nuclear / uranium. Bullish RSI and MACD. Longer-duration macro trade, not a day trade.</td>
+        </tr>
+        <tr>
+          <td>XLE</td>
+          <td>Energy ETF</td>
+          <td>Hormuz premium is live. Sector-wide tailwind. Headline-driven — not suitable for premium selling. Monitor only until Iran resolution.</td>
+        </tr>
+        <tr>
+          <td>PG</td>
+          <td>Procter &amp; Gamble</td>
+          <td>Beat reported this morning, shares +3%. Staples rotation play if market stabilizes. Watch for intraday fade vs. sustained hold into close.</td>
+        </tr>
+        <tr>
+          <td>HCA</td>
+          <td>HCA Healthcare</td>
+          <td>BMO today. Wait for result and initial reaction before considering any position. Sector mover for healthcare.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SECTION 8 — WEEK AHEAD
+═══════════════════════════════════════════ -->
+<div class="sec" id="s8">
+  <div class="sec-hdr"><div class="sec-num">8</div><div class="sec-title">Week Ahead — April 27 – May 1, 2026</div></div>
+  <div class="sec-body">
+    <div class="wk-row">
+      <div class="wk-dt">Mon Apr 27</div>
+      <div class="wk-ev">Light calendar. Positioning day ahead of mega-cap week. Watch for Iran weekend developments to gap open.</div>
+    </div>
+    <div class="wk-row">
+      <div class="wk-dt">Tue Apr 29</div>
+      <div class="wk-ev"><strong>KO, CMG, RDDT</strong> earnings. Consumer / discretionary / digital ad reads. Consumer confidence data also due.</div>
+    </div>
+    <div class="wk-row hot">
+      <div class="wk-dt">⚡ Wed Apr 30</div>
+      <div class="wk-ev">PEAK EVENT DAY — <span><strong>FOMC rate decision</strong> + <strong>MSFT, GOOGL, META, AMZN</strong> all report after close. Maximum volatility session. IV will be elevated across tech. This is the highest-priority options opportunity of the month. Begin sizing strategy now.</span></div>
+    </div>
+    <div class="wk-row">
+      <div class="wk-dt">Thu May 1</div>
+      <div class="wk-ev"><strong>Q1 2026 GDP Advance Read</strong> (BEA) + <strong>PCE Inflation</strong> data. Post-FOMC data context — shapes rate trajectory narrative for May. Also: <strong>AAPL</strong> AMC, <strong>V, MRK</strong> report.</div>
+    </div>
+    <div class="wk-row">
+      <div class="wk-dt">All Week</div>
+      <div class="wk-ev">Iran / US peace talks remain the macro wildcard. Deal confirmed = oil flush + risk-on rally. Talks collapse = renewed index pressure. Monitor daily — do not ignore.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SECTION 9 — FINAL DESK TAKE
+═══════════════════════════════════════════ -->
+<div class="sec" id="s9">
+  <div class="sec-hdr"><div class="sec-num">9</div><div class="sec-title">Final Desk Take</div></div>
+  <div class="sec-body">
+    <div class="ft-block">
+      <div class="ft-lbl">Market Bias</div>
+      <p><strong>Cautiously bullish into the weekend.</strong> Indices pulled back Thursday but futures are stabilizing Friday led by Nasdaq (+0.40%). VIX at 19.5 confirms the panic of March is behind us — but this is not a clean tape. Geopolitical tail risk (Hormuz, Iran talks) and a massive event stack next week mean no one is running aggressive exposure into the weekend.</p>
+    </div>
+    <div class="ft-block">
+      <div class="ft-lbl">Trading Environment</div>
+      <p><strong>Selective.</strong> One A+ setup today (LRCX). CAT and CRWD are valid A-grade names with minor flaws. Everything else is either headline-driven, overextended, or not yet structured. The desk does not force trades. If LRCX does not set up cleanly today, the better trade is patience — next Wednesday's FOMC + Big Tech night is worth preserving capital for.</p>
+    </div>
+    <div class="ft-block">
+      <div class="ft-lbl">Strategic Focus</div>
+      <p><strong>Manage duration into April 30.</strong> That session — FOMC decision + MSFT, GOOGL, META, AMZN all AMC — is the most concentrated vol event of the month. Use any Friday strength to trim high-beta exposure if needed. Let LRCX work with defined risk. Begin building the mental model for mega-cap earnings plays. Don't arrive flat and unprepared for the biggest night of Q1 earnings season.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SECTION 10 — GRADING SYSTEM
+═══════════════════════════════════════════ -->
+<div class="sec" id="s10">
+  <div class="sec-hdr"><div class="sec-num">10</div><div class="sec-title">CJ Capital Desk Grading System</div></div>
+  <div class="sec-body">
+    <div class="gr-row">
+      <div class="grade g-aplus" style="min-width:65px; text-align:center;">A+</div>
+      <div class="gr-def">Elite setup — meets all criteria. Full conviction. Highest priority for execution.</div>
+    </div>
+    <div class="gr-row">
+      <div class="grade g-a" style="min-width:65px; text-align:center;">A</div>
+      <div class="gr-def">Strong setup — minor flaw (timing, catalyst risk, slight structure imperfection). Standard size, standard conviction.</div>
+    </div>
+    <div class="gr-row">
+      <div class="grade g-b" style="min-width:65px; text-align:center;">B</div>
+      <div class="gr-def">Acceptable — watchlist only. Small size or paper. Monitor for setup improvement.</div>
+    </div>
+    <div class="gr-row">
+      <div class="grade g-rej" style="min-width:65px; text-align:center;">Reject</div>
+      <div class="gr-def">Does not meet criteria. Not traded. Not listed except in Downgraded section.</div>
+    </div>
+    <div class="criteria-pills">
+      <div class="cp">Structure Quality</div>
+      <div class="cp">Risk / Reward Ratio</div>
+      <div class="cp">Market Alignment</div>
+      <div class="cp">Volatility Conditions</div>
+    </div>
+  </div>
+</div>
+
+</div><!-- /wrap -->
+
+<!-- 1467D BOTTOM DISCLAIMER -->
+<div class="disc disc-bot">
+  <strong>GENERAL ADVICE DISCLAIMER (1467D STYLE)</strong><br/>
+  This report contains general market commentary and options strategy analysis only and is provided for informational and educational purposes. It does not take into account your individual objectives, financial situation, or needs.<br/>
+  All trade ideas are illustrative, model-based scenarios and are not personal financial advice or a recommendation to buy or sell any financial product.<br/>
+  Before acting on any information in this report, you should consider whether it is appropriate for your circumstances and independently verify all relevant data, including option chain details, pricing, liquidity, and risk.<br/>
+  Options trading involves significant risk and is not suitable for all investors. You are solely responsible for all trading decisions, position sizing, and risk management.
+</div>
+
+</body>
+</html>
