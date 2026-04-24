@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CJ Capital Trading Desk — AM Report | April 24, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0c1018;
+    --panel: #161d2c;
+    --panel-alt: #111827;
+    --border: #1f2937;
+    --border-light: #263044;
+    --text: #d1d5db;
+    --text-dim: #9ca3af;
+    --text-muted: #6b7280;
+    --heading: #f9fafb;
+    --blue: #2563eb;
+    --blue-light: #93c5fd;
+    --blue-dark: #1e3a5f;
+    --green: #16a34a;
+    --green-light: #86efac;
+    --green-dark: #14532d;
+    --amber: #b45309;
+    --amber-light: #fcd34d;
+    --amber-dark: #451a03;
+    --red: #b91c1c;
+    --red-light: #fca5a5;
+    --red-dark: #450a0a;
+    --teal: #0d9488;
+    --teal-light: #5eead4;
+    --teal-dark: #042f2e;
+    --purple: #7c3aed;
+    --purple-light: #c4b5fd;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  .page-wrap { max-width: 1200px; margin: 0 auto; padding: 0 20px 60px; }
+
+  /* DISCLAIMER */
+  .disclaimer-top {
+    background: #0a0f1a;
+    border-bottom: 1px solid #1f2937;
+    padding: 14px 20px;
+    font-size: 11px;
+    color: #6b7280;
+    line-height: 1.7;
+  }
+  .disclaimer-top strong { color: #9ca3af; }
+  .disclaimer-bottom {
+    background: #0f1624;
+    border-top: 1px solid #1f2937;
+    padding: 20px;
+    font-size: 11px;
+    color: #6b7280;
+    max-width: 1200px;
+    margin: 40px auto 0;
+    border-radius: 8px;
+    line-height: 1.7;
+  }
+
+  /* HEADER */
+  .report-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 36px 0 24px;
+    border-bottom: 1px solid #1f2937;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .report-brand { display: flex; align-items: center; gap: 14px; }
+  .brand-mark {
+    width: 44px; height: 44px;
+    background: #1d4ed8;
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px; font-weight: 900; color: #fff; letter-spacing: -1px;
+  }
+  .brand-name { font-size: 20px; font-weight: 800; color: var(--heading); letter-spacing: -0.3px; }
+  .brand-sub { font-size: 12px; color: var(--text-muted); letter-spacing: 0.06em; text-transform: uppercase; }
+  .report-meta { text-align: right; }
+  .report-date { font-size: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; }
+  .stance-badge {
+    display: inline-block; padding: 5px 18px; border-radius: 999px;
+    font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  }
+  .stance-selective { background: #1d4ed820; color: #93c5fd; border: 1px solid #2563eb; }
+  .stance-active { background: #14532d20; color: #86efac; border: 1px solid #16a34a; }
+  .stance-patient { background: #45172030; color: #fca5a5; border: 1px solid #7f1d1d; }
+
+  /* SECTION */
+  .section { margin-top: 40px; }
+  .section-header {
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 18px; padding-bottom: 10px;
+    border-bottom: 1px solid #1f2937;
+  }
+  .section-icon { font-size: 14px; opacity: 0.7; }
+  .section-title {
+    font-size: 11px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.14em; color: var(--text-muted);
+  }
+  .section-line { flex: 1; height: 1px; background: #1f2937; }
+
+  /* CARDS */
+  .card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin-bottom: 14px;
+  }
+  .card-accepted { border-left: 3px solid #2563eb; }
+  .card-downgraded { border-left: 3px solid #374151; opacity: 0.9; }
+  .card-macro { border-left: 3px solid #0d9488; }
+  .card-warning { border-left: 3px solid #b45309; }
+
+  .card-header {
+    display: flex; align-items: center; flex-wrap: wrap;
+    gap: 10px; margin-bottom: 14px;
+  }
+  .symbol { font-size: 22px; font-weight: 800; color: var(--heading); }
+  .company-name { font-size: 13px; color: var(--text-dim); }
+
+  .badge {
+    font-size: 11px; font-weight: 700; padding: 3px 11px;
+    border-radius: 999px; letter-spacing: 0.05em; text-transform: uppercase;
+  }
+  .badge-accept { background: #1e3a5f; color: #93c5fd; border: 1px solid #2563eb; }
+  .badge-downgrade { background: #1f2937; color: #9ca3af; border: 1px solid #374151; }
+  .badge-earnings { background: #042f2e; color: #5eead4; border: 1px solid #0d9488; }
+  .badge-iv { background: #1a0533; color: #c4b5fd; border: 1px solid #7c3aed; }
+  .badge-sector { background: #1c1917; color: #d6d3d1; border: 1px solid #44403c; }
+  .badge-red { background: #450a0a; color: #fca5a5; border: 1px solid #b91c1c; }
+  .badge-green { background: #14532d; color: #86efac; border: 1px solid #16a34a; }
+  .badge-amber { background: #451a03; color: #fcd34d; border: 1px solid #b45309; }
+
+  /* METRICS GRID */
+  .metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .metric {
+    background: #0f1624;
+    border: 1px solid #1f2937;
+    border-radius: 6px;
+    padding: 8px 12px;
+  }
+  .metric-label { font-size: 10px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 3px; }
+  .metric-value { font-size: 15px; font-weight: 700; color: var(--heading); }
+  .metric-value.up { color: #86efac; }
+  .metric-value.down { color: #fca5a5; }
+  .metric-value.neutral { color: #fcd34d; }
+
+  /* SECTOR TABLE */
+  .sector-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 8px;
+    margin-bottom: 14px;
+  }
+  .sector-row {
+    display: flex; align-items: center; justify-content: space-between;
+    background: #0f1624; border: 1px solid #1f2937; border-radius: 6px;
+    padding: 8px 12px;
+  }
+  .sector-name { font-size: 12px; color: var(--text); }
+  .sector-chg { font-size: 13px; font-weight: 700; }
+  .chg-up { color: #86efac; }
+  .chg-dn { color: #fca5a5; }
+  .chg-flat { color: #fcd34d; }
+
+  /* BAR CHART */
+  .bar-row { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+  .bar-label { width: 180px; font-size: 11px; color: var(--text-dim); text-align: right; white-space: nowrap; }
+  .bar-track { flex: 1; height: 8px; background: #1f2937; border-radius: 4px; overflow: hidden; position: relative; }
+  .bar-fill-pos { height: 100%; background: #16a34a; border-radius: 4px; }
+  .bar-fill-neg { height: 100%; background: #b91c1c; border-radius: 4px; margin-left: auto; }
+  .bar-value { width: 52px; font-size: 11px; font-weight: 600; text-align: right; }
+
+  /* CALENDAR TABLE */
+  .cal-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .cal-table th { font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); padding: 6px 12px; text-align: left; border-bottom: 1px solid #1f2937; }
+  .cal-table td { padding: 8px 12px; border-bottom: 1px solid #111827; color: var(--text); }
+  .cal-table tr:last-child td { border-bottom: none; }
+  .cal-table tr:hover td { background: #0f1624; }
+  .beat { color: #86efac; font-weight: 600; }
+  .miss { color: #fca5a5; font-weight: 600; }
+  .neutral-val { color: #fcd34d; }
+  .event-flag { font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 3px; letter-spacing: 0.05em; text-transform: uppercase; }
+  .flag-high { background: #450a0a; color: #fca5a5; }
+  .flag-med { background: #451a03; color: #fcd34d; }
+  .flag-low { background: #1f2937; color: #6b7280; }
+
+  /* PROSE */
+  .prose { font-size: 13px; color: var(--text-dim); line-height: 1.75; }
+  .prose p { margin-bottom: 10px; }
+  .prose p:last-child { margin-bottom: 0; }
+  .prose strong { color: var(--heading); font-weight: 600; }
+
+  /* TAG LIST */
+  .tag-list { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+
+  /* DESK TAKE */
+  .desk-take {
+    background: linear-gradient(135deg, #0f1e3a 0%, #0c1018 100%);
+    border: 1px solid #1d4ed8;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-top: 8px;
+  }
+  .desk-take-title { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #60a5fa; margin-bottom: 12px; }
+  .desk-take-body { font-size: 14px; color: #d1d5db; line-height: 1.8; }
+
+  /* CONFIRMATION FLAGS */
+  .confirm-list { list-style: none; padding: 0; margin-top: 8px; }
+  .confirm-list li { font-size: 12px; color: #fcd34d; padding: 3px 0; padding-left: 16px; position: relative; }
+  .confirm-list li::before { content: '⚑'; position: absolute; left: 0; font-size: 10px; }
+
+  /* DIVIDER */
+  .divider { border: none; border-top: 1px solid #1f2937; margin: 32px 0; }
+
+  /* WATCHLIST */
+  .watchlist-item {
+    display: flex; align-items: flex-start; gap: 14px;
+    background: #0f1624; border: 1px solid #1f2937; border-radius: 8px;
+    padding: 12px 16px; margin-bottom: 8px;
+  }
+  .watchlist-ticker { font-size: 16px; font-weight: 800; color: var(--heading); min-width: 60px; }
+  .watchlist-detail { font-size: 12px; color: var(--text-dim); line-height: 1.6; }
+
+  /* EXECUTION BIAS */
+  .bias-block {
+    background: #0c120e;
+    border: 1px solid #14532d;
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin-bottom: 10px;
+  }
+  .bias-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #86efac; margin-bottom: 4px; }
+  .bias-text { font-size: 13px; color: var(--text-dim); }
+  .avoid-block {
+    background: #130c0c;
+    border: 1px solid #7f1d1d;
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin-bottom: 10px;
+  }
+  .avoid-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #fca5a5; margin-bottom: 4px; }
+  .avoid-text { font-size: 13px; color: var(--text-dim); }
+
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+  /* INLINE NOTE */
+  .inline-note {
+    background: #0f1624; border: 1px solid #1f2937; border-left: 3px solid #b45309;
+    border-radius: 6px; padding: 10px 14px; font-size: 12px; color: #9ca3af;
+    margin-top: 10px;
+  }
+
+  @media (max-width: 700px) {
+    .report-header { flex-direction: column; }
+    .report-meta { text-align: left; }
+    .metrics-grid { grid-template-columns: 1fr 1fr; }
+    .two-col { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP DISCLAIMER — 1467C -->
+<div class="disclaimer-top">
+  <strong>GENERAL ADVICE DISCLAIMER (1467C)</strong><br>
+  This report contains general market commentary and options strategy analysis only. It does not take into account your individual objectives, financial situation, or needs.
+  All trade ideas are illustrative in nature and are provided for educational and informational purposes only. They should not be considered personal financial advice or a recommendation to enter any specific trade.
+  Before acting on any information in this report, you should consider whether it is appropriate for your individual circumstances and independently verify all data, including option chain details, pricing, liquidity, and risk.
+  Options trading involves substantial risk and is not suitable for all investors. You are solely responsible for all trading decisions, position sizing, and risk management.
+</div>
+
+<div class="page-wrap">
+
+  <!-- HEADER -->
+  <div class="report-header">
+    <div class="report-brand">
+      <div class="brand-mark">CJ</div>
+      <div>
+        <div class="brand-name">CJ Capital Trading Desk</div>
+        <div class="brand-sub">AM Pre-Market Report</div>
+      </div>
+    </div>
+    <div class="report-meta">
+      <div class="report-date">Friday, April 24, 2026 &nbsp;|&nbsp; Pre-Market</div>
+      <span class="stance-badge stance-selective">⬡ Selective</span>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       SECTION 1 — MARKET SNAPSHOT / DESK STANCE
+  ═══════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">📊</span>
+      <span class="section-title">Market Snapshot &amp; Desk Stance</span>
+      <div class="section-line"></div>
+    </div>
+
+    <!-- Broad Indices -->
+    <div class="metrics-grid" style="margin-bottom:18px;">
+      <div class="metric">
+        <div class="metric-label">SPY</div>
+        <div class="metric-value down">$708.45 <span style="font-size:12px;">−0.39%</span></div>
+      </div>
+      <div class="metric">
+        <div class="metric-label">QQQ</div>
+        <div class="metric-value down">$651.42 <span style="font-size:12px;">−0.56%</span></div>
+      </div>
+      <div class="metric">
+        <div class="metric-label">IWM</div>
+        <div class="metric-value down">$275.52 <span style="font-size:12px;">−0.35%</span></div>
+      </div>
+      <div class="metric">
+        <div class="metric-label">SPY RSI(14)</div>
+        <div class="metric-value neutral">67.77</div>
+      </div>
+      <div class="metric">
+        <div class="metric-label">QQQ RSI(14)</div>
+        <div class="metric-value neutral">70.95</div>
+      </div>
+      <div class="metric">
+        <div class="metric-label">IWM RSI(14)</div>
+        <div class="metric-value neutral">68.40</div>
+      </div>
+      <div class="metric">
+        <div class="metric-label">SPY 1-Week</div>
+        <div class="metric-value up">+0.97%</div>
+      </div>
+      <div class="metric">
+        <div class="metric-label">QQQ 1-Week</div>
+        <div class="metric-value up">+1.71%</div>
+      </div>
+      <div class="metric">
+        <div class="metric-label">IWM 1-Week</div>
+        <div class="metric-value up">+2.06%</div>
+      </div>
+      <div class="metric">
+        <div class="metric-label">Market Tone</div>
+        <div class="metric-value neutral" style="font-size:12px;">MIXED</div>
+      </div>
+      <div class="metric">
+        <div class="metric-label">Desk Stance</div>
+        <div class="metric-value" style="color:#93c5fd;font-size:12px;">SELECTIVE</div>
+      </div>
+    </div>
+
+    <!-- Sector Leaders / Laggards summary -->
+    <div class="two-col" style="margin-bottom:18px;">
+      <div class="card" style="margin-bottom:0;">
+        <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#86efac;margin-bottom:10px;">▲ Sector Leaders — 1-Week</div>
+        <div class="sector-row" style="margin-bottom:6px;"><span class="sector-name">Technology</span><span class="sector-chg chg-up">+2.56%</span></div>
+        <div class="sector-row" style="margin-bottom:6px;"><span class="sector-name">Consumer Defensive</span><span class="sector-chg chg-up">+2.41%</span></div>
+        <div class="sector-row"><span class="sector-name">Industrials</span><span class="sector-chg chg-up">+2.22%</span></div>
+      </div>
+      <div class="card" style="margin-bottom:0;">
+        <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#fca5a5;margin-bottom:10px;">▼ Sector Laggards — 1-Week</div>
+        <div class="sector-row" style="margin-bottom:6px;"><span class="sector-name">Basic Materials</span><span class="sector-chg chg-dn">−1.35%</span></div>
+        <div class="sector-row" style="margin-bottom:6px;"><span class="sector-name">Communication Services</span><span class="sector-chg chg-dn">−0.97%</span></div>
+        <div class="sector-row"><span class="sector-name">Healthcare</span><span class="sector-chg chg-dn">−0.95%</span></div>
+      </div>
+    </div>
+
+    <!-- 1-Week Sector Bar Chart -->
+    <div class="card">
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#6b7280;margin-bottom:14px;">1-Week Sector Performance (Perf Week)</div>
+      <!-- Sorted best to worst -->
+      <div class="bar-row">
+        <div class="bar-label">Technology</div>
+        <div class="bar-track"><div class="bar-fill-pos" style="width:100%;"></div></div>
+        <div class="bar-value chg-up">+2.56%</div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">Consumer Defensive</div>
+        <div class="bar-track"><div class="bar-fill-pos" style="width:94%;"></div></div>
+        <div class="bar-value chg-up">+2.41%</div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">Industrials</div>
+        <div class="bar-track"><div class="bar-fill-pos" style="width:87%;"></div></div>
+        <div class="bar-value chg-up">+2.22%</div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">Real Estate</div>
+        <div class="bar-track"><div class="bar-fill-pos" style="width:13%;"></div></div>
+        <div class="bar-value chg-up">+0.33%</div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">Energy</div>
+        <div class="bar-track"><div class="bar-fill-pos" style="width:11%;"></div></div>
+        <div class="bar-value chg-up">+0.29%</div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">Consumer Cyclical</div>
+        <div class="bar-track"><div style="display:flex;justify-content:flex-end;height:100%;"><div class="bar-fill-neg" style="width:13%;"></div></div></div>
+        <div class="bar-value chg-dn">−0.34%</div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">Utilities</div>
+        <div class="bar-track"><div style="display:flex;justify-content:flex-end;height:100%;"><div class="bar-fill-neg" style="width:14%;"></div></div></div>
+        <div class="bar-value chg-dn">−0.36%</div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">Financial</div>
+        <div class="bar-track"><div style="display:flex;justify-content:flex-end;height:100%;"><div class="bar-fill-neg" style="width:36%;"></div></div></div>
+        <div class="bar-value chg-dn">−0.92%</div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">Healthcare</div>
+        <div class="bar-track"><div style="display:flex;justify-content:flex-end;height:100%;"><div class="bar-fill-neg" style="width:37%;"></div></div></div>
+        <div class="bar-value chg-dn">−0.95%</div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">Comm. Services</div>
+        <div class="bar-track"><div style="display:flex;justify-content:flex-end;height:100%;"><div class="bar-fill-neg" style="width:38%;"></div></div></div>
+        <div class="bar-value chg-dn">−0.97%</div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">Basic Materials</div>
+        <div class="bar-track"><div style="display:flex;justify-content:flex-end;height:100%;"><div class="bar-fill-neg" style="width:53%;"></div></div></div>
+        <div class="bar-value chg-dn">−1.35%</div>
+      </div>
+    </div>
+
+    <div class="inline-note">
+      <strong style="color:#fcd34d;">Intraday Rotation Note (Today):</strong> Technology sector leads the 1-week (+2.56%) but is the worst performer intraday (−1.39%). Utilities (+2.52%) and Industrials (+1.44%) are leading today — a shift toward defensive/yield positioning ahead of next week's mega-cap earnings gauntlet. This divergence between weekly leadership and intraday tone is the defining dynamic to watch today.
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       SECTION 2 — MACRO CONTEXT
+  ═══════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🌐</span>
+      <span class="section-title">Macro Context</span>
+      <div class="section-line"></div>
+    </div>
+    <div class="card card-macro">
+      <div class="prose">
+        <p><strong>Overnight Futures / Pre-Market Tone:</strong> Nasdaq 100 E-Mini futures (NQM26) rallied pre-market after Intel (INTC) reported a blockbuster earnings surprise on April 23 AMC — EPS beat by a historic margin (+1,426% vs. consensus), with sales beating by +9.33%. The headline from the Barchart pre-market bulletin was "Nasdaq Futures Rally as Intel Soars on Blockbuster Sales Forecast," establishing a risk-on overnight tone. However, the Nasdaq opened and is currently pulling back (QQQ −0.56%), suggesting the Intel beat was largely front-run and the market is now rotating ahead of next week's mega-cap reporting slate.</p>
+        <p><strong>Broad Macro Regime:</strong> Equities remain in a healthy uptrend — SPY is +0.97% on the week, trading above all major moving averages (SMA20, SMA50, SMA200). QQQ's RSI at 70.95 is approaching overbought levels after a +1.71% week. The market is showing signs of constructive consolidation rather than distribution. All three major index ETFs are above their 200-day SMAs.</p>
+        <p><strong>Volatility / VIX Context:</strong> VIX data was unavailable via direct pull. However, broad market behavior — RSI levels in the 67–71 range across SPY/QQQ/IWM, below-average relative volume across ETFs (SPY at 0.66x, QQQ at 0.62x), and narrow intraday ranges — is consistent with moderate implied volatility. Options IV likely remains elevated heading into the largest earnings week of the Q1 2026 cycle (META, MSFT, GOOGL, AMZN all reporting April 29).</p>
+        <p><strong>Rates / Fed Context:</strong> FOMC meeting is on the near-term calendar (May 2026). Michigan Consumer Sentiment final figures release today (consensus: current conditions 50.1, expectations 46.1, 5-year inflation expectations 3.4%). Elevated consumer inflation expectations remain a policy constraint. The Fed is not expected to cut in May given persistent inflation data. Treasury curve supply is heavy today: 2-Year, 5-Year, and 7-Year note auctions, plus 3-Month and 6-Month bill auctions.</p>
+        <p><strong>Key Macro Driver — META Restructuring:</strong> Meta Platforms is reportedly preparing to lay off approximately 10% of its workforce, per Barchart newsletter coverage. The stock is down −2.31% today at $659.15 ahead of its April 29 AMC earnings report. This adds headline risk to Communication Services this week.</p>
+        <p><strong>Desk Read:</strong> The market is digesting a strong week in a measured way. The Intel blow-out earnings create positive sentiment for the broader tech/AI narrative, but with MSFT, META, GOOGL, and AMZN all reporting April 29, the desk is in a wait-and-see posture. Options setups tied to next week's mega-cap prints are the primary opportunity. Today is a day for positioning and confirmation, not aggressive new exposure.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       SECTION 3 — ECONOMIC CALENDAR
+  ═══════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">📅</span>
+      <span class="section-title">Economic Calendar — April 24, 2026</span>
+      <div class="section-line"></div>
+    </div>
+    <div class="card">
+      <table class="cal-table">
+        <thead>
+          <tr>
+            <th>Event</th>
+            <th>Period</th>
+            <th>Consensus / Prior</th>
+            <th>Actual</th>
+            <th>Impact</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Durable Goods Orders MoM</strong></td>
+            <td>MAR</td>
+            <td class="neutral-val">–</td>
+            <td class="neutral-val">Pending</td>
+            <td><span class="event-flag flag-high">HIGH</span></td>
+          </tr>
+          <tr>
+            <td><strong>Durable Goods Ex Transportation MoM</strong></td>
+            <td>MAR</td>
+            <td class="neutral-val">–</td>
+            <td class="neutral-val">Pending</td>
+            <td><span class="event-flag flag-med">MED</span></td>
+          </tr>
+          <tr>
+            <td><strong>Goods Trade Balance Adv</strong></td>
+            <td>MAR</td>
+            <td class="neutral-val">–</td>
+            <td class="neutral-val">Pending</td>
+            <td><span class="event-flag flag-med">MED</span></td>
+          </tr>
+          <tr>
+            <td><strong>Housing Starts</strong></td>
+            <td>MAR</td>
+            <td class="neutral-val">–</td>
+            <td class="neutral-val">Pending</td>
+            <td><span class="event-flag flag-med">MED</span></td>
+          </tr>
+          <tr>
+            <td><strong>Building Permits Prel</strong></td>
+            <td>MAR</td>
+            <td class="neutral-val">–</td>
+            <td class="neutral-val">Pending</td>
+            <td><span class="event-flag flag-med">MED</span></td>
+          </tr>
+          <tr>
+            <td><strong>S&P/Case-Shiller Home Price YoY</strong></td>
+            <td>FEB</td>
+            <td class="neutral-val">–</td>
+            <td class="neutral-val">Pending</td>
+            <td><span class="event-flag flag-low">LOW</span></td>
+          </tr>
+          <tr>
+            <td><strong>Richmond Fed Manufacturing Index</strong></td>
+            <td>APR</td>
+            <td class="neutral-val">–</td>
+            <td class="neutral-val">Pending</td>
+            <td><span class="event-flag flag-med">MED</span></td>
+          </tr>
+          <tr>
+            <td><strong>Dallas Fed Manufacturing Index</strong></td>
+            <td>APR</td>
+            <td class="neutral-val">–</td>
+            <td class="neutral-val">Pending</td>
+            <td><span class="event-flag flag-med">MED</span></td>
+          </tr>
+          <tr>
+            <td><strong>Michigan Consumer Sentiment Final</strong></td>
+            <td>APR</td>
+            <td class="neutral-val">~52–54 prelim range</td>
+            <td class="neutral-val">Pending</td>
+            <td><span class="event-flag flag-high">HIGH</span></td>
+          </tr>
+          <tr>
+            <td><strong>Michigan Current Conditions Final</strong></td>
+            <td>APR</td>
+            <td class="neutral-val">Cons: 50.1</td>
+            <td class="neutral-val">Pending</td>
+            <td><span class="event-flag flag-med">MED</span></td>
+          </tr>
+          <tr>
+            <td><strong>Michigan Consumer Expectations Final</strong></td>
+            <td>APR</td>
+            <td class="neutral-val">Cons: 46.1</td>
+            <td class="neutral-val">Pending</td>
+            <td><span class="event-flag flag-med">MED</span></td>
+          </tr>
+          <tr>
+            <td><strong>Michigan 5-Year Inflation Expectations Final</strong></td>
+            <td>APR</td>
+            <td class="neutral-val">Cons: 3.4%</td>
+            <td class="neutral-val">Pending</td>
+            <td><span class="event-flag flag-high">HIGH</span></td>
+          </tr>
+          <tr>
+            <td><strong>Treasury Auctions: 2Y, 5Y, 7Y Notes; 3M, 6M Bills</strong></td>
+            <td>–</td>
+            <td class="neutral-val">Supply-heavy day</td>
+            <td class="neutral-val">Intraday</td>
+            <td><span class="event-flag flag-med">MED</span></td>
+          </tr>
+          <tr>
+            <td><strong>Baker Hughes Oil Rig Count</strong></td>
+            <td>APR 24</td>
+            <td class="neutral-val">–</td>
+            <td class="neutral-val">Pending</td>
+            <td><span class="event-flag flag-low">LOW</span></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="inline-note" style="margin-top:12px;">
+        <strong style="color:#fcd34d;">Desk Watch:</strong> Michigan 5-Year Inflation Expectations final (consensus 3.4%) is the key print today. Any upside surprise on inflation expectations will pressure the Fed narrative and could weigh on growth/tech. The wave of Treasury auctions adds rate-pressure risk to the session. Durable Goods is the primary early read on capex / business investment health.
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       SECTION 4 — EARNINGS
+  ═══════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">📣</span>
+      <span class="section-title">Earnings — Today &amp; Recent Movers</span>
+      <div class="section-line"></div>
+    </div>
+    <div class="card">
+      <table class="cal-table">
+        <thead>
+          <tr>
+            <th>Ticker</th>
+            <th>Company</th>
+            <th>Timing</th>
+            <th>EPS Surprise</th>
+            <th>Price / Move</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>INTC</strong></td>
+            <td>Intel Corp</td>
+            <td><span class="badge badge-earnings">Apr 23 AMC</span></td>
+            <td class="beat">+1,426%</td>
+            <td class="up">$66.78 / +2.31%</td>
+            <td>Blockbuster sales forecast; NQ futures rallied pre-mkt. RSI 70.03. Vol 155M (1.32x avg).</td>
+          </tr>
+          <tr>
+            <td><strong>IBM</strong></td>
+            <td>Intl Business Machines</td>
+            <td><span class="badge badge-earnings">Apr 22 AMC</span></td>
+            <td class="beat">+5.57%</td>
+            <td class="down">$231.08 / −8.25%</td>
+            <td>Gap down despite beat — guidance concern. RSI 38.11. Vol 22.3M (3.69x avg). ShadowTrader buy program alert issued.</td>
+          </tr>
+          <tr>
+            <td><strong>MOH</strong></td>
+            <td>Molina Healthcare</td>
+            <td><span class="badge badge-earnings">Apr 22 AMC</span></td>
+            <td class="beat">+23.65%</td>
+            <td class="up">$174.70 / +14.18%</td>
+            <td>Major post-earnings gap up and run. RSI 75.68 (overbought). +20.19% above SMA20. Vol 3.55M (1.89x avg).</td>
+          </tr>
+          <tr>
+            <td><strong>TSLA</strong></td>
+            <td>Tesla Inc</td>
+            <td><span class="badge badge-earnings">Apr 22 AMC</span></td>
+            <td class="neutral-val">–</td>
+            <td class="down">$373.72 / −3.56%</td>
+            <td>Reported April 22. Fading post-earnings. RSI 47.73. Reversal in progress.</td>
+          </tr>
+          <tr>
+            <td><strong>BA</strong></td>
+            <td>Boeing Co</td>
+            <td><span class="badge badge-earnings">Apr 22 BMO</span></td>
+            <td class="neutral-val">–</td>
+            <td class="up">$234.15 / +1.24%</td>
+            <td>Industrials strength. RSI 64.11. Constructive price action.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="inline-note">
+      <strong style="color:#5eead4;">Market Chameleon Note:</strong> Direct MC login was unavailable this session (redirect). Expected move % for INTC, IBM, MOH, and upcoming names not confirmed via MC. Use broker platform or manual MC lookup to verify IV rank and expected move before entry on any name.
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       SECTION 5 — STOCKS IN PLAY
+  ═══════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🎯</span>
+      <span class="section-title">Stocks in Play</span>
+      <div class="section-line"></div>
+    </div>
+    <p class="prose" style="margin-bottom:14px;"><em>Confirmed via Barchart screener data (CJ_Bearish_Diagonal_Earnings, CJ_Bullish_Diagonal_Earnings). No names manufactured from news scanning.</em></p>
+
+    <!-- LULU -->
+    <div class="card">
+      <div class="card-header">
+        <span class="symbol">LULU</span>
+        <span class="company-name">Lululemon Athletica Inc</span>
+        <span class="badge badge-red">▼ −13.33%</span>
+        <span class="badge badge-sector">Consumer Cyclical</span>
+        <span class="badge badge-amber">IV Rank 36.80%</span>
+        <span class="badge" style="background:#1a1a0a;color:#fcd34d;border:1px solid #b45309;">Screener: Bearish Diagonal</span>
+      </div>
+      <div class="metrics-grid">
+        <div class="metric"><div class="metric-label">Price</div><div class="metric-value">$141.66</div></div>
+        <div class="metric"><div class="metric-label">Prev Close</div><div class="metric-value">$163.45</div></div>
+        <div class="metric"><div class="metric-label">Change</div><div class="metric-value down">−13.33%</div></div>
+        <div class="metric"><div class="metric-label">IV Rank</div><div class="metric-value neutral">36.80%</div></div>
+        <div class="metric"><div class="metric-label">IV Pctl</div><div class="metric-value neutral">63%</div></div>
+        <div class="metric"><div class="metric-label">RSI (14)</div><div class="metric-value down">31.51</div></div>
+        <div class="metric"><div class="metric-label">Rel Volume</div><div class="metric-value up">4.87×</div></div>
+        <div class="metric"><div class="metric-label">52W High</div><div class="metric-value">$340.25</div></div>
+        <div class="metric"><div class="metric-label">52W Low</div><div class="metric-value">$143.96</div></div>
+        <div class="metric"><div class="metric-label">Beta</div><div class="metric-value">0.95</div></div>
+        <div class="metric"><div class="metric-label">ATR (14)</div><div class="metric-value">$7.21</div></div>
+        <div class="metric"><div class="metric-label">Market Cap</div><div class="metric-value">$17.1B</div></div>
+      </div>
+      <div class="prose">
+        <p><strong>Catalyst:</strong> LULU named former Nike executive Heidi O'Neill as its new CEO (announced April 22 after hours). Wall Street reaction was overwhelmingly negative — multiple analysts and sell-side firms expressed skepticism about the Nike-veteran appointment given LULU's distinct brand positioning. The stock has continued selling through today, down an additional −13.33% following the initial gap down on April 23.</p>
+        <p><strong>Technical Read:</strong> RSI 31.51 is entering oversold territory. Price is within −1.60% of its 52-week low ($143.96). The stock is heavily extended below all short-term moving averages (−10.47% below SMA20, −14.73% below SMA50). This is a deeply damaged chart. YTD: −31.83%. Relative volume at 4.87× confirms capitulation-style activity. Counter-rally risk is real.</p>
+        <p><strong>Sector Context:</strong> Consumer Cyclical is flat/slightly negative on the week (−0.34%), and is down −1.14% today. Sector is a <strong>Headwind</strong> for new bearish positions given broad intraday selling in the sector.</p>
+      </div>
+    </div>
+
+    <!-- MOH -->
+    <div class="card">
+      <div class="card-header">
+        <span class="symbol">MOH</span>
+        <span class="company-name">Molina Healthcare Inc</span>
+        <span class="badge badge-green">▲ +14.18%</span>
+        <span class="badge badge-sector">Healthcare</span>
+        <span class="badge badge-amber">IV Rank 32.73%</span>
+        <span class="badge" style="background:#0a1a1a;color:#5eead4;border:1px solid #0d9488;">Screener: Bullish Diagonal</span>
+      </div>
+      <div class="metrics-grid">
+        <div class="metric"><div class="metric-label">Price</div><div class="metric-value">$174.70</div></div>
+        <div class="metric"><div class="metric-label">Prev Close</div><div class="metric-value">$153.00</div></div>
+        <div class="metric"><div class="metric-label">Change</div><div class="metric-value up">+14.18%</div></div>
+        <div class="metric"><div class="metric-label">IV Rank</div><div class="metric-value neutral">32.73%</div></div>
+        <div class="metric"><div class="metric-label">IV Pctl</div><div class="metric-value neutral">52%</div></div>
+        <div class="metric"><div class="metric-label">RSI (14)</div><div class="metric-value down">75.68</div></div>
+        <div class="metric"><div class="metric-label">1-Week</div><div class="metric-value up">+17.35%</div></div>
+        <div class="metric"><div class="metric-label">EPS Surprise</div><div class="metric-value up">+23.65%</div></div>
+        <div class="metric"><div class="metric-label">Rel Volume</div><div class="metric-value">1.89×</div></div>
+        <div class="metric"><div class="metric-label">SMA20</div><div class="metric-value up">+20.19%</div></div>
+        <div class="metric"><div class="metric-label">Beta</div><div class="metric-value">0.71</div></div>
+        <div class="metric"><div class="metric-label">ATR (14)</div><div class="metric-value">$7.41</div></div>
+      </div>
+      <div class="prose">
+        <p><strong>Catalyst:</strong> MOH reported earnings April 22 AMC with a massive EPS beat (+23.65%). The stock surged post-earnings, moving from the $120s through $174+. The earnings catalyst is now fully priced. +17.35% on the week is the best 1-week performance in the Healthcare sector.</p>
+        <p><strong>Technical Read:</strong> RSI 75.68 is clearly overbought. Stock is trading +20.19% above SMA20 — a stretched extension by any measure. Short float is 6.74%, suggesting a short squeeze component in the post-earnings run, which may have amplified the move. The 52-week high is $333.22 (stock is down 47% from peak), so there is substantial recovery room if the earnings inflection is real.</p>
+        <p><strong>Sector Context:</strong> Healthcare is down −0.95% on the week and −0.55% today — a <strong>Headwind</strong> at the sector level. MOH is an outlier within a weak sector, which could limit follow-through.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       SECTION 6 — BROADER MARKET THEMES
+  ═══════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🔭</span>
+      <span class="section-title">Broader Market Themes</span>
+      <div class="section-line"></div>
+    </div>
+    <div class="card card-macro">
+      <div class="prose">
+        <p><strong>1. Big Tech Earnings Anticipation:</strong> The market is positioned for the biggest earnings week of the Q1 2026 cycle. META (Apr 29), GOOGL (Apr 29), MSFT (Apr 29), and AMZN (Apr 29) all report on the same day after the close. This unprecedented same-day reporting creates a singular event risk that is likely suppressing conviction on both sides and elevating IV across the mega-cap complex. AAPL reports April 30. The "buy the rumor" behavior in QQQ is showing signs of exhaustion (RSI ~71), suggesting the market may sell the news regardless of beat/miss.</p>
+        <p><strong>2. Intel AI/Semiconductor Narrative Reset:</strong> INTC's massive earnings beat — EPS surprise of +1,426% — signals a potential turning point in Intel's semiconductor cycle narrative. With YTD performance of +80.98% and half-year gains of +75.18%, INTC is already a strong momentum name. Today's +2.31% open after the earnings catalyst, on 1.32× average volume, suggests the pre-market exuberance was partially absorbed. The broader AI/chip story (NVDA, AMD, INTC) remains the dominant secular theme.</p>
+        <p><strong>3. Healthcare Sector Divergence:</strong> MOH's +14.18% move is an outlier within a Healthcare sector that is down −0.95% on the week. The sector-wide weakness (managed care pressure, Medicaid headwinds) contrasts sharply with MOH's individual beat. This makes MOH a single-stock story rather than a sector trade.</p>
+        <p><strong>4. Industrials / Defense Rotation:</strong> Industrials are leading on a weekly basis (+2.22%) and again today (+1.44%). CAT is up +3.26% today ahead of April 30 BMO earnings, RSI 72.15. BA is up +1.24%. This broad industrial strength suggests infrastructure, defense, and capital goods spending themes remain intact despite macro uncertainty.</p>
+        <p><strong>5. Defensive Positioning Into Weekend:</strong> Utilities (+2.52% today), Industrials (+1.44%), and Consumer Defensive (+1.35%) leading into a weekend with a heavy macro and earnings calendar next week is a classic risk-off hedging pattern. The desk should interpret today's intraday rotation as "positioning" rather than "conviction" — participants are managing weekend/next-week event risk, not making directional calls.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       SECTION 7 — OPTIONS DESK BOARD (Prompt 3)
+  ═══════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">⚙️</span>
+      <span class="section-title">Options Desk Board</span>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="inline-note" style="margin-bottom:16px;">
+      <strong style="color:#93c5fd;">Board Summary:</strong> 0 Accepted names · 2 Downgraded (needs confirmation) · No names rejected (omitted per hard rule).
+    </div>
+
+    <!-- ── LULU DOWNGRADED ── -->
+    <div class="card card-downgraded">
+      <div class="card-header">
+        <span class="symbol" style="color:#9ca3af;">LULU</span>
+        <span class="company-name">Lululemon Athletica Inc</span>
+        <span class="badge badge-downgrade">⬡ Downgraded</span>
+        <span class="badge badge-sector">Consumer Cyclical</span>
+        <span class="badge badge-amber">Headwind</span>
+      </div>
+      <div class="metrics-grid">
+        <div class="metric"><div class="metric-label">Structure</div><div class="metric-value" style="font-size:12px;">Bearish Diagonal</div></div>
+        <div class="metric"><div class="metric-label">Bias</div><div class="metric-value down" style="font-size:12px;">Bearish</div></div>
+        <div class="metric"><div class="metric-label">Catalyst</div><div class="metric-value" style="font-size:11px;">CEO Change (Fired)</div></div>
+        <div class="metric"><div class="metric-label">IV Rank</div><div class="metric-value neutral">36.80%</div></div>
+        <div class="metric"><div class="metric-label">IV Pctl</div><div class="metric-value neutral">63rd</div></div>
+        <div class="metric"><div class="metric-label">RSI</div><div class="metric-value down">31.51 — Oversold</div></div>
+        <div class="metric"><div class="metric-label">Sector Strength</div><div class="metric-value neutral">Headwind</div></div>
+        <div class="metric"><div class="metric-label">Exp Move</div><div class="metric-value neutral">Unconfirmed</div></div>
+      </div>
+      <div class="prose" style="margin-bottom:10px;">
+        <p><strong>Why Downgraded:</strong> The primary catalyst (CEO announcement) fired on April 22 and the stock has now declined −13.33% in today's session alone. The bearish thesis has largely played out. IV Rank at 36.80% is moderate and insufficient to support robust premium selling at this stage. RSI 31.51 entering oversold territory introduces dead-cat-bounce risk that negates new bearish diagonal entry without confirmation. The sector (Consumer Cyclical −0.34% weekly, −1.14% today) is a headwind but does not provide new entry confirmation on its own.</p>
+      </div>
+      <ul class="confirm-list">
+        <li>Wait for RSI stabilization above 35 and a defined consolidation range before considering new bearish diagonal</li>
+        <li>Confirm IV Rank expansion to 50%+ via Market Chameleon before premium-selling structure is justified</li>
+        <li>Watch for any Heidi O'Neill response or company guidance update that could re-catalyze the move</li>
+        <li>If stock bounces intraday toward $150–$155, reassess bearish re-entry with fresh structure and defined risk</li>
+      </ul>
+    </div>
+
+    <!-- ── MOH DOWNGRADED ── -->
+    <div class="card card-downgraded">
+      <div class="card-header">
+        <span class="symbol" style="color:#9ca3af;">MOH</span>
+        <span class="company-name">Molina Healthcare Inc</span>
+        <span class="badge badge-downgrade">⬡ Downgraded</span>
+        <span class="badge badge-sector">Healthcare</span>
+        <span class="badge badge-amber">Headwind</span>
+      </div>
+      <div class="metrics-grid">
+        <div class="metric"><div class="metric-label">Structure</div><div class="metric-value" style="font-size:12px;">Bullish Diagonal</div></div>
+        <div class="metric"><div class="metric-label">Bias</div><div class="metric-value up" style="font-size:12px;">Bullish</div></div>
+        <div class="metric"><div class="metric-label">Catalyst</div><div class="metric-value" style="font-size:11px;">Post-Earnings Run</div></div>
+        <div class="metric"><div class="metric-label">IV Rank</div><div class="metric-value neutral">32.73%</div></div>
+        <div class="metric"><div class="metric-label">IV Pctl</div><div class="metric-value neutral">52nd</div></div>
+        <div class="metric"><div class="metric-label">RSI</div><div class="metric-value down">75.68 — OB</div></div>
+        <div class="metric"><div class="metric-label">Sector Strength</div><div class="metric-value neutral">Headwind</div></div>
+        <div class="metric"><div class="metric-label">SMA20 Extension</div><div class="metric-value down">+20.19%</div></div>
+      </div>
+      <div class="prose" style="margin-bottom:10px;">
+        <p><strong>Why Downgraded:</strong> Post-earnings run stocks rarely provide clean diagonal entry on the day of the move. MOH is +14.18% today, RSI 75.68, and trading +20.19% above its 20-day SMA — all signals of extreme short-term extension. IV Rank at 32.73% (52nd percentile) is sub-optimal for a bullish diagonal premium-selling structure (ideally want 50%+). The earnings catalyst is past. Healthcare sector is a weekly headwind (−0.95%). Short squeeze component (6.74% short float) may have artificially inflated the run, creating mean-reversion risk.</p>
+      </div>
+      <ul class="confirm-list">
+        <li>Wait for RSI to pull back toward 55–60 and price to consolidate above post-earnings gap level</li>
+        <li>Confirm IV Rank expansion to 45%+ via Market Chameleon before committing to the diagonal structure</li>
+        <li>Monitor Healthcare sector for improvement — needs to recover toward flat or positive before sector is Neutral/Supportive</li>
+        <li>Defined support: $153–$155 zone (prev close) is key level; if it holds on any retest, bullish case strengthens</li>
+      </ul>
+    </div>
+
+    <div class="desk-take">
+      <div class="desk-take-title">Options Desk Read</div>
+      <div class="desk-take-body">
+        Neither of today's screener names is actionable at this moment. LULU has already moved the tape on a catalyst that fired yesterday; the stock is oversold and at risk of counter-rally — entering a fresh bearish diagonal into a potential dead-cat bounce is a poor risk/reward. MOH is an earnings winner with outstanding fundamentals but is overbought on every short-term measure and the IV is too low for the diagonal structure.
+        <br><br>
+        The desk's primary focus should be on next week's mega-cap earnings setups (META, MSFT, GOOGL, AMZN — all April 29 AMC). IV in those names is almost certainly elevated and the event timing is defined. Watch for IV rank reads from Market Chameleon on those names today. That is where the week's options opportunity lives.
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       SECTION 8 — EXECUTION BIAS
+  ═══════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">⚡</span>
+      <span class="section-title">Execution Bias</span>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="bias-block">
+      <div class="bias-label">Favored Setups Today</div>
+      <div class="bias-text">Patience and observation. No high-conviction options entries on today's primary screener names. Best use of today's session: build watchlists for META, MSFT, GOOGL, AMZN pre-earnings setups due April 29. Pull IV rank and expected move from Market Chameleon manually. Watch IBM for potential bounce structure if RSI holds 37–38 and volume declines. Watch CAT (RSI 72.15, +3.26%) as an industrials momentum name ahead of April 30 BMO earnings.</div>
+    </div>
+
+    <div class="bias-block">
+      <div class="bias-label">Neutral / Monitor</div>
+      <div class="bias-text">LULU — oversold RSI 31.51, but catalyst is spent. Watch for bounces toward $150–$155. MOH — overbought RSI 75.68, post-earnings. Let it breathe and reassess if it comes back to $160–$165 with declining volume. INTC — strong earnings but RSI 70.03, limited near-term upside without new catalyst.</div>
+    </div>
+
+    <div class="avoid-block">
+      <div class="avoid-label">Setups to Avoid</div>
+      <div class="avoid-text">Chasing LULU bearish entries at current oversold levels without IV confirmation. Chasing MOH bullish entries at current overbought levels. Adding tech exposure intraday while the sector is the session's worst performer (Tech −1.39%). Opening new positions ahead of the afternoon's Michigan Sentiment / inflation expectations print — that data could move rates and volatility meaningfully.</div>
+    </div>
+
+    <div class="avoid-block">
+      <div class="avoid-label">Needs Confirmation Before Acting</div>
+      <div class="avoid-text">Market Chameleon IV rank and expected move for all screener names and next week's mega-cap earnings candidates. VIX level for overall volatility regime context. Durable Goods and Michigan Sentiment actuals — directional read on macro surprise risk for the week ahead.</div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       SECTION 9 — SECONDARY NAMES / WATCHLIST
+  ═══════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">👁</span>
+      <span class="section-title">Secondary Names / Watchlist</span>
+      <div class="section-line"></div>
+    </div>
+    <p class="prose" style="margin-bottom:12px;"><em>Macro and news-driven names only. Options candidates are in the Options Desk Board section above.</em></p>
+
+    <div class="watchlist-item">
+      <div class="watchlist-ticker">IBM</div>
+      <div class="watchlist-detail">
+        <strong>$231.08 / −8.25%</strong> — Post-earnings gap down (Apr 22 AMC). RSI 38.11, approaching oversold. Volume 22.3M (3.69× avg). ShadowTrader issued an earnings gap-down buy program alert. Low-beta name (0.59) with 2.91% dividend. Watch for stabilization near 52W low support ($220.72). If volume recedes and price firms above $228–$230, gap-fill potential toward $245–$250.
+      </div>
+    </div>
+
+    <div class="watchlist-item">
+      <div class="watchlist-ticker">INTC</div>
+      <div class="watchlist-detail">
+        <strong>$66.78 / +2.31%</strong> — Post-earnings run after blockbuster Apr 23 AMC report. Volume 155M (1.32× avg). RSI 70.03. YTD +80.98%. The massive EPS surprise (+1,426%) resets the AI/semiconductor narrative for Intel. Watch for continuation above $67.50 or pullback to $63–$64 for reload. Not adding at current RSI level.
+      </div>
+    </div>
+
+    <div class="watchlist-item">
+      <div class="watchlist-ticker">META</div>
+      <div class="watchlist-detail">
+        <strong>$659.15 / −2.31%</strong> — Earnings April 29 AMC. Reports alongside MSFT, GOOGL, AMZN. Barchart coverage flagging 10% workforce layoff preparation. RSI 57.56. Down from recent highs but still above all SMAs. Pre-earnings IV setup is the primary watch. Pull MC expected move.
+      </div>
+    </div>
+
+    <div class="watchlist-item">
+      <div class="watchlist-ticker">MSFT</div>
+      <div class="watchlist-detail">
+        <strong>$415.75 / −3.97%</strong> — Large down move today ahead of April 29 AMC earnings. RSI 59.75. The −3.97% drop is notable and may be creating a pre-earnings IV setup opportunity. Watch if the selldown continues into Monday — a reclaim above $425 pre-earnings would be constructive.
+      </div>
+    </div>
+
+    <div class="watchlist-item">
+      <div class="watchlist-ticker">CAT</div>
+      <div class="watchlist-detail">
+        <strong>$835.24 / +3.26%</strong> — Caterpillar up strongly today, RSI 72.15. Earnings April 30 BMO. Industrials leading the week (+2.22%) and today (+1.44%). CAT is the sector bellwether. Strong capex data today (Durable Goods) would be an additional tailwind. Overbought but trend is intact.
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       SECTION 10 — WEEK AHEAD
+  ═══════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">📆</span>
+      <span class="section-title">Week Ahead</span>
+      <div class="section-line"></div>
+    </div>
+    <div class="card">
+      <div style="font-size:11px;font-weight:700;color:#93c5fd;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:12px;">Scheduled Risk Events — April 28–May 1</div>
+      <table class="cal-table">
+        <thead>
+          <tr><th>Date</th><th>Event / Ticker</th><th>Timing</th><th>Desk Priority</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Mon Apr 28</td>
+            <td><strong>UPS</strong> — United Parcel Service Earnings</td>
+            <td>BMO</td>
+            <td><span class="event-flag flag-med">WATCH</span></td>
+          </tr>
+          <tr>
+            <td>Tue Apr 29</td>
+            <td><strong>META</strong> — Meta Platforms Earnings</td>
+            <td>AMC</td>
+            <td><span class="event-flag flag-high">HIGH</span></td>
+          </tr>
+          <tr>
+            <td>Tue Apr 29</td>
+            <td><strong>MSFT</strong> — Microsoft Earnings</td>
+            <td>AMC</td>
+            <td><span class="event-flag flag-high">HIGH</span></td>
+          </tr>
+          <tr>
+            <td>Tue Apr 29</td>
+            <td><strong>GOOGL</strong> — Alphabet Earnings</td>
+            <td>AMC</td>
+            <td><span class="event-flag flag-high">HIGH</span></td>
+          </tr>
+          <tr>
+            <td>Tue Apr 29</td>
+            <td><strong>AMZN</strong> — Amazon Earnings</td>
+            <td>AMC</td>
+            <td><span class="event-flag flag-high">HIGH</span></td>
+          </tr>
+          <tr>
+            <td>Wed Apr 30</td>
+            <td><strong>AAPL</strong> — Apple Earnings</td>
+            <td>AMC</td>
+            <td><span class="event-flag flag-high">HIGH</span></td>
+          </tr>
+          <tr>
+            <td>Wed Apr 30</td>
+            <td><strong>CAT</strong> — Caterpillar Earnings</td>
+            <td>BMO</td>
+            <td><span class="event-flag flag-med">WATCH</span></td>
+          </tr>
+          <tr>
+            <td>Thu May 1</td>
+            <td><strong>XOM / CVX</strong> — Energy majors report</td>
+            <td>BMO</td>
+            <td><span class="event-flag flag-med">WATCH</span></td>
+          </tr>
+          <tr>
+            <td>TBD</td>
+            <td><strong>FOMC Meeting</strong> — Fed Rate Decision (May cycle)</td>
+            <td>Afternoon</td>
+            <td><span class="event-flag flag-high">HIGH</span></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="inline-note" style="margin-top:12px;">
+        <strong style="color:#fcd34d;">Desk Priority for Next Week:</strong> April 29 is the single most concentrated mega-cap earnings day in recent history (META + MSFT + GOOGL + AMZN simultaneously). IV in QQQ and mega-cap single names should be at a premium through the weekend. The desk should be actively pulling IV ranks and expected moves from Market Chameleon on Friday (today) to evaluate pre-earnings diagonal or straddle setups for the April 29 event. FOMC in early May adds an additional layer of rate risk that should keep VIX elevated.
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       SECTION 11 — FINAL DESK TAKE
+  ═══════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🏁</span>
+      <span class="section-title">Final Desk Take</span>
+      <div class="section-line"></div>
+    </div>
+    <div class="desk-take">
+      <div class="desk-take-title">CJ Capital Trading Desk — April 24, 2026</div>
+      <div class="desk-take-body">
+        <strong>Tone:</strong> SELECTIVE. Today is a preparation day, not an execution day.
+        <br><br>
+        The Intel earnings beat was the pre-market headline, but the market has digested it quickly — Nasdaq futures rallied overnight and QQQ opened lower. Both screener-confirmed names (LULU, MOH) are downgraded: LULU is post-catalyst and oversold, MOH is post-earnings and overbought. There are no clean Accepted setups today.
+        <br><br>
+        <strong>The opportunity is next week.</strong> April 29 brings META, MSFT, GOOGL, and AMZN all reporting after the close on the same day — one of the most concentrated single-day event risks in market history. IV across these names is almost certainly elevated heading into the weekend. The desk's highest-priority task today is pulling IV rank and expected move data from Market Chameleon on each of these names to evaluate pre-earnings diagonal setups for entries on Monday or Tuesday.
+        <br><br>
+        <strong>How to behave today:</strong> Observe, document, build watchlists. Michigan Consumer Sentiment final prints this afternoon — any upside surprise on the 5-year inflation expectations (consensus 3.4%) will be a policy overhang. Treasury auctions (2Y, 5Y, 7Y) throughout the session may create rate pressure. Don't add risk ahead of that data. If you need to be in a trade today, IBM near $228–$230 is the only macro/news-driven name with a defined risk level (52W low $220.72) and a known catalyst (post-earnings gap-down reversal buy program). Keep size small and respect the stop.
+        <br><br>
+        <strong>Primary Opportunity Type This Week:</strong> Pre-earnings IV plays on mega-cap tech (META, MSFT, GOOGL, AMZN). Secondary: Post-FOMC rate/volatility positioning if the May Fed meeting produces a surprise.
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+</div><!-- /page-wrap -->
+
+<!-- BOTTOM DISCLAIMER — 1467D -->
+<div class="disclaimer-bottom">
+  <strong>GENERAL ADVICE DISCLAIMER (1467D)</strong><br>
+  This report contains general market commentary and options strategy analysis only and is provided for informational and educational purposes. It does not take into account your individual objectives, financial situation, or needs.
+  All trade ideas are illustrative, model-based scenarios and are not personal financial advice or a recommendation to buy or sell any financial product.
+  Before acting on any information in this report, you should consider whether it is appropriate for your circumstances and independently verify all relevant data, including option chain details, pricing, liquidity, and risk.
+  Options trading involves significant risk and is not suitable for all investors. You are solely responsible for all trading decisions, position sizing, and risk management.
+</div>
+
+</body>
+</html>
